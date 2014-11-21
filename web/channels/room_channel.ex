@@ -31,6 +31,14 @@ defmodule DingMyBells.RoomChannel do
     socket
   end
 
+  def event(socket, "game:start", _message) do
+    room = get_assign(socket, :room_id) |> Room.find
+
+    broadcast socket, "game:started", room_info(room)
+
+    socket
+  end
+
   def event(socket, "note:send", message) do
     IO.puts "NOTE PLAYED: #{message["note"]}"
     broadcast socket, "note:play", %{note: message["note"]}
@@ -54,13 +62,17 @@ defmodule DingMyBells.RoomChannel do
   end
 
   defp broadcast_update(socket, room) do
+    broadcast socket, "room:update", room_info(room)
+  end
+
+  defp room_info(room) do
     users = room.users.all
 
     present   = users |> Enum.count
     ready     = users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
 
-    user_info = Enum.map(users, fn(u) -> u.token end)
+    user_info = users |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end) |> Enum.map(&(&1.token))
 
-    broadcast socket, "room:update", %{users_present: present, users_ready: ready, user_info: user_info}
+    %{users_present: present, users_ready: ready, user_info: user_info}
   end
 end

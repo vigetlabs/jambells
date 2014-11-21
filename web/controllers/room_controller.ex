@@ -30,7 +30,7 @@ defmodule DingMyBells.RoomController do
     case Room.validate(new_room) do
       [] ->
         room = Repo.insert new_room
-        redirect conn, room_path(:show, room.id)
+        redirect conn, room_path(:show, room.access_code)
       _ ->
         conn
         |> Flash.put(:notice, "Name must be specified")
@@ -51,7 +51,9 @@ defmodule DingMyBells.RoomController do
   end
 
   defp randomLetter do
-    Enum.shuffle(alphabet) |> List.first
+    :random.seed(:os.timestamp)
+
+   Enum.shuffle(alphabet) |> List.first
   end
 
   defp alphabet do

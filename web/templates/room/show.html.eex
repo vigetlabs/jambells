@@ -6,6 +6,13 @@
 Users Present: <span id="users-present">0</span>
 Users Ready: <span id="users-ready">0</span>
 
+<div id="start-game" style="display:none">
+  <a href="#">Start the Song!</a>
+</div>
+
+<div id="game-page">
+</div>
+
 <br>
 
 <a id="ready-button" href="#">I'm Ready</a>

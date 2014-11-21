@@ -10,11 +10,11 @@ defmodule DingMyBells.Router do
   scope "/" do
     pipe_through :browser
 
-    get "/",          DingMyBells.RoomController, :index
-    get "/rooms",     DingMyBells.RoomController, :index
-    get "/rooms/new", DingMyBells.RoomController, :new
-    get "/rooms/:id", DingMyBells.RoomController, :show
-    post "/rooms",    DingMyBells.RoomController, :create
+    get "/",            DingMyBells.RoomController, :index
+    get "/rooms",       DingMyBells.RoomController, :index
+    get "/rooms/new",   DingMyBells.RoomController, :new
+    get "/rooms/:slug", DingMyBells.RoomController, :show
+    post "/rooms",      DingMyBells.RoomController, :create
 
     channel "room", DingMyBells.RoomChannel
   end

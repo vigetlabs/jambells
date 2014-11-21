@@ -11,6 +11,10 @@ defmodule Room do
     has_many :users, User
   end
 
+  def find_by_slug(slug) do
+    Repo.all(from r in Room, where: r.access_code == ^slug, preload: :users) |> List.first
+  end
+
   def find(id) when is_integer(id) do
     _find(id)
   end

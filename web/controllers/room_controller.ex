@@ -9,8 +9,8 @@ defmodule DingMyBells.RoomController do
     render conn, "index.html", rooms: Repo.all(Room)
   end
 
-  def show(conn, %{"id" => id}) do
-    room = Room.find(id)
+  def show(conn, %{"slug" => slug}) do
+    room = Room.find_by_slug(slug)
 
     case room do
       %Room{} ->

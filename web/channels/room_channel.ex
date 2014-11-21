@@ -54,9 +54,13 @@ defmodule DingMyBells.RoomChannel do
   end
 
   defp broadcast_update(socket, room) do
-    present = room.users.all |> Enum.count
-    ready   = room.users.all |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
+    users = room.users.all
 
-    broadcast socket, "room:update", %{users_present: present, users_ready: ready}
+    present   = users |> Enum.count
+    ready     = users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
+
+    user_info = Enum.map(users, fn(u) -> u.token end)
+
+    broadcast socket, "room:update", %{users_present: present, users_ready: ready, user_info: user_info}
   end
 end

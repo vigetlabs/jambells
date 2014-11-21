@@ -4,6 +4,7 @@ defmodule Song do
       "name": "Jingle Bells",
       "bpm": 152,
       "measure": "4/4",
+      "roles": ["E", "G", "C", "D", "F"],
       "notes": %{
         "1": "E",
         "2": "",

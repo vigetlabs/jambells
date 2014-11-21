@@ -20,7 +20,7 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
     bell.ring(message.note)
   })
 
-  $('body').on('click', function(){
+  $('body').on('mousedown', function(){
     var $noteSelection = $('#noteSelection')
     var note = parseInt($noteSelection.val())
     chan.send("note:send", {note: note})

@@ -1,0 +1,66 @@
+// Variables
+
+$bp-mini                : "(min-width: 420px)";
+$bp-mobile-only         : "(min-width: 0) and (max-width: 679px)";
+$bp-tablet              : "(min-width: 680px)";
+$bp-tablet-and-notebook : "(min-width: 680px) and (max-width: 999px)";
+$bp-notebook            : "(min-width: 769px)";
+$bp-desktop             : "(min-width: 1000px)";
+$bp-desktop-carousel    : "(min-width: 1120px)";
+$bp-cinema              : "(min-width: 1480px)";
+
+// Mixins
+
+@mixin bp-at($breakpoint: 680) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin bp-mobile-only {
+  @media #{$bp-mobile-only} {
+    @content;
+  }
+}
+
+@mixin bp-mini {
+  @media #{$bp-mini} {
+    @content;
+  }
+}
+
+@mixin bp-tablet {
+  @media #{$bp-tablet} {
+    @content;
+  }
+}
+
+@mixin bp-tablet-and-notebook {
+  @media #{$bp-tablet-and-notebook} {
+    @content;
+  }
+}
+
+@mixin bp-notebook {
+  @media #{$bp-notebook} {
+    @content;
+  }
+}
+
+@mixin bp-desktop {
+  @media #{$bp-desktop} {
+    @content;
+  }
+}
+
+@mixin bp-desktop-carousel {
+  @media #{$bp-desktop-carousel} {
+    @content;
+  }
+}
+
+@mixin bp-cinema {
+  @media #{$bp-cinema} {
+    @content;
+  }
+}

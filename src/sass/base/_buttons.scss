@@ -1,0 +1,60 @@
+.button {
+  @include button;
+
+  // Colors
+  &.-green {
+    @include button(
+      $background-color: $green,
+      $font-color: #fff
+    );
+  }
+
+  &.-dark-pale-green {
+    @include button(
+      $background-color: $dark-pale-green,
+      $font-color: #fff
+    );
+  }
+
+  &.-red {
+    @include button(
+      $background-color: $red,
+      $font-color: #fff
+    );
+  }
+
+  &.-blue {
+    @include button(
+      $background-color: $blue,
+      $font-color: #fff
+    );
+  }
+
+  &.-orange {
+    @include button(
+      $background-color: $orange,
+      $font-color: #fff
+    );
+  }
+
+  // Display Types
+  &.-block {
+    display: block;
+    width: 100%;
+  }
+
+  // Sizes
+  &.-large {
+    font-size: 20px;
+    padding: 20px 40px;
+
+    @include bp-tablet {
+      padding: 30px 80px;
+    }
+  }
+
+  // Shapes
+  &.-rounded {
+    border-radius: 12px;
+  }
+}

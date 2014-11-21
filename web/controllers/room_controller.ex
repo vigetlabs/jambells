@@ -24,6 +24,10 @@ defmodule DingMyBells.RoomController do
     render conn, "new.html"
   end
 
+  def play(conn, _params) do
+    render conn, "play.html"
+  end
+
   def create(conn, %{"room" => room_params}) do
     new_room = %Room{name: room_params["name"], access_code: randomAccessCode}
 

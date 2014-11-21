@@ -1,0 +1,91 @@
+// Variables
+
+$default-border-radius : 3px;
+
+// Mixins
+
+@mixin default-text-hover {
+  &:hover {
+    color: $text-hover-color;
+  }
+}
+
+@mixin pseudo {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin default-border-radius($radius : $default-border-radius) {
+  border-radius: $radius;
+}
+
+@mixin fill($val: 0) {
+  bottom: #{$val};
+  left: #{$val};
+  position: absolute;
+  right: #{$val};
+  top: #{$val};
+}
+
+@mixin touch-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin hide-text {
+  border: none;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin smooth-fonts {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin absolute-center {
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-center-y {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin hover {
+  &.-focus,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin circle($size) {
+  border-radius: $size;
+  height: $size;
+  width: $size;
+}

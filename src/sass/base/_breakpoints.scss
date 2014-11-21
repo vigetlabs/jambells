@@ -1,0 +1,39 @@
+.bp-mobile-only {
+  display: none;
+
+  @include bp-mobile-only {
+    display: block;
+  }
+}
+
+.bp-tablet {
+  display: none;
+
+  @include bp-tablet {
+    display: block;
+  }
+}
+
+.bp-tablet-and-notebook {
+  display: none;
+
+  @include bp-tablet-and-notebook {
+    display: block;
+  }
+}
+
+.bp-notebook {
+  display: none;
+
+  @include bp-notebook {
+    display: block;
+  }
+}
+
+.bp-desktop {
+  display: none;
+
+  @include bp-desktop {
+    display: block;
+  }
+}

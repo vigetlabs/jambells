@@ -1,0 +1,25 @@
+// Variables
+
+$button-background-color : $green;
+$button-font-color       : #fff;
+$button-border-radius    : 3px;
+
+// Mixins
+
+@mixin button(
+  $background-color: $button-background-color,
+  $font-color: $button-font-color
+) {
+  background-color: $background-color;
+  border-radius: $button-border-radius;
+  border: none;
+  color: $font-color;
+  @include default-transition;
+  font-weight: 600;
+  padding: 11px 12px;
+  text-align: center;
+
+  &:hover {
+    background-color: darken($background-color, 5%);
+  }
+}

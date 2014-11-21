@@ -1,0 +1,12 @@
+// Mixins
+
+@mixin label {
+  color: $light-grey;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin default-text-shadow {
+  text-shadow: 0 2px 4px rgba(#000, 0.56);
+}

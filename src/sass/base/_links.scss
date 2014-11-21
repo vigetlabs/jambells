@@ -1,0 +1,14 @@
+a {
+  color: $green;
+  text-decoration: none;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a:focus,
+input:focus,
+button:focus {
+  outline: none;
+}

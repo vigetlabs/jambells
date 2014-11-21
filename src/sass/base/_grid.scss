@@ -1,0 +1,18 @@
+@for $i from 1 through $total-columns {
+  .span-#{$i} {
+    @include span($i);
+  }
+
+  .offset-#{$i} {
+    @include offset($i);
+  }
+
+  .offset-#{$i}:not(:first-child) {
+    margin-left: $column-width * $i + $column-gutter * ($i + 1) !important;
+  }
+}
+
+.span-#{$total-columns} {
+  margin-left: 0;
+  width: 100%;
+}

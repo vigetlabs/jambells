@@ -1,0 +1,28 @@
+// Variables
+
+$transition-property : all;
+$transition-duration : 0.2s;
+$transition-function : ease;
+$transition-delay    : 0;
+
+// Mixins
+
+@mixin hidden-transition-content {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@mixin visible-transition-content {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+@mixin default-transition {
+  transition:
+    $transition-property
+    $transition-duration
+    $transition-delay
+    $transition-function;
+}

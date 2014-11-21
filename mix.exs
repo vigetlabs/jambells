@@ -15,7 +15,18 @@ defmodule DingMyBells.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {DingMyBells, []},
-     applications: [:phoenix, :cowboy, :logger]]
+     applications: [
+      :phoenix,
+      :cowboy,
+      :logger,
+      :conform,
+      :decimal,
+      :ecto,
+      :exrm,
+      :poolboy,
+      :postgrex
+      ]
+    ]
   end
 
   # Specifies your project dependencies
@@ -24,9 +35,10 @@ defmodule DingMyBells.Mixfile do
   defp deps do
     [
       {:phoenix, github: "phoenixframework/phoenix"},
-      {:cowboy, "~> 1.0"},
-      {:postgrex, "~> 0.6.0"},
-      {:ecto,     "~> 0.2.5"},
+      {:cowboy,   "~> 1.0"     },
+      {:postgrex, "~> 0.6.0"   },
+      {:ecto,     "~> 0.2.5"   },
+      {:exrm,     "~> 0.14.12" }
     ]
   end
 end

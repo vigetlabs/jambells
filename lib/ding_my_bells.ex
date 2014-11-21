@@ -11,7 +11,7 @@ defmodule DingMyBells do
       worker(Repo, [])
     ]
 
-    # DingMyBells.Router.start
+    DingMyBells.Router.start
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options

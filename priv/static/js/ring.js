@@ -62,6 +62,13 @@ Bell.prototype = {
         e: new Note("/sounds/bell-E.wav"),
         f: new Note("/sounds/bell-F.wav"),
         g: new Note("/sounds/bell-G.wav")
+        // a: new Note("/sounds/cat-A.wav"),
+        // b: new Note("/sounds/cat-B.wav"),
+        // c: new Note("/sounds/cat-C.wav"),
+        // d: new Note("/sounds/cat-D.wav"),
+        // e: new Note("/sounds/cat-E.wav"),
+        // f: new Note("/sounds/cat-F.wav"),
+        // g: new Note("/sounds/cat-G.wav")
       }
     }
 

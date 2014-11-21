@@ -27,8 +27,6 @@ Users Ready: <span id="users-ready">0</span>
   <option value="g">G</option>
 </select>
 
-<div id="game"></div>
-
 <script src="/js/phoenix.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/ring.js"></script>

@@ -663,13 +663,13 @@ a {
 /* line 1, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
 .song-container {
   background: blue;
-  position: relative; }
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0; }
 
-/* line 6, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
-.song-header {
-  display: none; }
-
-/* line 10, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
+/* line 9, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
 .song-music {
   bottom: 0;
   left: 0;
@@ -678,14 +678,14 @@ a {
   top: 0;
   overflow: hidden; }
 
-/* line 15, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
+/* line 14, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
 .song-notes {
   bottom: 0;
   left: 0;
   position: absolute;
   right: 0;
   top: 0; }
-  /* line 18, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
+  /* line 17, /Users/viget/Sites/ding_my_bells/src/sass/components/sheet */
   .song-notes > li {
     float: left;
     position: relative;

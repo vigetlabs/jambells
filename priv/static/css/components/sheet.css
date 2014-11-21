@@ -530,10 +530,11 @@ a {
 
 .song-container {
   background: blue;
-  position: relative; }
-
-.song-header {
-  display: none; }
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0; }
 
 .song-music {
   bottom: 0;

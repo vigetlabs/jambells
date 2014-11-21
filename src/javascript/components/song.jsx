@@ -5,12 +5,12 @@
 var React = require('react')
 var Note  = require('./note')
 
+var delta = 1;
+
 module.exports = React.createClass({
 
   componentDidMount: function() {
-    this.delta = 0;
-
-    setInterval(this.render(this.delta++), 1000)
+    setInterval(this.render.bind(this), 1000)
   },
 
   renderNotes: function(notes) {
@@ -19,11 +19,13 @@ module.exports = React.createClass({
     })
   },
 
-  render: function(delta) {
+  render: function() {
     var song   = this.props.song
     var height = 150
+    // This style never ends up being changed from -150.
+    // WHY! !?!?!??!!
     var style  = {
-      WebkitTransform : 'translateY(' + (-150 * delta) + 'px)'
+      WebkitTransform : 'translateY(' + (-150 * delta++) + 'px)'
     }
 
     return (
@@ -33,7 +35,7 @@ module.exports = React.createClass({
           <button onClick={this._pauseGame}>Pause</button>
         </header>
         <div className="song-music">
-          <ol class="song-notes" style={style}>
+          <ol className="song-notes" style={style}>
             {this.renderNotes(song.notes)}
           </ol>
         </div>

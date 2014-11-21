@@ -1,10 +1,9 @@
 .song-container {
   background: blue;
-  position: relative;
+  @include fill;
 }
 
 .song-header {
-  display: none;
 }
 
 .song-music {

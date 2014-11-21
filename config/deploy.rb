@@ -5,7 +5,7 @@ set :default_stage, "production"
 
 set :keep_releases, 5
 set :application, "My Awesome App"
-set :repository,  "https://github.com/vigetlabs/ding_my_bells.git"
+set :repository,  "git@github.com:vigetlabs/ding_my_bells.git"
 set :scm, :git
 set :branch, :master
 set :use_sudo, false

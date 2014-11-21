@@ -1,6 +1,8 @@
 var socket = new Phoenix.Socket("ws://" + location.host + "/ws");
 var audioContext = new AudioContext()
 
+var bell = new Bell(audioContext)
+
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
   chan.send("user:joined", {})
 
@@ -16,20 +18,19 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
   })
 
   chan.on("note:play", function(message) {
-    var bell = new Bell(audioContext)
-    bell.ring(message.note)
+    // I don't think this is necessary, since
+    // we don't want it to ring when the server
+    // responds, but rather immediately when
+    // the user touchstarts or mousedowns
+
+    // bell.ring(message.note)
   })
 
-  $('body').on('mousedown', function(){
+  $('body').on('touchstart mousedown', function(){
     var $noteSelection = $('#noteSelection')
     var note = parseInt($noteSelection.val())
     chan.send("note:send", {note: note})
+    bell.ring(note)
   })
 
-  $('body').on('touchstart', function(){
-    var $noteSelection = $('#noteSelection')
-    var note = parseInt($noteSelection.val())
-    chan.send("note:send", {note: note})
-  })
-
-});
+})

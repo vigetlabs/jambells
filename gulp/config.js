@@ -9,7 +9,7 @@ module.exports = {
     ]
   },
   sass: {
-    src: src + '/sass/*.scss',
+    src: src + '/sass/**/*.scss',
     dest: dest + '/css'
   },
   images: {
@@ -17,9 +17,9 @@ module.exports = {
     dest: dest + '/images'
   },
   browserify: {
-    debug: true,
-    extensions: ['.jsx'],
-    bundleConfigs: [{
+    debug         : true,
+    extensions    : ['.jsx'],
+    bundleConfigs : [{
       entries: src + '/javascript/game.jsx',
       dest: dest + '/js',
       outputName: 'game.js'

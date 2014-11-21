@@ -1,3 +1,26 @@
-.sheet {
-  background: red;
+.song-container {
+  background: blue;
+  position: relative;
+}
+
+.song-header {
+  display: none;
+}
+
+.song-music {
+  @include fill;
+  overflow: hidden;
+}
+
+.song-notes {
+  @include fill;
+
+  > li {
+    @include row;
+    font-size: 40px;
+    font-weight: 600;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+  }
 }

@@ -3,8 +3,9 @@ var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var handleErrors = require('../util/handleErrors');
 var config       = require('../config').sass;
+var browserSync  = require('browser-sync');
 
-gulp.task('sass', ['images'], function () {
+gulp.task('sass', function () {
   return gulp.src(config.src)
     .pipe(sass({
       sourceComments: 'map'
@@ -15,5 +16,6 @@ gulp.task('sass', ['images'], function () {
       cascade: false
     }))
     .on('error', handleErrors)
-    .pipe(gulp.dest(config.dest));
+    .pipe(gulp.dest(config.dest))
+    .pipe(browserSync.reload({stream: true}));
 });

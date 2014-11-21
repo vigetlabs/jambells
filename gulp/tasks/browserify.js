@@ -5,6 +5,7 @@ var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
+var browserSync  = require('browser-sync');
 
 gulp.task('browserify', function(callback) {
 
@@ -27,7 +28,8 @@ gulp.task('browserify', function(callback) {
         .on('error', handleErrors)
         .pipe(source(bundleConfig.outputName))
         .pipe(gulp.dest(bundleConfig.dest))
-        .on('end', reportFinished);
+        .on('end', reportFinished)
+        .pipe(browserSync.reload({stream: true}));
     };
 
     if(global.isWatching) {

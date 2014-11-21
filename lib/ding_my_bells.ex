@@ -8,8 +8,10 @@ defmodule DingMyBells do
 
     children = [
       # Define workers and child supervisors to be supervised
-      # worker(DingMyBells.Worker, [arg1, arg2, arg3])
+      worker(Repo, [])
     ]
+
+    # DingMyBells.Router.start
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options

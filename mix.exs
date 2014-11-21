@@ -22,7 +22,11 @@ defmodule DingMyBells.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, github: "phoenixframework/phoenix"},
-     {:cowboy, "~> 1.0"}]
+    [
+      {:phoenix, github: "phoenixframework/phoenix"},
+      {:cowboy, "~> 1.0"},
+      {:postgrex, "~> 0.6.0"},
+      {:ecto,     "~> 0.2.5"},
+    ]
   end
 end

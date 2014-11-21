@@ -1,0 +1,13 @@
+<div id="room-info" data-id="<%= @room.id %>"></div>
+
+<div>Room: <%= @room.id %></div>
+Users Present: <span id="users-present">0</span>
+Users Ready: <span id="users-ready">0</span>
+
+<br>
+
+<a id="ready-button" href="#">I'm Ready</a>
+
+<script src="/js/phoenix.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/app.js"></script>

@@ -9,6 +9,7 @@ set :repository,  "https://github.com/vigetlabs/ding_my_bells.git"
 set :scm, :git
 set :branch, :master
 set :use_sudo, false
+set :ssh_options, {:forward_agent => true}
 
 set :normalize_asset_timestamps, false
 set :deploy_via, :remote_cache

@@ -14,7 +14,7 @@ defmodule DingMyBells.RoomController do
 
     case room do
       %Room{} ->
-        render conn, "show.html", room: room
+        render conn, "show.html", room: room, song: Song.jinglebells
       _ ->
         render conn, "not_found.html"
     end

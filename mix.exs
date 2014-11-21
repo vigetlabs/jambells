@@ -24,7 +24,8 @@ defmodule DingMyBells.Mixfile do
       :ecto,
       :exrm,
       :poolboy,
-      :postgrex
+      :postgrex,
+      :json
       ]
     ]
   end
@@ -38,7 +39,8 @@ defmodule DingMyBells.Mixfile do
       {:cowboy,   "~> 1.0"     },
       {:postgrex, "~> 0.6.0"   },
       {:ecto,     "~> 0.2.5"   },
-      {:exrm,     "~> 0.14.12" }
+      {:exrm,     "~> 0.14.12" },
+      {:json,     "~> 0.3.0"   },
     ]
   end
 end

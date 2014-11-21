@@ -5,6 +5,7 @@ var userToken = Math.random().toString(36).substr(2)
 
 var bell = new Bell(audioContext)
 
+var song   = $("#room-info").data("song")
 var player = new Player(song)
 
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){

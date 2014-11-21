@@ -11,13 +11,8 @@ defmodule DingMyBells.Router do
   end
 
   scope "/" do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
-    get "/", DingMyBells.PageController, :index
+    get "/", DingMyBells.RoomController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api" do
-  #   pipe_through :api
-  # end
 end

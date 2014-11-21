@@ -1,4 +1,4 @@
-defmodule DingMyBells.PageController do
+defmodule DingMyBells.RoomController do
   use Phoenix.Controller
 
   plug :action
@@ -6,6 +6,7 @@ defmodule DingMyBells.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+
 
   def not_found(conn, _params) do
     render conn, "not_found.html"

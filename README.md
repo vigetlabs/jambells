@@ -30,7 +30,6 @@ mix ecto.create Repo
 mix ecto.migrate Repo
 ```
 
-
 Then start the web server (also serves as an interactive console simultaneously):
 ```
 iex -S mix

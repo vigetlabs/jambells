@@ -5,6 +5,3 @@
     </li>
   <% end %>
 </ul>
-
-<script src="/js/phoenix.js"></script>
-<script src="/js/app.js"></script>

@@ -1,4 +1,5 @@
 var socket = new Phoenix.Socket("ws://" + location.host + "/ws");
+var audioContext = new AudioContext()
 
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
   chan.on("room:update", function(message){
@@ -13,4 +14,22 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
   })
 
   chan.send("ping", {})
+
+  chan.on("note:play", function(message) {
+    var bell = new Bell(audioContext)
+    bell.ring(message.note)
+  })
+
+  $('body').on('click', function(){
+    var $noteSelection = $('#noteSelection')
+    var note = parseInt($noteSelection.val())
+    chan.send("note:send", {note: note})
+  })
+
+  $('body').on('touchstart', function(){
+    var $noteSelection = $('#noteSelection')
+    var note = parseInt($noteSelection.val())
+    chan.send("note:send", {note: note})
+  })
+
 });

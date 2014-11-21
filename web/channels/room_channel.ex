@@ -34,6 +34,13 @@ defmodule Pitch.RoomChannel do
     socket
   end
 
+  def event(socket, "note:send", message) do
+    IO.puts "MADE IT HERE"
+    IO.puts message["note"]
+    broadcast socket, "note:play", %{note: message["note"]}
+    socket
+  end
+
   def leave(socket, _message) do
     room = get_assign(socket, :room_id) |> find_room
     room = %{room | users_present: room.users_present - 1}

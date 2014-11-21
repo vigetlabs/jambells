@@ -5,12 +5,19 @@
 var React = require('react')
 var Note  = require('./note')
 
-var delta = 1;
-
 module.exports = React.createClass({
+  this.state.whatever
+  getInitialState: function() {
+    return {
+      delta: 1
+    }
+  },
 
   componentDidMount: function() {
-    setInterval(this.render.bind(this), 1000)
+    var component = this
+    setInterval(function(){
+      component.setState({ delta: this.state.delta + 1 })
+    }, 1000)
   },
 
   renderNotes: function(notes) {
@@ -22,10 +29,8 @@ module.exports = React.createClass({
   render: function() {
     var song   = this.props.song
     var height = 150
-    // This style never ends up being changed from -150.
-    // WHY! !?!?!??!!
     var style  = {
-      WebkitTransform : 'translateY(' + (-150 * delta++) + 'px)'
+      WebkitTransform : 'translateY(' + (-150 * this.state.delta) + 'px)'
     }
 
     return (

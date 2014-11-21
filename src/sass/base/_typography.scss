@@ -26,7 +26,6 @@ p {
 
 a {
   @include default-transition;
-  @include default-text-hover;
 }
 
 .-bold {

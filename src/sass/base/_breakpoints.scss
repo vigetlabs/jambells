@@ -37,3 +37,12 @@
     display: block;
   }
 }
+
+
+.bp-cinema {
+  display: none;
+
+  @include bp-cinema {
+    display: block;
+  }
+}

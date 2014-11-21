@@ -9,13 +9,6 @@
     );
   }
 
-  &.-dark-pale-green {
-    @include button(
-      $background-color: $dark-pale-green,
-      $font-color: #fff
-    );
-  }
-
   &.-red {
     @include button(
       $background-color: $red,
@@ -33,6 +26,13 @@
   &.-orange {
     @include button(
       $background-color: $orange,
+      $font-color: #fff
+    );
+  }
+
+  &.-green {
+    @include button(
+      $background-color: $green,
       $font-color: #fff
     );
   }

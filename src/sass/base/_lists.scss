@@ -48,55 +48,14 @@ ul {
 
   &.-inline {
     @include inline-list;
-
-    &.-halves {
-      > li {
-          vertical-align: top;
-          width: 50%;
-      }
-    }
-
-    &.-inline-dropdown {
-      > li {
-        margin-right: 12px;
-
-        &:last-child {
-          margin-right: 0;
-        }
-
-        @include bp-notebook {
-          margin-right: 30px;
-        }
-      }
-    }
-
-    &.-thirds {
-      > li {
-        vertical-align: top;
-        width: 100%;
-
-        @include bp-tablet {
-          width: 33.33%;
-        }
-      }
-    }
   }
 
   &.-disc {
-    color: $pale-green;
     list-style: disc;
 
     > li {
       display: list-item;
       padding: 10px 0;
-
-      > span {
-        color: $grey;
-        display: block;
-        padding-right: 10px;
-        margin-left: -4px;
-        position: relative;
-      }
     }
   }
 }

@@ -4,12 +4,6 @@ $default-border-radius : 3px;
 
 // Mixins
 
-@mixin default-text-hover {
-  &:hover {
-    color: $text-hover-color;
-  }
-}
-
 @mixin pseudo {
   content: "";
   position: absolute;

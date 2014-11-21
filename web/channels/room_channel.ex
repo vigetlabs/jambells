@@ -2,31 +2,30 @@ defmodule DingMyBells.RoomChannel do
   use Phoenix.Channel
 
   def join(socket, room_id, _message) do
-    room = Room.find(room_id)
-    room = %{room | users_present: room.users_present + 1}
-
-    Repo.update room
-
-    socket = assign(socket, :room_id, room_id)
-    socket = assign(socket, :user_ready, false)
+    socket = assign(socket, :room_id, String.to_integer(room_id))
 
     {:ok, socket}
   end
 
-  def event(socket, "user:joined", _message) do
-    room = get_assign(socket, :room_id) |> Room.find
+  def event(socket, "user:joined", message) do
+    room_id = get_assign(socket, :room_id)
+
+    user = Repo.insert %User{token: message["user_token"], room_id: room_id}
+    room = Room.find(room_id)
+
+    socket = assign(socket, :user, user)
 
     broadcast_update(socket, room)
     socket
   end
 
   def event(socket, "user:ready", _message) do
-    socket = assign(socket, :user_ready, true)
+    user = get_assign(socket, :user)
+    user = %{user | ready: true}
+
+    Repo.update user
 
     room = get_assign(socket, :room_id) |> Room.find
-    room = %{room | users_ready: room.users_ready + 1}
-
-    Repo.update room
 
     broadcast_update(socket, room)
     socket
@@ -39,20 +38,25 @@ defmodule DingMyBells.RoomChannel do
   end
 
   def leave(socket, _message) do
-    room = get_assign(socket, :room_id) |> Room.find
-    room = %{room | users_present: room.users_present - 1}
+    user = get_assign(socket, :user)
 
-    if get_assign(socket, :user_ready) do
-      room = %{room | users_ready: room.users_ready - 1}
+    case user do
+      %User{} ->
+        Repo.delete user
+      _ ->
+        # noop
     end
 
-    Repo.update room
+    room = get_assign(socket, :room_id) |> Room.find
 
     broadcast_update(socket, room)
     socket
   end
 
   defp broadcast_update(socket, room) do
-    broadcast socket, "room:update", %{users_present: room.users_present, users_ready: room.users_ready}
+    present = room.users.all |> Enum.count
+    ready   = room.users.all |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
+
+    broadcast socket, "room:update", %{users_present: present, users_ready: ready}
   end
 end

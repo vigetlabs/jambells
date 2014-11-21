@@ -1,14 +1,18 @@
 var socket = new Phoenix.Socket("ws://" + location.host + "/ws");
 var audioContext = new AudioContext()
+var userToken = Math.random().toString(36).substr(2)
 
 var bell = new Bell(audioContext)
 
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
-  chan.send("user:joined", {})
+  chan.send("user:joined", {user_token: userToken})
 
   chan.on("room:update", function(message){
-    $("#users-present").html(message.users_present)
-    $("#users-ready").html(message.users_ready)
+    present = message.users_present
+    ready   = message.users_ready
+
+    $("#users-present").html(present)
+    $("#users-ready").html(ready)
   });
 
   $("#ready-button").click(function(e) {

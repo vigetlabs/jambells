@@ -7,8 +7,7 @@ defmodule Room do
 
   schema "rooms" do
     field :name, :string
-    field :users_present, :integer
-    field :users_ready, :integer
+    has_many :users, User
   end
 
   def find(id) when is_integer(id) do
@@ -20,6 +19,6 @@ defmodule Room do
   end
 
   defp _find(id) do
-    Repo.all(from r in Room, where: r.id == ^id) |> List.first
+    Repo.all(from r in Room, where: r.id == ^id, preload: :users) |> List.first
   end
 end

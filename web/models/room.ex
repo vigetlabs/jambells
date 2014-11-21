@@ -6,7 +6,8 @@ defmodule Room do
   validate room, name: present()
 
   schema "rooms" do
-    field :name, :string
+    field :name,        :string
+    field :access_code, :string
     has_many :users, User
   end
 

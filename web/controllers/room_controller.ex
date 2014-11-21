@@ -25,7 +25,7 @@ defmodule DingMyBells.RoomController do
   end
 
   def create(conn, %{"room" => room_params}) do
-    new_room = %Room{name: room_params["name"]}
+    new_room = %Room{name: room_params["name"], access_code: randomAccessCode}
 
     case Room.validate(new_room) do
       [] ->
@@ -45,4 +45,17 @@ defmodule DingMyBells.RoomController do
   def error(conn, _params) do
     render conn, "error.html"
   end
+
+  defp randomAccessCode do
+    Enum.map(1..4, fn(x) -> randomLetter end) |> Enum.join
+  end
+
+  defp randomLetter do
+    Enum.shuffle(alphabet) |> List.first
+  end
+
+  defp alphabet do
+    ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  end
 end
+

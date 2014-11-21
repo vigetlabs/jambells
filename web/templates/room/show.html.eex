@@ -2,14 +2,13 @@
 
 <div id="room-info" data-id="<%= @room.id %>"></div>
 
-<div>Room: <%= @room.name %></div>
+<div>Room: <%= @room.name %> (<%= @room.access_code %>)</div>
 Users Present: <span id="users-present">0</span>
 Users Ready: <span id="users-ready">0</span>
 
 <br>
 
 <a id="ready-button" href="#">I'm Ready</a>
-
 
 <select id="noteSelection">
   <option value="220.00">A</option>

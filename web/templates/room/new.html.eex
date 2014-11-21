@@ -1,0 +1,8 @@
+<h1>New Room</h1>
+
+<form action="/rooms" method="post">
+  <label for="room[name]">Name</label>
+  <input type="text" name="room[name]" />
+  <button type="submit">Create</button>
+  <a href="/">Cancel</a>
+</form>

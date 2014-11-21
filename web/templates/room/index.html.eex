@@ -1,7 +1,10 @@
+<a href="/rooms/new">New Room</a>
+
+<div>Existing Rooms:</div>
 <ul>
   <%= for room <- @rooms do %>
     <li>
-      <a href="/<%= room.id %>"><%= room.id %></a>
+      <a href="/rooms/<%= room.id %>"><%= room.name %></a>
     </li>
   <% end %>
 </ul>

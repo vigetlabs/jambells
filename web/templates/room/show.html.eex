@@ -1,6 +1,8 @@
+<a href="/">Home</a>
+
 <div id="room-info" data-id="<%= @room.id %>"></div>
 
-<div>Room: <%= @room.id %></div>
+<div>Room: <%= @room.name %></div>
 Users Present: <span id="users-present">0</span>
 Users Ready: <span id="users-ready">0</span>
 

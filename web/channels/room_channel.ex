@@ -1,21 +1,20 @@
-defmodule Pitch.RoomChannel do
+defmodule DingMyBells.RoomChannel do
   use Phoenix.Channel
-  import Ecto.Query, only: [from: 2]
 
   def join(socket, room_id, _message) do
-    room = find_room(String.to_integer(room_id))
+    room = Room.find(room_id)
     room = %{room | users_present: room.users_present + 1}
 
     Repo.update room
 
-    socket = assign(socket, :room_id, String.to_integer(room_id))
+    socket = assign(socket, :room_id, room_id)
     socket = assign(socket, :user_ready, false)
 
     {:ok, socket}
   end
 
   def event(socket, "user:joined", _message) do
-    room = get_assign(socket, :room_id) |> find_room
+    room = get_assign(socket, :room_id) |> Room.find
 
     broadcast_update(socket, room)
     socket
@@ -24,7 +23,7 @@ defmodule Pitch.RoomChannel do
   def event(socket, "user:ready", _message) do
     socket = assign(socket, :user_ready, true)
 
-    room = get_assign(socket, :room_id) |> find_room
+    room = get_assign(socket, :room_id) |> Room.find
     room = %{room | users_ready: room.users_ready + 1}
 
     Repo.update room
@@ -34,14 +33,13 @@ defmodule Pitch.RoomChannel do
   end
 
   def event(socket, "note:send", message) do
-    IO.puts "MADE IT HERE"
-    IO.puts message["note"]
+    IO.puts "NOTE PLAYED: #{message["note"]}"
     broadcast socket, "note:play", %{note: message["note"]}
     socket
   end
 
   def leave(socket, _message) do
-    room = get_assign(socket, :room_id) |> find_room
+    room = get_assign(socket, :room_id) |> Room.find
     room = %{room | users_present: room.users_present - 1}
 
     if get_assign(socket, :user_ready) do
@@ -56,10 +54,5 @@ defmodule Pitch.RoomChannel do
 
   defp broadcast_update(socket, room) do
     broadcast socket, "room:update", %{users_present: room.users_present, users_ready: room.users_ready}
-  end
-
-  defp find_room(room_id) do
-    Repo.all(from r in Room, where: r.id == ^room_id)
-    |> List.first
   end
 end

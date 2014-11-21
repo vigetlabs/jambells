@@ -11,8 +11,14 @@ defmodule Pitch.RoomChannel do
     socket = assign(socket, :room_id, String.to_integer(room_id))
     socket = assign(socket, :user_ready, false)
 
-    broadcast_update(socket, room)
     {:ok, socket}
+  end
+
+  def event(socket, "user:joined", _message) do
+    room = get_assign(socket, :room_id) |> find_room
+
+    broadcast_update(socket, room)
+    socket
   end
 
   def event(socket, "user:ready", _message) do
@@ -22,13 +28,6 @@ defmodule Pitch.RoomChannel do
     room = %{room | users_ready: room.users_ready + 1}
 
     Repo.update room
-
-    broadcast_update(socket, room)
-    socket
-  end
-
-  def event(socket, "ping", _message) do
-    room = get_assign(socket, :room_id) |> find_room
 
     broadcast_update(socket, room)
     socket

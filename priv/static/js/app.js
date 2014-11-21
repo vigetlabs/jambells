@@ -2,6 +2,8 @@ var socket = new Phoenix.Socket("ws://" + location.host + "/ws");
 var audioContext = new AudioContext()
 
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
+  chan.send("user:joined", {})
+
   chan.on("room:update", function(message){
     $("#users-present").html(message.users_present)
     $("#users-ready").html(message.users_ready)
@@ -12,8 +14,6 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
     $("#ready-button").hide()
     chan.send("user:ready", {})
   })
-
-  chan.send("ping", {})
 
   chan.on("note:play", function(message) {
     var bell = new Bell(audioContext)

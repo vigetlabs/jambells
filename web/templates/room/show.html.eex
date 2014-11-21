@@ -12,13 +12,13 @@ Users Ready: <span id="users-ready">0</span>
 
 
 <select id="noteSelection">
-  <option value="220.00">A</option>
-  <option value="246.94">B</option>
-  <option value="261.63" selected="selected">C</option>
-  <option value="293.66">D</option>
-  <option value="329.63">E</option>
-  <option value="349.23">F</option>
-  <option value="392.00">G</option>
+  <option value="a">A</option>
+  <option value="b">B</option>
+  <option value="c" selected="selected">C</option>
+  <option value="d">D</option>
+  <option value="e">E</option>
+  <option value="f">F</option>
+  <option value="g">G</option>
 </select>
 
 <script src="/js/phoenix.js"></script>

@@ -3,14 +3,14 @@ var src = './src';
 
 module.exports = {
   browserSync: {
-    proxy: 'localhost:4000'
+    proxy: 'localhost:4000',
     files: [
       './priv/static/**'
     ]
   },
   sass: {
     src: src + '/sass/*.{sass, scss}',
-    dest: dest
+    dest: dest + '/css'
   },
   images: {
     src: src + '/images/**',
@@ -21,7 +21,7 @@ module.exports = {
     extensions: ['.jsx'],
     bundleConfigs: [{
       entries: src + '/javascript/game.jsx',
-      dest: dest,
+      dest: dest + '/js',
       outputName: 'game.js'
     }]
   }

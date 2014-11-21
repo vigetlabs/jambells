@@ -6,26 +6,29 @@
     "type": "git",
     "url": "git://github.com/vigetlabs/ding_my_bells.git"
   },
-  "browser": {
-  },
+  "browser": {},
   "browserify": {
     "transform": [
       "reactify"
     ]
   },
   "devDependencies": {
-    "browser-sync": "~1.3.6",
-    "browserify": "~5.10.1",
-    "browserify-shim": "~3.7.0",
-    "gulp": "^3.8.7",
-    "gulp-changed": "^0.4.1",
-    "gulp-notify": "^1.4.2",
+    "browser-sync": "^1.5.8",
+    "browserify": "^6.1.0",
+    "browserify-shim": "^3.8.0",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-changed": "^1.0.0",
+    "gulp-imagemin": "^1.2.1",
+    "gulp-notify": "^2.0.0",
+    "gulp-sass": "^1.2.0",
+    "gulp-svg-sprites": "^1.0.3",
+    "gulp-swig": "^0.7.4",
     "gulp-util": "^3.0.0",
-    "pretty-hrtime": "~0.2.1",
+    "pretty-hrtime": "^0.2.2",
     "require-dir": "^0.1.0",
-    "run-sequence": "^0.3.6",
-    "vinyl-source-stream": "~0.1.1",
-    "watchify": "~1.0.2"
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.0.0"
   },
   "dependencies": {
     "flux": "^2.0.1",

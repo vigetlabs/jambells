@@ -1,6 +1,3 @@
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
 
-gulp.task('default', ['setWatch'], function(cb) {
-  runSequence('browserify', 'watch', cb);
-});
+gulp.task('default', ['watch']);

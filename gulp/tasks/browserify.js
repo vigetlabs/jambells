@@ -7,28 +7,30 @@ var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
 
 gulp.task('browserify', function(callback) {
+
   var bundleQueue = config.bundleConfigs.length;
+
   var browserifyThis = function(bundleConfig) {
 
-  var bundler = browserify({
-    cache: {}, packageCache: {}, fullPaths: true,
-    entries: bundleConfig.entries,
-    extensions: config.extensions,
-    debug: config.debug
-  });
+    var bundler = browserify({
+      cache: {}, packageCache: {}, fullPaths: true,
+      entries: bundleConfig.entries,
+      extensions: config.extensions,
+      debug: config.debug
+    });
 
-  var bundle = function() {
-    bundleLogger.start(bundleConfig.outputName);
+    var bundle = function() {
+      bundleLogger.start(bundleConfig.outputName);
 
-    return bundler
-      .bundle()
-      .on('error', handleErrors)
-      .pipe(source(bundleConfig.outputName))
-      .pipe(gulp.dest(bundleConfig.dest))
-      .on('end', reportFinished);
+      return bundler
+        .bundle()
+        .on('error', handleErrors)
+        .pipe(source(bundleConfig.outputName))
+        .pipe(gulp.dest(bundleConfig.dest))
+        .on('end', reportFinished);
     };
 
-    if (global.isWatching) {
+    if(global.isWatching) {
       bundler = watchify(bundler);
       bundler.on('update', bundle);
     }
@@ -36,10 +38,9 @@ gulp.task('browserify', function(callback) {
     var reportFinished = function() {
       bundleLogger.end(bundleConfig.outputName)
 
-      if (bundleQueue) {
+      if(bundleQueue) {
         bundleQueue--;
-
-        if (bundleQueue === 0) {
+        if(bundleQueue === 0) {
           callback();
         }
       }
@@ -48,6 +49,5 @@ gulp.task('browserify', function(callback) {
     return bundle();
   };
 
-  // Start bundling with Browserify for each bundleConfig specified
   config.bundleConfigs.forEach(browserifyThis);
 });

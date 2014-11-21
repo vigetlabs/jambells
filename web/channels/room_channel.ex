@@ -39,12 +39,6 @@ defmodule DingMyBells.RoomChannel do
     socket
   end
 
-  def event(socket, "note:send", message) do
-    IO.puts "NOTE PLAYED: #{message["note"]}"
-    broadcast socket, "note:play", %{note: message["note"]}
-    socket
-  end
-
   def leave(socket, _message) do
     user = get_assign(socket, :user)
 

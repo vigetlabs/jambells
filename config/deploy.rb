@@ -28,6 +28,13 @@ def is_application_running?(current_path)
   return pid != ""
 end
 
+def reset_room_user_counts
+  for room <- Repo.all(Room) do
+    room = %{room | users_present: 0, users_ready: 0}
+    Repo.update(room)
+  end
+end
+
 namespace :deploy do
   task :is_running, roles: :web do
     is_running = is_application_running?(current_path)
@@ -47,6 +54,9 @@ namespace :deploy do
     if is_application_running?(current_path)
       run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells stop"
     end
+
+    reset_room_user_counts
+
     run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells start"
   end
 

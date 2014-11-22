@@ -1,6 +1,8 @@
 var $    = require('jquery')
 var game = require('./game')
 
+require('./preview')
+
 // Index page
 // #TODO Add basic routing
 $("#enter-room").submit(function(e) {

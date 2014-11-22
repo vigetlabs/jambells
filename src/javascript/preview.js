@@ -1,3 +1,5 @@
+var $ = require('jquery')
+
 var audioContext = new AudioContext()
 var bell = new Bell(audioContext)
 
@@ -22,7 +24,7 @@ var playNote = function() {
   }
 }
 
-$("#play").click(function(e) {
+$("#preview-play").click(function(e) {
   e.preventDefault()
 
   playNote()

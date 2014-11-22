@@ -11,16 +11,16 @@ defmodule DingMyBells.RoomController do
 
   def show(conn, %{"slug" => slug}) do
     room  = Room.find_by_slug(slug)
-    users = room.users.all
 
     case room do
       %Room{} ->
+        users = room.users.all
+
         render conn, "show.html",
           room:    room,
           song:    Song.jinglebells,
           present: users |> Enum.count,
           ready:   users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
-
       _ ->
         render conn, "not_found.html"
     end

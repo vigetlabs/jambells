@@ -1,9 +1,9 @@
-<a href="/new">New Room</a>
+<a href="/new" class="btn btn-default">New Room</a>
 
 <div>
   <form id="enter-room">
     <input id="room-code" placeholder="Enter Room Code"></input>
-    <input type="submit" class="btn" value="Go">
+    <input type="submit" class="btn" value="Join">
   </form
 </div>
 

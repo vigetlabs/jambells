@@ -1,3 +1,10 @@
+/**
+ * @jsx React.DOM
+ */
+var React = window.React = require('react')
+var Song = require('./components/song')
+
+
 var socket = new Phoenix.Socket("ws://" + location.host + "/ws");
 var audioContext = new AudioContext()
 
@@ -50,8 +57,8 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
 
     $("#game-page").html("Game started, you're player " + (playerNumber + 1))
 
-    var player = new Player(playerNumber, song)
-    player.play();
+    if (container = document.getElementById('game-page')) {
+      React.renderComponent(<Song bpm={song.bpm} notes={song.notes.reverse()} />, container)
+    }
   })
-
 })

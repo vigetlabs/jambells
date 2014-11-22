@@ -31,4 +31,4 @@ Users Ready: <span id="users-ready"><%= @ready %></span>
 <script src="/js/jquery.js"></script>
 <script src="/js/ring.js"></script>
 <script src="/js/player.js"></script>
-<script src="/js/app.js"></script>
+<script src="/js/game.js"></script>

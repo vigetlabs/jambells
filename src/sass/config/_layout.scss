@@ -1,0 +1,36 @@
+// Variables
+
+$page-max-width        : 1040px;
+$page-wrap-padding     : 20px;
+
+// Mixins
+
+@mixin row {
+  @include clear-fix;
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+@mixin wrap {
+  @include clear-fix;
+  margin: 0 auto;
+  max-width: $page-max-width;
+  padding: 0 $page-wrap-padding;
+  position: relative;
+  width: 100%;
+}
+
+@mixin clear-fix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  .lte7 & {
+    zoom: 1;
+  }
+}

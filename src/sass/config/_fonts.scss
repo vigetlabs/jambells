@@ -1,0 +1,18 @@
+// Mixins
+
+@mixin font-face($name, $filename, $style: normal, $weight: normal) {
+  @font-face {
+    font-family: "#{$name}";
+    font-style: $style;
+    font-weight: $weight;
+    src: url("#{$filename}.eot");
+    src: url("#{$filename}.eot?#iefix") format("embedded-opentype"),
+         url("#{$filename}.woff") format("woff"),
+         url("#{$filename}.ttf") format("truetype"),
+         url("#{$filename}.svg##{$name}") format('svg');
+  }
+}
+
+@mixin font-open-sans {
+  font-family: "Open Sans", Helvetica, arial;
+}

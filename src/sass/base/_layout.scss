@@ -1,0 +1,41 @@
+// Variables
+
+$base-font-size        : 14px;
+$base-line-height      : 18px / $base-font-size;
+$base-font-color       : #4c5e65;
+$base-background-color : #fff;
+
+// Styles
+
+html, body {
+  background: $base-background-color;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+body {
+  color: $base-font-color;
+  line-height: $base-line-height;
+  margin: 0;
+  padding: 0;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.page-main {
+  @include row;
+  margin-top: 60px;
+
+  @include bp-tablet {
+    margin-top: 0px;
+  }
+}
+.row {
+  @include row;
+}
+
+.wrap {
+  @include wrap;
+}

@@ -55,6 +55,8 @@
     padding: 30px 0 40px;
 
     @include bp-mobile-only {
+      padding: 15px 0 40px;
+
       .logo-bells,
       .logo-text {
         display: inline-block;

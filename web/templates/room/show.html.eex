@@ -14,6 +14,12 @@ Users Ready: <span id="users-ready"><%= @ready %></span>
 <div id="game-page">
 </div>
 
+<div class="note-target" style="background: salmon;
+  position: absolute;
+  top: 480px;
+  width: 88%;
+  text-align: center;">HIT TARGET</div>
+
 <br>
 
 <a id="ready-button" href="#">I'm Ready</a>

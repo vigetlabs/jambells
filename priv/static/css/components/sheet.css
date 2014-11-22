@@ -565,3 +565,6 @@ a {
       clear: both; }
     .lte7 .song-notes > li {
       zoom: 1; }
+
+.other-note {
+  color: gainsboro; }

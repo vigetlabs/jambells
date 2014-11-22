@@ -24,6 +24,8 @@ module.exports = React.createClass({
   noteContent: function() {
     if (this.props.note === this.props.playerNote) {
       return <strong className={'type-' + this.props.note}>{this.props.note}</strong>
+    } else {
+      return <span className={'type-' + this.props.note + ' other-note'}>{this.props.note}</span>
     }
   },
 

@@ -11,10 +11,8 @@ input[type="text"],
 input[type="email"], 
 input[type="tel"], 
 input[type="password"],
-input[type="file"],
 input[type="number"],
 input[type="search"],
-textarea, 
 select {
   appearance: none;
   background: $color--forest--dark;
@@ -22,7 +20,8 @@ select {
   border-radius: $button-border-radius;
   box-sizing: border-box;
   color: $base-font-color;
-  margin: 0 0 1.5em;
+  height: 48px;
+  margin: 0;
   padding: 10px 15px;
   width: 100%;
 
@@ -30,4 +29,8 @@ select {
     border-color: $color--gold;
     outline: none;
   }
+}
+
+.field {
+  margin-bottom: 2em;
 }

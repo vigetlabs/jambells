@@ -1,14 +1,14 @@
 <div class="thin-wrap">
-
   <form action="/rooms" method="post">
-    <label for="room[song]">Choose a song:</label>
-    <select name="room[song]">
-      <option value="jinglebells">Jingle Bells</option>
-      <option value="deck_the_halls">Deck The Halls</option>
-      <option value="we_wish_you">We Wish You a Merry Christmas</option>
-    </select>
-
-    <button type="submit">Create</button>
-    <a href="/">Cancel</a>
+    <div class="field">
+      <label for="room[song]">Choose a song:</label>
+      <select name="room[song]">
+        <option value="jinglebells">Jingle Bells</option>
+        <option value="deck_the_halls">Deck The Halls</option>
+        <option value="we_wish_you">We Wish You a Merry Christmas</option>
+      </select>
+    </div>
+    <button type="submit" class="button -gold -block -large">Start</button>
+    <a href="/play" class="button -block -green -large">Back</a>
   </form>
 </div>

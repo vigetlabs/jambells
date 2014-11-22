@@ -25,8 +25,3 @@ Users Ready: <span id="users-ready"><%= @ready %></span>
 <a id="ready-button" href="#">I'm Ready</a>
 
 <input id="noteSelection" />
-
-<script src="/js/phoenix.js"></script>
-<script src="/js/jquery.js"></script>
-<script src="/js/ring.js"></script>
-<script src="/js/game.js"></script>

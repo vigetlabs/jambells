@@ -18,11 +18,11 @@ module.exports = {
   },
   browserify: {
     debug         : true,
-    extensions    : ['.jsx'],
+    extensions    : ['.js', '.jsx'],
     bundleConfigs : [{
-      entries: src + '/javascript/game.jsx',
+      entries: src + '/javascript/app.js',
       dest: dest + '/js',
-      outputName: 'game.js'
+      outputName: 'app.js'
     }]
   }
 };

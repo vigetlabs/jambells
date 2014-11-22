@@ -10,7 +10,7 @@ ComputerPlayer.prototype = {
     this.notesToPlay = notesToPlay
     this.allNotes = song.notes.slice(0)
     this.allNotes.reverse()
-    var firstBeatTime = this.miliPerBeat * 3
+    var firstBeatTime = this.miliPerBeat * 4
     var noteTimes = []
 
     this.allNotes.forEach(function(note, index) {

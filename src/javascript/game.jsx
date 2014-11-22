@@ -17,10 +17,13 @@ var song   = $("#room-info").data("song")
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
   chan.send("user:joined", {user_token: userToken})
 
+  // any time a user joins or leaves you get this message
   chan.on("room:update", function(message){
     present  = message.users_present
     ready    = message.users_ready
     userInfo = message.user_info
+
+    $('#noteSelection').val(song.roles[userInfo.indexOf(userToken)].toLowerCase());
 
     if (present == ready && userInfo[0] == userToken) {
       $("#start-game").show()
@@ -41,10 +44,6 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
     chan.send("game:start", {})
   })
 
-  chan.on("note:play", function(message) {
-    // something
-  })
-
   $('body').on('touchstart mousedown', function(){
     var $noteSelection = $('#noteSelection')
     var note = $noteSelection.val()
@@ -60,7 +59,5 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
     if (container = document.getElementById('game-page')) {
       React.renderComponent(<Song bpm={song.bpm} notes={song.notes.reverse()} playerNote={song.roles[playerNumber]} />, container)
     }
-
-    $('#noteSelection').val(song.roles[playerNumber].toLowerCase());
   })
 })

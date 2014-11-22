@@ -7,7 +7,51 @@ defmodule Song do
         deck_the_halls
       "we_wish_you" ->
         we_wish_you
+      "sequence" ->
+        sequence
     end
+  end
+
+  defp sequence do
+    json_parse %{
+      "name": "Sequence",
+      "bpm": 50,
+      "measure": "4/4",
+      "roles": [],
+      "notes": [
+        "C3",
+        "",
+        "D3",
+        "",
+        "E3",
+        "",
+        "F3",
+        "",
+        "G3",
+        "",
+        "A3",
+        "",
+        "B3",
+        "",
+
+        "C4",
+        "",
+        "D4",
+        "",
+        "E4",
+        "",
+        "F4",
+        "",
+        "G4",
+        "",
+        "A4",
+        "",
+        "B4",
+        "",
+
+        "C5",
+      ]
+    }
   end
 
   defp jinglebells do

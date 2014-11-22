@@ -1,0 +1,9 @@
+<div>Previewing <%= pretty(@song_name) %></div>
+
+<a id="play" href="#">Play</a> (plays at 2x speed)
+
+<div id="room-info" data-song="<%= @song_notes %>"></div>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/ring.js"></script>
+<script src="/js/preview.js"></script>

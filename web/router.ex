@@ -10,13 +10,14 @@ defmodule DingMyBells.Router do
   scope "/" do
     pipe_through :browser
 
+    # testing songs route
+    get "/preview",       DingMyBells.PreviewController, :index
+    get "/preview/:song", DingMyBells.PreviewController, :show
+
     get "/",       DingMyBells.RoomController, :index
     get "/new",    DingMyBells.RoomController, :new
     get "/:slug",  DingMyBells.RoomController, :show
     post "/rooms", DingMyBells.RoomController, :create
-
-    # testing songs route
-    get "/play/:song", DingMyBells.SongController, :preview
 
     channel "room", DingMyBells.RoomChannel
   end

@@ -6,7 +6,6 @@ var userToken = Math.random().toString(36).substr(2)
 var bell = new Bell(audioContext)
 
 var song   = $("#room-info").data("song")
-var player = new Player(song)
 
 socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
   chan.send("user:joined", {user_token: userToken})
@@ -47,10 +46,11 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
 
   chan.on("game:started", function(message) {
     userInfo = message.user_info
-    playerNumber = userInfo.indexOf(userToken) + 1
+    playerNumber = userInfo.indexOf(userToken)
 
-    $("#game-page").html("Game started, you're player " + playerNumber)
+    $("#game-page").html("Game started, you're player " + (playerNumber + 1))
 
+    var player = new Player(playerNumber, song)
     player.play();
   })
 

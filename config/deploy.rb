@@ -41,7 +41,16 @@ namespace :deploy do
 
   task :build, roles: :web do
     # run "cd #{current_path} && mix deps.get && cp ../../gitignored/repo.ex lib/ding_my_bells/repo.ex && MIX_ENV=#{mix_env} mix release"
-    run "cd #{current_path} && mix deps.get && cp ../../gitignored/repo.ex lib/ding_my_bells/repo.ex && npm install && ./node_modules/.bin/gulp build && MIX_ENV=#{mix_env} mix release"
+    run <<-TASKS
+      cd #{current_path}                                    &&
+      mix deps.get                                          &&
+      cp ../../gitignored/repo.ex lib/ding_my_bells/repo.ex &&
+      cp -r ../../gitignored/node_modules ./node_modules    &&
+      npm install                                           &&
+      cp -r ./node_modules ../../gitignored/node_modules    &&
+      ./node_modules/.bin/gulp build                        &&
+      MIX_ENV=#{mix_env} mix release
+    TASKS
   end
 
   task :restart, roles: :web do

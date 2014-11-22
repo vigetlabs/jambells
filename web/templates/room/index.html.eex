@@ -1,10 +1,22 @@
-<a href="/rooms/new">New Room</a>
+<a href="/new">New Room</a>
 
-<div>Existing Rooms:</div>
+<div>
+  <form id="enter-room">
+    <input id="room-code" placeholder="Enter Room Code"></input>
+    <input type="submit" class="btn" value="Go">
+  </form
+</div>
+
+<br><br>
+
+<div>Existing Rooms (list will be removed in production):</div>
 <ul>
   <%= for room <- @rooms do %>
     <li>
-      <a href="/rooms/<%= room.access_code %>"><%= room.name %></a>
+      <a href="/<%= room.access_code %>"><%= room.access_code %></a>
     </li>
   <% end %>
 </ul>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/index-page.js"></script>

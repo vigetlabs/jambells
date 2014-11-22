@@ -3,10 +3,7 @@ defmodule Room do
   use Ecto.Model.Schema
   import Ecto.Query, only: [from: 2]
 
-  validate room, name: present()
-
   schema "rooms" do
-    field :name,        :string
     field :access_code, :string
     field :active,      :boolean
     has_many :users, User

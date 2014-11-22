@@ -27,21 +27,10 @@ defmodule DingMyBells.RoomController do
   end
 
   def new(conn, _params) do
-    render conn, "new.html"
-  end
+    room = %Room{access_code: randomAccessCode}
+    Repo.insert room
 
-  def create(conn, %{"room" => room_params}) do
-    new_room = %Room{name: room_params["name"], access_code: randomAccessCode}
-
-    case Room.validate(new_room) do
-      [] ->
-        room = Repo.insert new_room
-        redirect conn, room_path(:show, room.access_code)
-      _ ->
-        conn
-        |> Flash.put(:notice, "Name must be specified")
-        |> redirect room_path(:new)
-    end
+    redirect conn, room_path(:show, room.access_code)
   end
 
   def not_found(conn, _params) do

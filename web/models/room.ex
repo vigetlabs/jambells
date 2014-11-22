@@ -11,7 +11,8 @@ defmodule Room do
   end
 
   def find_by_slug(slug) do
-    Repo.all(from r in Room, where: r.access_code == ^slug, preload: :users) |> List.first
+    cap_slug = String.upcase(slug)
+    Repo.all(from r in Room, where: r.access_code == ^cap_slug, preload: :users) |> List.first
   end
 
   def find(id) when is_integer(id) do

@@ -25,9 +25,21 @@ module.exports = React.createClass({
     var note = this.props.note
 
     if (note === this.props.playerNote) {
-      return <strong className={'type-' + note}>{note}</strong>
+      return (
+        <figure className={'type-' + note + ' player-note'}>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="0" height="0" alt="" />
+          <span>{note}</span>
+        </figure>
+      )
+    } else if (note) {
+      return (
+        <figure className={'type-' + note + ' other-note'}>
+          <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="0" height="0" alt="" />
+          <span>{note}</span>
+        </figure>
+      )
     } else {
-      return <span className={'type-' + note + ' other-note'}>{note}</span>
+      return <figure />
     }
   },
 

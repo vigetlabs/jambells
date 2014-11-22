@@ -2,9 +2,6 @@
   @include fill;
 }
 
-.song-header {
-}
-
 .song-music {
   @include fill;
   overflow: hidden;
@@ -15,14 +12,69 @@
 
   > li {
     @include row;
-    border-top: 1px solid $color--forest--dark;
-    display: table-cell;
     font-size: 40px;
     font-weight: 600;
     height: 20%;
     line-height: 100%;
     text-align: center;
-    vertical-align: middle;
+
+    figure.player-note ,
+    figure.other-note  {
+      background: $color--gold;
+      border-radius: 50%;
+      height: 74%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      width: auto;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+
+      span {
+        font-size: 32px;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
+
+    figure.other-note {
+      background: $color--forest--dark;
+      font-size: 16px;
+      height: 60%;
+      opacity: 0.8;
+    }
+
+    &:nth-child(odd) {
+      figure:not(.player-note) {
+        left: auto;
+        right: 10%;
+      }
+    }
+
+    figure:not(.player-note) {
+      left: 10%;
+    }
+  }
+}
+
+.song-ended {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 1em;
   }
 }
 

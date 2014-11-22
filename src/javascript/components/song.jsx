@@ -83,7 +83,10 @@ module.exports = React.createClass({
     if (this.state.ended) {
       return (
         <main className="song-container">
-          <h2>Song Is Over</h2>
+          <div className="song-ended">
+            <h2>Nice Playing!</h2>
+            <a href="/" className="button -gold -large">Back to Home</a>
+          </div>
         </main>
       )
     }
@@ -96,7 +99,9 @@ module.exports = React.createClass({
           </ol>
         </div>
         <div className="note-target">
-          <span>Ring Now</span>
+          <figure>
+            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="0" height="0" alt="" />
+          </figure>
         </div>
       </main>
     )

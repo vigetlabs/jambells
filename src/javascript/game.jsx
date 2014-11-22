@@ -29,13 +29,13 @@ Game.prototype = {
   },
 
   cacheDom: function() {
-    this.$lobby = $("#game-lobby")
+    this.$lobby         = $("#game-lobby")
     this.$noteSelection = $('#noteSelection')
-    this.$readyButton = $("#ready-button")
-    this.$startButton = $("#start-game")
-    this.$game = $("#game")
-    this.$usersPresent = $("#users-present")
-    this.$usersReady = $("#users-ready")
+    this.$readyButton   = $("#ready-button")
+    this.$startButton   = $("#start-game")
+    this.$game          = $("#game")
+    this.$usersPresent  = $("#users-present")
+    this.$usersReady    = $("#users-ready")
   },
 
   start: function(e) {

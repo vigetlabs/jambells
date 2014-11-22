@@ -34,7 +34,6 @@
 }
 
 .note-target {
-  background: darken($color--forest--dark, 5%);
   height: 20%;
   left: 0;
   position: absolute;
@@ -42,14 +41,41 @@
   top: 60%;
   width: 100%;
 
-  span {
-    font-size: 40px;
+  &:before,
+  &:after {
+    @include pseudo;
+    background: rgba($color--gold, 0.7);
+    height: 12px;
     left: 0;
-    position: absolute;
-    text-align: center;
+    margin-top: -6px;
     top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
+    width: 40%;
+  }
+
+  &:after {
+    margin-left: 80px;
+    left: 50%;
+  }
+
+  &:before {
+    margin-right: 80px;
+    right: 50%;
+  }
+
+  figure {
+    border-radius: 50%;
+    border: 12px solid rgba($color--gold, 0.7);
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+    }
   }
 }
 

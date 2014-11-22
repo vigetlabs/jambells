@@ -1,13 +1,14 @@
-<h1>New Room</h1>
+<div class="thin-wrap">
 
-<form action="/rooms" method="post">
-  <label for="room[song]">Select Song</label>
-  <select name="room[song]">
-    <option value="jinglebells">Jingle Bells</option>
-    <option value="deck_the_halls">Deck The Halls</option>
-    <option value="we_wish_you">We Wish You a Merry Christmas</option>
-  </select>
+  <form action="/rooms" method="post">
+    <label for="room[song]">Choose a song:</label>
+    <select name="room[song]">
+      <option value="jinglebells">Jingle Bells</option>
+      <option value="deck_the_halls">Deck The Halls</option>
+      <option value="we_wish_you">We Wish You a Merry Christmas</option>
+    </select>
 
-  <button type="submit">Create</button>
-  <a href="/">Cancel</a>
-</form>
+    <button type="submit">Create</button>
+    <a href="/">Cancel</a>
+  </form>
+</div>

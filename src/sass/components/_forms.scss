@@ -1,0 +1,33 @@
+label {
+  display: block;
+  margin: 0 0 1.8em;
+}
+
+input[type="submit"] {
+  appearance: none;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="password"],
+input[type="file"],
+input[type="number"],
+input[type="search"],
+textarea, 
+select {
+  appearance: none;
+  background: $color--forest--dark;
+  border: 3px solid $color--forest--dark;
+  border-radius: $button-border-radius;
+  box-sizing: border-box;
+  color: $base-font-color;
+  margin: 0 0 1.5em;
+  padding: 10px 15px;
+  width: 100%;
+
+  &:focus {
+    border-color: $color--gold;
+    outline: none;
+  }
+}

@@ -1,4 +1,5 @@
 body.home {
+
   .button.-block {
     margin-left: auto;
     margin-right: auto;
@@ -28,6 +29,46 @@ body.home {
 
       svg {
         fill: #e99486;
+      }
+    }
+
+    .wrap {
+      position: static;
+
+      &:before,
+      &:after {
+        background: url('/images/hands.jpg') no-repeat;
+        content: "";
+        height: 257px;
+        position: absolute;
+        top: 400px;
+        width: 1122px;
+        z-index: 0;
+      }
+
+      &:before {
+        transform: rotate(35deg);
+        right: -730px;
+      }
+
+      &:after {
+        left: -680px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  @media (min-width: 1280px) and #{$bp-tall} {
+    .wrap {
+
+      &:before {
+        transform: rotate(35deg);
+        right: -680px;
+      }
+
+      &:after {
+        left: -630px;
+        transform: rotate(-45deg);
       }
     }
   }

@@ -40,11 +40,11 @@ body {
 
 .wrap {
   @include wrap;
-  z-index: 1;
 }
 
 .thin-wrap {
   @include wrap;
+  z-index: 2;
   max-width: 420px;
 
   &.-center {

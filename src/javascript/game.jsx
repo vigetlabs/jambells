@@ -36,8 +36,10 @@ Game.prototype = {
   },
 
   start: function(e) {
-    e.preventDefault()
-    this.chan.send("game:start", {})
+    if(this.$startButton.not(':disabled')) {
+      e.preventDefault()
+      this.chan.send("game:start", {})
+    }
   },
 
   ring: function() {
@@ -50,14 +52,15 @@ Game.prototype = {
     this.$readyButton.click(this.announceReady.bind(this))
     this.$startButton.click(this.start.bind(this))
     this.$game.on('touchstart mousedown', this.ring.bind(this))
-    this.chan.send("user:joined", {user_token: this.userToken});
-    this.chan.on("room:update", this.renderRoomInfo.bind(this));
+    this.chan.send("user:joined", {user_token: this.userToken})
+    this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on("game:started", this.renderGame.bind(this))
   },
 
   announceReady: function(e) {
     e.preventDefault()
     this.$readyButton.hide()
+    this.$startButton.show()
     this.chan.send("user:ready", {})
   },
 
@@ -74,8 +77,14 @@ Game.prototype = {
     ready    = message.users_ready
     userInfo = message.user_info
 
+    if (userInfo[0] == this.userToken) {
+      this.$startButton.text('Start the Song!')
+    } else {
+      this.$startButton.text('Waiting...')
+    }
+
     if (present == ready && userInfo[0] == this.userToken) {
-      this.$startButton.show()
+      this.$startButton.removeAttr('disabled')
     }
 
     // TODO: This should be a react view probably

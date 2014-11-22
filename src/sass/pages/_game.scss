@@ -19,3 +19,41 @@
   width: 88%;
   text-align: center;
 }
+
+.room-code-wrap {
+  background: $color--forest--dark;
+  border-radius: $button-border-radius;
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 30px;
+  line-height: 1;
+  margin-bottom: 0.5em;
+  padding: 20px 0;
+  text-align: center;
+  text-indent: 30px;
+}
+
+.game-details {
+  margin-bottom: 1.8em;
+
+  p {
+    margin-bottom: 0.5em;
+  }
+}
+
+.note-target {
+  background: darken($color--forest--dark, 5%);
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+body.game {
+  .wrap,
+  main {
+    height: 100%;
+  }
+}

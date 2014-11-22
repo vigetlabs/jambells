@@ -1,20 +1,35 @@
 .button {
   @include button;
 
+  // Colors
+  &.-gold {
+    background: $color--gold;
+
+    &:hover,
+    &:focus {
+      background: darken($color--gold, 10%);  
+    }
+  }
+
+  &.-green {
+    background: darken($color--forest--dark, 5%);
+
+    &:hover,
+    &:focus {
+      background: darken($color--forest--dark, 10%);  
+    }
+  }
+
   // Display Types
   &.-block {
     display: block;
+    margin-bottom: 1em;
     width: 100%;
   }
 
   // Sizes
   &.-large {
-    font-size: 20px;
     padding: 20px 40px;
-
-    @include bp-tablet {
-      padding: 30px 80px;
-    }
   }
 
   // Shapes

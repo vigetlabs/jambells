@@ -39,6 +39,16 @@ $default-border-radius : 3px;
   width: 1px;
 }
 
+@mixin un-hide-text {
+  clip: auto; 
+  height: auto;
+  margin: 0; 
+  overflow: visible; 
+  padding: 0; 
+  position: static; 
+  width: auto !important;
+}
+
 @mixin centered {
   display: block;
   margin-left: auto;

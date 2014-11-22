@@ -1,22 +1,4 @@
-<a href="/new" class="btn btn-default">New Room</a>
-
-<div>
-  <form id="enter-room">
-    <input id="room-code" placeholder="Enter Room Code"></input>
-    <input type="submit" class="button" value="Join">
-  </form
+<div class="thin-wrap">
+  <a href="/new" class="button -block -gold -large">Start a Group</a>
+  <a href="/join" class="button -block -green -large">Join a Group</a>
 </div>
-
-<br><br>
-
-<div>Existing Rooms (list will be removed in production):</div>
-<ul>
-  <%= for room <- @rooms do %>
-    <li>
-      <a href="/<%= room.access_code %>"><%= room.access_code %></a>
-    </li>
-  <% end %>
-</ul>
-
-<script src="/js/jquery.js"></script>
-<script src="/js/index-page.js"></script>

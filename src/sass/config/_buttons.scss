@@ -1,6 +1,6 @@
 // Variables
 
-$button-background-color : $color--gold;
+$button-background-color : #ccc;
 $button-font-color       : #fff;
 $button-border-radius    : 3px;
 
@@ -10,16 +10,20 @@ $button-border-radius    : 3px;
   $background-color: $button-background-color,
   $font-color: $button-font-color
 ) {
+  @include smooth-fonts;
   background-color: $background-color;
   border-radius: $button-border-radius;
   border: none;
+  box-shadow: 0px 1px 3px rgba(#000, 0.2);
   color: $font-color;
   @include default-transition;
   font-weight: 600;
   padding: 11px 12px;
   text-align: center;
+  text-transform: uppercase;
 
-  &:hover {
-    background-color: darken($background-color, 5%);
+  &:hover,
+  &:focus {
+    color: #fff;
   }
 }

@@ -9,16 +9,19 @@
     <meta name="description" content="Make a hand bell choir and play a song using your phone! Invite up to 12 friends to play with you.">
     <meta name="author" content="Pointless Corp., Viget Labs">
     <link rel="stylesheet" href="/css/app.css">
+
+    <script src="//use.typekit.net/vpq2mie.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
   </head>
 
-  <body>
+  <body class="<%= @className %>">
     <div class="wrap">
       <header class="global-header">
         <h1 class="logo">
-          <span class="hide-text">Jam Bells</span>
           <img class="logo-bells" src="/images/logo-bells.png" alt="">
-          <img class="logo-text" src="/images/logo-text.png" alt="">
+          <span class="logo-text">Jambells</span>
         </h1>
+        <p class="tagline">Handbells on Your Phone</p>
       </header>
       <main role="main">
 

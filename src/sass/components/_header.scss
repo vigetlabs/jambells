@@ -6,24 +6,34 @@
     margin: 0;
   }
 
-  .logo-text,
+  .logo-text {
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1;
+  }
+
   .logo-bells {
+    height: 43px;
     margin: 0 auto;
+    width: 60px;
+  }
+
+  .tagline {
+    @include hide-text;
+    color: $color--forest--light;
   }
 
   @include bp-mobile-only {
     .logo-text {
-      display: none;
-    }
-
-    .logo-bells {
-      height: 43px;
-      width: 60px;
+      @include hide-text;
     }
   }
 
   @include bp-tablet {
     padding: 40px 0;
+  }
+
+  body.home & {
     position: relative;
     margin-bottom: 40px;
 
@@ -32,11 +42,34 @@
       bottom: 0px;
       content: "";
       display: block;
-      height: 8px;
+      height: 6px;
       left: 50%;
       margin-left: -50px;
       position: absolute;
       width: 100px;
+    }
+  }
+
+  body.play &,
+  body.home & {
+    padding: 30px 0 40px;
+
+    @include bp-mobile-only {
+      .logo-bells,
+      .logo-text {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .logo-text {
+        @include un-hide-text;
+      }
+    }
+  }
+
+  body.play & {
+    .tagline {
+      @include un-hide-text;
     }
   }
 }

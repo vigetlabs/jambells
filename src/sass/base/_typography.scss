@@ -1,5 +1,6 @@
 html, body {
   @include smooth-fonts;
+  font-family: $body-font;
   font-size: $base-font-size;
 
   @include bp-desktop {

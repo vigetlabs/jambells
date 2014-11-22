@@ -9,6 +9,6 @@
       </select>
     </div>
     <button type="submit" class="button -gold -block">Start</button>
-    <a href="/play" class="button -block -green">Back</a>
+    <a href="/" class="button -block -green">Back</a>
   </form>
 </div>

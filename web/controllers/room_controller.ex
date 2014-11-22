@@ -8,11 +8,7 @@ defmodule DingMyBells.RoomController do
   def index(conn, _params) do
     render conn, "index.html", class_name: "home"
   end
-
-  def play(conn, _params) do
-    render conn, "play.html", class_name: "play"
-  end
-
+  
   def join(conn, _params) do
     render conn, "join.html", class_name: "join", rooms: Repo.all(Room)
   end

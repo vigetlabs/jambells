@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jambells</title>
+    <title>JamBells</title>
     <meta name="description" content="Make a hand bell choir and play a song using your phone! Invite up to 12 friends to play with you.">
     <meta name="author" content="Pointless Corp., Viget Labs">
     <link rel="stylesheet" href="/css/app.css">
@@ -19,7 +19,7 @@
       <header class="global-header">
         <h1 class="logo">
           <img class="logo-bells" src="/images/logo-bells.png" alt="">
-          <span class="logo-text">Jambells</span>
+          <span class="logo-text">JamBells</span>
         </h1>
         <p class="tagline">Handbells on Your Phone</p>
       </header>

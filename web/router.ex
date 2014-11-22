@@ -15,7 +15,6 @@ defmodule DingMyBells.Router do
     get "/preview/:song", DingMyBells.PreviewController, :show
 
     get "/",       DingMyBells.RoomController, :index
-    get "/play",   DingMyBells.RoomController, :play
     get "/join",   DingMyBells.RoomController, :join
     get "/new",    DingMyBells.RoomController, :new
     get "/:slug",  DingMyBells.RoomController, :show

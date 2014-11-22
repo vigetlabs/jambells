@@ -80,7 +80,7 @@ Game.prototype = {
     if (userInfo[0] == this.userToken) {
       this.$startButton.text('Start the Song!')
     } else {
-      this.$startButton.text('Waiting...')
+      this.$startButton.text('Please Wait')
     }
 
     if (present == ready && userInfo[0] == this.userToken) {

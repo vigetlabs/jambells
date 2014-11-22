@@ -36,4 +36,13 @@
   &.-rounded {
     border-radius: 12px;
   }
+
+  &[disabled] {
+    background: #ccc;
+
+    &:hover,
+    &:focus {
+      background: #ccc;
+    }
+  }
 }

@@ -5,17 +5,7 @@
       <input id="room-code" class="room-code" type="text" placeholder="Enter Code" maxlength="4">
     </div>
     
-    <input type="submit" class="button -gold -block" value="Join Group">
-    <a href="/play" class="button -block -green">Back</a>
+    <input type="submit" class="button -gold -block" value="Join Choir">
+    <a href="/" class="button -block -green">Back</a>
   </form>
-
-  <p>Existing Rooms (list will be removed in production):</p>
-  <ul>
-    <%= for room <- @rooms do %>
-      <li>
-        <a href="/<%= room.access_code %>"><%= room.access_code %></a>
-      </li>
-    <% end %>
-  </ul>
-
 </div>

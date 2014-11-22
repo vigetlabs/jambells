@@ -12,4 +12,10 @@ body.home {
   .button.-gold {
     margin-top: 60px;
   }
+
+  .small {
+    color: lighten($color--forest--light, 10%);
+    font-size: 0.8em;
+  }
+
 }

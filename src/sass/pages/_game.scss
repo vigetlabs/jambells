@@ -46,20 +46,17 @@
     @include pseudo;
     background: rgba($color--gold, 0.7);
     height: 12px;
-    left: 0;
     margin-top: -6px;
     top: 50%;
     width: 40%;
   }
 
   &:after {
-    margin-left: 80px;
-    left: 50%;
+    left: 60%;
   }
 
   &:before {
-    margin-right: 80px;
-    right: 50%;
+    right: 60%;
   }
 
   figure {

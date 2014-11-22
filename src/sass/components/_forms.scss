@@ -7,9 +7,9 @@ input[type="submit"] {
   appearance: none;
 }
 
-input[type="text"], 
-input[type="email"], 
-input[type="tel"], 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
 input[type="password"],
 input[type="number"],
 input[type="search"],
@@ -41,4 +41,8 @@ input.room-code {
   height: 76px;
   text-align: center;
   text-transform: uppercase;
+}
+
+select {
+  height: 54px;
 }

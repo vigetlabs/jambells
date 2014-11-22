@@ -6,30 +6,32 @@ var ComputerPlayer = function(bell) {
 ComputerPlayer.prototype = {
   play: function(song, notesToPlay) {
     this.bpm = song.bpm
+    this.miliPerBeat = 60000 / parseFloat(this.bpm)
     this.notesToPlay = notesToPlay
-    this.allNotes = song.notes.reverse()
-    var firstBeatTime = this.miliPerBeat() * 3
+    this.allNotes = song.notes.slice(0)
+    this.allNotes.reverse()
+    var firstBeatTime = this.miliPerBeat * 3
+    var noteTimes = []
 
-    setTimeout(function(){
-      setInterval(this.ringOrIgnore.bind(this), this.miliPerBeat())
-      this.ringOrIgnore()
-    }.bind(this), firstBeatTime)
+    this.allNotes.forEach(function(note, index) {
+      noteTimes.push({ note: note, delay: (firstBeatTime + index * this.miliPerBeat) })
+    }.bind(this))
+
+    noteTimes.forEach(function(noteTime) {
+      setTimeout(this.ringNote(noteTime.note).bind(this), noteTime.delay)
+    }.bind(this))
+
   },
 
-  ringOrIgnore: function() {
-    var currentNote = this.allNotes[this.atNote]
-    if (this.notesToPlay.indexOf(currentNote) !== -1) {
-      this.bell.ring(currentNote.toLowerCase())
+  ringNote: function(note) {
+    return function() {
+      if (this.notesToPlay.indexOf(note) !== -1) {
+        console.log('COMPUTER', note)
+        this.bell.ring(note.toLowerCase())
+      } else if(note !== '') {
+        console.log('PLAYER')
+      }
     }
-    this.atNote += 1
-  },
-
-  miliPerBeat: function() {
-    return 60000 / parseFloat(this.bpm)
-  },
-
-  totalMil: function() {
-    return this.miliPerBeat() * this.song.notes.length
   }
 }
 

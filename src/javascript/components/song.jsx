@@ -6,18 +6,42 @@ var React = require('react')
 var Note  = require('./note')
 
 module.exports = React.createClass({
-  this.state.whatever
+
   getInitialState: function() {
     return {
-      delta: 1
+      intervalsElapsed: 0
     }
   },
 
+  intervalLength: 25,
+
+  beatsPerMili: function() {
+    return parseFloat(this.props.bpm) / 60000
+  },
+
+  miliElapsed: function() {
+    return this.state.intervalsElapsed * this.intervalLength
+  },
+
+  beatsElapsed: function() {
+    return this.miliElapsed() * this.beatsPerMili()
+  },
+
+  beatHeight: 150,
+
+  initialTop: function() {
+    return -(this.beatHeight * this.props.notes.length)
+  },
+
+  top: function() {
+    return this.initialTop() + (this.beatsElapsed() * this.beatHeight)
+  },
+
   componentDidMount: function() {
-    var component = this
     setInterval(function(){
-      component.setState({ delta: this.state.delta + 1 })
-    }, 1000)
+      console.log('hay')
+      this.setState({ intervalsElapsed: this.state.intervalsElapsed + 1 })
+    }.bind(this), this.intervalLength)
   },
 
   renderNotes: function(notes) {
@@ -27,10 +51,8 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var song   = this.props.song
-    var height = 150
-    var style  = {
-      WebkitTransform : 'translateY(' + (-150 * this.state.delta) + 'px)'
+    var style = {
+      WebkitTransform : 'translateY(' + this.top() + 'px)'
     }
 
     return (
@@ -41,7 +63,7 @@ module.exports = React.createClass({
         </header>
         <div className="song-music">
           <ol className="song-notes" style={style}>
-            {this.renderNotes(song.notes)}
+            {this.renderNotes(this.props.notes)}
           </ol>
         </div>
       </main>

@@ -13,5 +13,5 @@ var someSong = {
 }
 
 if (container = document.getElementById('game-page')) {
-  React.renderComponent(<Song song={someSong} />, container)
+  React.renderComponent(<Song bpm={someSong.bpm} notes={someSong.notes.reverse()} />, container)
 }

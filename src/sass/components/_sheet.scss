@@ -51,15 +51,13 @@
       opacity: 0.8;
     }
 
-    &:nth-child(odd) {
-      figure:not(.player-note) {
+    figure:not(.player-note) {
+      left: 10%;
+
+      &.-alt {
         left: auto;
         right: 10%;
       }
-    }
-
-    figure:not(.player-note) {
-      left: 10%;
     }
   }
 }

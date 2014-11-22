@@ -4,6 +4,7 @@ defmodule Room do
   import Ecto.Query, only: [from: 2]
 
   schema "rooms" do
+    field :song,        :string
     field :access_code, :string
     field :active,      :boolean
     has_many :users, User

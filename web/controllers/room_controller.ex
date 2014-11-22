@@ -27,7 +27,11 @@ defmodule DingMyBells.RoomController do
   end
 
   def new(conn, _params) do
-    room = %Room{access_code: randomAccessCode}
+    render conn, "new.html"
+  end
+
+  def create(conn, %{"room" => room_params}) do
+    room = %Room{song: room_params["song"], access_code: randomAccessCode}
     Repo.insert room
 
     redirect conn, room_path(:show, room.access_code)
@@ -48,7 +52,7 @@ defmodule DingMyBells.RoomController do
   defp randomLetter do
     :random.seed(:os.timestamp)
 
-   Enum.shuffle(alphabet) |> List.first
+    Enum.shuffle(alphabet) |> List.first
   end
 
   defp alphabet do

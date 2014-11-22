@@ -3,8 +3,8 @@
 <div id="room-info" data-id="<%= @room.id %>" data-song="<%= @song %>"></div>
 
 <div>Room: <%= @room.name %> (<%= @room.access_code %>)</div>
-Users Present: <span id="users-present">0</span>
-Users Ready: <span id="users-ready">0</span>
+Users Present: <span id="users-present"><%= @present %></span>
+Users Ready: <span id="users-ready"><%= @ready %></span>
 
 <div id="start-game" style="display:none">
   <a href="#">Start the Song!</a>

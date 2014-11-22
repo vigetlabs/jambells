@@ -8,6 +8,7 @@ defmodule Room do
   schema "rooms" do
     field :name,        :string
     field :access_code, :string
+    field :active,      :boolean
     has_many :users, User
   end
 

@@ -8,33 +8,42 @@ defmodule DingMyBells.RoomChannel do
   end
 
   def event(socket, "user:joined", message) do
-    room_id = get_assign(socket, :room_id)
+    if inactive_room(socket) do
+      room_id = get_assign(socket, :room_id)
 
-    user = Repo.insert %User{token: message["user_token"], room_id: room_id}
-    room = Room.find(room_id)
+      user = Repo.insert %User{token: message["user_token"], room_id: room_id}
+      room = Room.find(room_id)
 
-    socket = assign(socket, :user, user)
+      socket = assign(socket, :user, user)
 
-    broadcast_update(socket, room)
+      broadcast_update(socket, room)
+    end
+
     socket
   end
 
   def event(socket, "user:ready", _message) do
-    user = get_assign(socket, :user)
-    user = %{user | ready: true}
+    if inactive_room(socket) do
+      user = get_assign(socket, :user)
+      user = %{user | ready: true}
 
-    Repo.update user
+      Repo.update user
 
-    room = get_assign(socket, :room_id) |> Room.find
+      room = get_assign(socket, :room_id) |> Room.find
 
-    broadcast_update(socket, room)
+      broadcast_update(socket, room)
+    end
+
     socket
   end
 
   def event(socket, "game:start", _message) do
     room = get_assign(socket, :room_id) |> Room.find
 
-    broadcast socket, "game:started", room_info(room)
+    if !room.active do
+      Repo.update %{room | active: true}
+      broadcast socket, "game:started", room_info(room)
+    end
 
     socket
   end
@@ -55,6 +64,10 @@ defmodule DingMyBells.RoomChannel do
     socket
   end
 
+  defp inactive_room(socket) do
+    Room.find(get_assign(socket, :room_id)).active == false
+  end
+
   defp broadcast_update(socket, room) do
     broadcast socket, "room:update", room_info(room)
   end
@@ -62,8 +75,8 @@ defmodule DingMyBells.RoomChannel do
   defp room_info(room) do
     users = room.users.all
 
-    present   = users |> Enum.count
-    ready     = users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
+    present = users |> Enum.count
+    ready   = users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
 
     user_info = users |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end) |> Enum.map(&(&1.token))
 

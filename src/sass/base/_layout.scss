@@ -40,6 +40,7 @@ body {
 
 .wrap {
   @include wrap;
+  z-index: 1;
 }
 
 .thin-wrap {

@@ -18,18 +18,9 @@ Users Ready: <span id="users-ready"><%= @ready %></span>
 
 <a id="ready-button" href="#">I'm Ready</a>
 
-<select id="noteSelection">
-  <option value="a">A</option>
-  <option value="b">B</option>
-  <option value="c" selected="selected">C</option>
-  <option value="d">D</option>
-  <option value="e">E</option>
-  <option value="f">F</option>
-  <option value="g">G</option>
-</select>
+<input id="noteSelection" />
 
 <script src="/js/phoenix.js"></script>
 <script src="/js/jquery.js"></script>
 <script src="/js/ring.js"></script>
-<script src="/js/player.js"></script>
 <script src="/js/game.js"></script>

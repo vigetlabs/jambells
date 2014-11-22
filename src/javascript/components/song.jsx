@@ -46,8 +46,8 @@ module.exports = React.createClass({
 
   renderNotes: function(notes) {
     return notes.map(function(note, index){
-      return <Note note={note} beat={index + 1} />
-    })
+      return <Note note={note} beat={index + 1} playerNote={this.props.playerNote} />
+    }.bind(this))
   },
 
   render: function() {

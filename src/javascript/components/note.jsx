@@ -21,13 +21,18 @@ module.exports = React.createClass({
     })
   },
 
+  noteContent: function() {
+    if (this.props.note === this.props.playerNote) {
+      return <strong className={'type-' + this.props.note}>{this.props.note}</strong>
+    }
+  },
+
   render: function() {
-    var note = this.props.note
     var beat = this.props.beat
 
     return (
-      <li class={'beat-' + beat}>
-        <strong className={'type-' + note}>{note}</strong>
+      <li className={'beat-' + beat}>
+        { this.noteContent() }
       </li>
     )
   }

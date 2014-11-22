@@ -58,7 +58,9 @@ socket.join("room", $("#room-info").data("id").toString(), {}, function(chan){
     $("#game-page").html("Game started, you're player " + (playerNumber + 1))
 
     if (container = document.getElementById('game-page')) {
-      React.renderComponent(<Song bpm={song.bpm} notes={song.notes.reverse()} />, container)
+      React.renderComponent(<Song bpm={song.bpm} notes={song.notes.reverse()} playerNote={song.roles[playerNumber]} />, container)
     }
+
+    $('#noteSelection').val(song.roles[playerNumber].toLowerCase());
   })
 })

@@ -7,4 +7,6 @@ erl_crash.dump
 /lib/ding_my_bells/repo.ex
 node_modules/
 
-/priv/static/*
+/priv/static/css/*
+/priv/static/images/*
+/priv/static/js/*

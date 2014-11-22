@@ -9,22 +9,24 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      intervalsElapsed: 0
+      miliElapsed: 0
     }
   },
-
-  intervalLength: 25,
 
   beatsPerMili: function() {
     return parseFloat(this.props.bpm) / 60000
   },
 
-  miliElapsed: function() {
-    return this.state.intervalsElapsed * this.intervalLength
+  miliPerBeat: function() {
+    return 60000 / parseFloat(this.props.bpm)
   },
 
   beatsElapsed: function() {
-    return this.miliElapsed() * this.beatsPerMili()
+    return this.state.miliElapsed * this.beatsPerMili()
+  },
+
+  totalMil: function() {
+    return this.miliPerBeat() * this.props.notes.length
   },
 
   beatHeight: 150,
@@ -37,11 +39,18 @@ module.exports = React.createClass({
     return this.initialTop() + (this.beatsElapsed() * this.beatHeight)
   },
 
+  step: function(timestamp) {
+    console.log('stepping')
+    if (!this.state.start) this.setState({ start: timestamp })
+    this.setState({ miliElapsed: timestamp - this.state.start })
+    if (this.state.miliElapsed < this.totalMil()) {
+      window.requestAnimationFrame(this.step);
+    }
+  },
+
   componentDidMount: function() {
-    setInterval(function(){
-      console.log('hay')
-      this.setState({ intervalsElapsed: this.state.intervalsElapsed + 1 })
-    }.bind(this), this.intervalLength)
+    this.state.start = null;
+    window.requestAnimationFrame(this.step);
   },
 
   renderNotes: function(notes) {

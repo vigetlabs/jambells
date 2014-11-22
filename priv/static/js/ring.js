@@ -55,20 +55,21 @@ Bell.prototype = {
   notes: function() {
     if (this.memoizedNotes === null) {
       this.memoizedNotes = {
-        a: new Note("/sounds/bell-A.wav"),
-        b: new Note("/sounds/bell-B.wav"),
-        c: new Note("/sounds/bell-C.wav"),
-        d: new Note("/sounds/bell-D.wav"),
-        e: new Note("/sounds/bell-E.wav"),
-        f: new Note("/sounds/bell-F.wav"),
-        g: new Note("/sounds/bell-G.wav")
-        // a: new Note("/sounds/cat-A.wav"),
-        // b: new Note("/sounds/cat-B.wav"),
-        // c: new Note("/sounds/cat-C.wav"),
-        // d: new Note("/sounds/cat-D.wav"),
-        // e: new Note("/sounds/cat-E.wav"),
-        // f: new Note("/sounds/cat-F.wav"),
-        // g: new Note("/sounds/cat-G.wav")
+        c3: new Note("/sounds/bell-C3.wav"),
+        d3: new Note("/sounds/bell-D3.wav"),
+        e3: new Note("/sounds/bell-E3.wav"),
+        f3: new Note("/sounds/bell-F3.wav"),
+        g3: new Note("/sounds/bell-G3.wav"),
+        a3: new Note("/sounds/bell-A3.wav"),
+        b3: new Note("/sounds/bell-B3.wav"),
+        c4: new Note("/sounds/bell-C4.wav"),
+        d4: new Note("/sounds/bell-D4.wav"),
+        e4: new Note("/sounds/bell-E4.wav"),
+        f4: new Note("/sounds/bell-F4.wav"),
+        g4: new Note("/sounds/bell-G4.wav"),
+        a4: new Note("/sounds/bell-A4.wav"),
+        b4: new Note("/sounds/bell-B4.wav"),
+        c5: new Note("/sounds/bell-C5.wav"),
       }
     }
 

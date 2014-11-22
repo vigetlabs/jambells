@@ -18,7 +18,7 @@ defmodule DingMyBells.RoomController do
 
         render conn, "show.html",
           room:    room,
-          song:    Song.jinglebells,
+          song:    Song.song_for(room),
           present: users |> Enum.count,
           ready:   users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
       _ ->

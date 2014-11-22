@@ -41,7 +41,6 @@ module.exports = React.createClass({
   },
 
   step: function(timestamp) {
-    console.log('stepping')
     if (!this.state.start) this.setState({ start: timestamp })
     this.setState({ miliElapsed: timestamp - this.state.start })
     if (this.state.miliElapsed < this.totalMil()) {
@@ -78,17 +77,13 @@ module.exports = React.createClass({
 
     return (
       <main className="song-container">
-        <header className="song-header">
-          <button onClick={this._startGame}>Start</button>
-          <button onClick={this._pauseGame}>Pause</button>
-        </header>
         <div className="song-music">
           <ol className="song-notes" style={style}>
             {this.renderNotes(this.props.notes)}
           </ol>
         </div>
+        <div className="note-target">HIT TARGET</div>
       </main>
     )
   }
-
 })

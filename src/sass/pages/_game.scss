@@ -1,0 +1,21 @@
+.game-page {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#game {
+  // shown with js
+  display: none
+}
+
+.note-target {
+  background: salmon;
+  position: absolute;
+  top: 480px;
+  width: 88%;
+  text-align: center;
+}

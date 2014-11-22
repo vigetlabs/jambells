@@ -1,5 +1,5 @@
 var $    = require('jquery')
-var game = require('./game')
+var Game = require('./game')
 
 require('./preview')
 
@@ -11,8 +11,8 @@ $("#enter-room").submit(function(e) {
 })
 
 // Game page
-var container = document.getElementById('game-page')
+var container = document.getElementById('game')
 
 if (container) {
-  game(container)
+  window.game = new Game(container)
 }

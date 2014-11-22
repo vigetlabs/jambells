@@ -82,7 +82,9 @@ module.exports = React.createClass({
             {this.renderNotes(this.props.notes)}
           </ol>
         </div>
-        <div className="note-target">HIT TARGET</div>
+        <div className="note-target">
+          <span>Ring Now</span>
+        </div>
       </main>
     )
   }

@@ -15,12 +15,14 @@
 
   > li {
     @include row;
-    border-top: 1px solid red;
+    border-top: 1px solid $color--forest--dark;
+    display: table-cell;
     font-size: 40px;
     font-weight: 600;
     height: 20%;
     line-height: 100%;
     text-align: center;
+    vertical-align: middle;
   }
 }
 

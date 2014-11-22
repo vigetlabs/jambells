@@ -12,14 +12,6 @@
   display: none
 }
 
-.note-target {
-  background: salmon;
-  position: absolute;
-  top: 480px;
-  width: 88%;
-  text-align: center;
-}
-
 .room-code-wrap {
   background: $color--forest--dark;
   border-radius: $button-border-radius;
@@ -43,12 +35,21 @@
 
 .note-target {
   background: darken($color--forest--dark, 5%);
-  height: 50px;
+  height: 20%;
   left: 0;
   position: absolute;
-  top: 480px;
-  width: 100%;
   text-align: center;
+  top: 60%;
+  width: 100%;
+
+  span {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    font-size: 40px;
+  }
 }
 
 body.game {

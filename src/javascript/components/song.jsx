@@ -12,7 +12,8 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       miliElapsed : 0,
-      start       : null
+      start       : null,
+      ended       : false
     }
   },
 
@@ -45,6 +46,10 @@ module.exports = React.createClass({
     this.setState({ miliElapsed: timestamp - this.state.start })
     if (this.state.miliElapsed < this.totalMil()) {
       window.requestAnimationFrame(this.step);
+    } else {
+      this.setState({
+        ended : true
+      })
     }
   },
 
@@ -73,6 +78,14 @@ module.exports = React.createClass({
   render: function() {
     var style = {
       WebkitTransform : 'translateY(' + this.top() + 'px)'
+    }
+
+    if (this.state.ended) {
+      return (
+        <main className="song-container">
+          <h2>Song Is Over</h2>
+        </main>
+      )
     }
 
     return (

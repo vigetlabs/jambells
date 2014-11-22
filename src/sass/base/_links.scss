@@ -1,10 +1,11 @@
 a {
-  color: $green;
+  color: $color--gold;
   text-decoration: none;
-}
 
-p {
-  margin: 0 0 1em;
+  &:hover,
+  &:focus {
+    color: $color--gold--dark;
+  }
 }
 
 a:focus,

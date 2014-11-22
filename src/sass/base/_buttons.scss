@@ -1,42 +1,6 @@
 .button {
   @include button;
 
-  // Colors
-  &.-green {
-    @include button(
-      $background-color: $green,
-      $font-color: #fff
-    );
-  }
-
-  &.-red {
-    @include button(
-      $background-color: $red,
-      $font-color: #fff
-    );
-  }
-
-  &.-blue {
-    @include button(
-      $background-color: $blue,
-      $font-color: #fff
-    );
-  }
-
-  &.-orange {
-    @include button(
-      $background-color: $orange,
-      $font-color: #fff
-    );
-  }
-
-  &.-green {
-    @include button(
-      $background-color: $green,
-      $font-color: #fff
-    );
-  }
-
   // Display Types
   &.-block {
     display: block;

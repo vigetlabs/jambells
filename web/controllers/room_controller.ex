@@ -9,6 +9,10 @@ defmodule DingMyBells.RoomController do
     render conn, "index.html", rooms: Repo.all(Room)
   end
 
+  def play(conn, _params) do
+    render conn, "play.html", rooms: Repo.all(Room)
+  end
+
   def show(conn, %{"slug" => slug}) do
     room  = Room.find_by_slug(slug)
 

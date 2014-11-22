@@ -1,9 +1,10 @@
 // Variables
 
-$base-font-size        : 14px;
-$base-line-height      : 18px / $base-font-size;
-$base-font-color       : #4c5e65;
-$base-background-color : #fff;
+$base-font-size        : 18px;
+$large-font-size       : 20px;
+$base-line-height      : 24px / $base-font-size;
+$base-font-color       : #fff;
+$base-background-color : $color--forest;
 
 // Styles
 
@@ -38,4 +39,13 @@ body {
 
 .wrap {
   @include wrap;
+}
+
+.thin-wrap {
+  @include wrap;
+  max-width: 360px;
+
+  &.-center {
+    text-align: center;
+  }
 }

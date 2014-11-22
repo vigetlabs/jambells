@@ -1,0 +1,18 @@
+.global-footer {
+  bottom: 0;
+  left: 0;
+  padding: 20px 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  svg {
+    fill: $color--forest--light;
+    height: 30px;
+    width: 200px;
+  }
+
+  @include bp-desktop {
+    padding: 60px 0;
+  }
+}

@@ -1,6 +1,10 @@
 html, body {
-  @include font-open-sans;
-  font-size: 14px;
+  @include smooth-fonts;
+  font-size: $base-font-size;
+
+  @include bp-desktop {
+    font-size: $large-font-size;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +21,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  line-height: 1.7;
+  line-height: $base-line-height;
+  margin: 0 0 1.8em;
 
   &:last-child {
     margin-bottom: 0;

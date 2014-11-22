@@ -1,0 +1,42 @@
+.global-header {
+  padding: 15px 0;
+  text-align: center;
+
+  .logo {
+    margin: 0;
+  }
+
+  .logo-text,
+  .logo-bells {
+    margin: 0 auto;
+  }
+
+  @include bp-mobile-only {
+    .logo-text {
+      display: none;
+    }
+
+    .logo-bells {
+      height: 43px;
+      width: 60px;
+    }
+  }
+
+  @include bp-tablet {
+    padding: 40px 0;
+    position: relative;
+    margin-bottom: 40px;
+
+    &:before {
+      background: $color--forest--light;
+      bottom: 0px;
+      content: "";
+      display: block;
+      height: 8px;
+      left: 50%;
+      margin-left: -50px;
+      position: absolute;
+      width: 100px;
+    }
+  }
+}

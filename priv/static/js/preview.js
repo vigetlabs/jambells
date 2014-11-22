@@ -9,7 +9,7 @@ var miliPerBeat = 30000 / song_info.bpm
 var index = 0
 
 var playNote = function() {
-  console.log(index)
+  console.log(notes[index])
 
   bell.ring(notes[index].toLowerCase())
 

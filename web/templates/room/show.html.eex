@@ -8,9 +8,7 @@
   </div>
 
   <button id="ready-button" class="button -block -gold">I'm Ready!</button>
-  <div id="start-game" style="display:none">
-    <a href="#">Start the Song!</a>
-  </div>
+  <button id="start-game" href="#" disabled style="display:none" class="button -block -gold">Start the Song!</button>
 
   <input class="hide-text" id="noteSelection" />
 </div>

@@ -16,7 +16,8 @@ var Game = function(container) {
   this.data = this.$lobby.data()
   this.note = this.$noteSelection.val()
   this.bell = new Bell( new AudioContext() )
-  this.computerBell = new ComputerPlayer(this.bell)
+  // TODO: Lawson wants to fix this one day
+  // this.computerBell = new ComputerPlayer(this.bell)
   this.userToken = Math.random().toString(36).substr(2)
   this.gameLeader = false
   this.connect()

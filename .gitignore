@@ -10,3 +10,5 @@ node_modules/
 /priv/static/css/*
 /priv/static/images/*
 /priv/static/js/*
+
+priv/static/sounds/.DS_Store

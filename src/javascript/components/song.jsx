@@ -9,7 +9,9 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      miliElapsed: 0
+      miliElapsed : 0,
+      start       : null,
+      score       : 0
     }
   },
 
@@ -40,16 +42,23 @@ module.exports = React.createClass({
   },
 
   step: function(timestamp) {
-    console.log('stepping')
-    if (!this.state.start) this.setState({ start: timestamp })
-    this.setState({ miliElapsed: timestamp - this.state.start })
+    if (!this.state.start) {
+      this.setState({
+        start      : timestamp,
+        start_time : new Date().getTime()
+      })
+    }
+
+    this.setState({
+      miliElapsed: timestamp - this.state.start
+    })
+
     if (this.state.miliElapsed < this.totalMil()) {
       window.requestAnimationFrame(this.step);
     }
   },
 
   componentDidMount: function() {
-    this.state.start = null;
     window.requestAnimationFrame(this.step);
   },
 
@@ -65,11 +74,7 @@ module.exports = React.createClass({
     }
 
     return (
-      <main className="song-container">
-        <header className="song-header">
-          <button onClick={this._startGame}>Start</button>
-          <button onClick={this._pauseGame}>Pause</button>
-        </header>
+      <main className="song-container" onClick={this.checkScore}>
         <div className="song-music">
           <ol className="song-notes" style={style}>
             {this.renderNotes(this.props.notes)}
@@ -77,6 +82,31 @@ module.exports = React.createClass({
         </div>
       </main>
     )
+  },
+
+  checkScore: function() {
+    var currentTime   = new Date().getTime()
+    var startTime     = this.state.start_time
+    var elapsedTime   = currentTime - startTime
+    var exactNoteTime = 0
+    var shouldLoop    = true
+    var i             = 0
+
+    while (shouldLoop !== false) {
+      exactNoteTime = i * 1000
+
+      if (exactNoteTime > elapsedTime + 200) {
+        shouldLoop = false
+        break
+      }
+
+      if ((exactNoteTime >= elapsedTime - 200) && (exactNoteTime <= elapsedTime + 200)  ) {
+        console.log('Score!!')
+        shouldLoop = false
+      }
+
+      i++
+    }
   }
 
 })

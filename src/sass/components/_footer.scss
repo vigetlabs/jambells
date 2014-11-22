@@ -15,4 +15,8 @@
   @include bp-desktop {
     padding: 60px 0;
   }
+
+  body.game & {
+    display: none;
+  }
 }

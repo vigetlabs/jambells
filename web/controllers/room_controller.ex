@@ -25,6 +25,7 @@ defmodule DingMyBells.RoomController do
         users = room.users.all
 
         render conn, "show.html",
+          className: "game",
           room:    room,
           song:    Song.notes_for(room.song),
           present: users |> Enum.count,

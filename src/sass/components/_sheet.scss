@@ -15,14 +15,22 @@
 
   > li {
     @include row;
+    border-top: 1px solid red;
     font-size: 40px;
     font-weight: 600;
-    height: 150px;
-    line-height: 150px;
+    height: 20%;
+    line-height: 100%;
     text-align: center;
   }
 }
 
 .other-note {
   color: gainsboro;
+}
+
+body.game {
+  .wrap,
+  main {
+    height: 100%;
+  }
 }

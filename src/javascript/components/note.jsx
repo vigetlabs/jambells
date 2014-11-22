@@ -22,10 +22,12 @@ module.exports = React.createClass({
   },
 
   noteContent: function() {
-    if (this.props.note === this.props.playerNote) {
-      return <strong className={'type-' + this.props.note}>{this.props.note}</strong>
+    var note = this.props.note
+
+    if (note === this.props.playerNote) {
+      return <strong className={'type-' + note}>{note}</strong>
     } else {
-      return <span className={'type-' + this.props.note + ' other-note'}>{this.props.note}</span>
+      return <span className={'type-' + note + ' other-note'}>{note}</span>
     }
   },
 

@@ -2,15 +2,17 @@
  * @jsx React.DOM
  */
 
-var React = require('react')
-var Note  = require('./note')
+var React              = require('react')
+var Note               = require('./note')
 var bellMotionDetector = require('../util/bell_motion_detector')
+var $                  = require('jquery')
 
 module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      miliElapsed: 0
+      miliElapsed : 0,
+      start       : null
     }
   },
 
@@ -30,8 +32,6 @@ module.exports = React.createClass({
     return this.miliPerBeat() * this.props.notes.length
   },
 
-  beatHeight: 150,
-
   initialTop: function() {
     return -(this.beatHeight * this.props.notes.length)
   },
@@ -49,7 +49,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    this.state.start = null;
+    this.beatHeight = $('body').height() / 5
     window.requestAnimationFrame(this.step);
 
     if (window.DeviceOrientationEvent) {

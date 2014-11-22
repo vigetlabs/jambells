@@ -7,13 +7,12 @@
     <p>Players Ready: <span id="users-ready"><%= @ready %></span></p>
   </div>
 
+  <button id="ready-button" class="button -block -gold">I'm Ready!</button>
   <div id="start-game" style="display:none">
     <a href="#">Start the Song!</a>
   </div>
 
   <input class="hide-text" id="noteSelection" />
-
-  <button id="ready-button" class="button -block -gold">I'm Ready!</button>
 </div>
 
 <div id="game" class="game-page"></div>

@@ -14,7 +14,7 @@
     <script>try{Typekit.load();}catch(e){}</script>
   </head>
 
-  <body class="<%= @className %>">
+  <body class="<%= @class_name %>">
     <div class="wrap">
       <header class="global-header">
         <h1 class="logo">

@@ -6,15 +6,15 @@ defmodule DingMyBells.RoomController do
   plug :action
 
   def index(conn, _params) do
-    render conn, "index.html", className: "home"
+    render conn, "index.html", class_name: "home"
   end
 
   def play(conn, _params) do
-    render conn, "play.html", className: "play"
+    render conn, "play.html", class_name: "play"
   end
 
   def join(conn, _params) do
-    render conn, "join.html", className: "join", rooms: Repo.all(Room)
+    render conn, "join.html", class_name: "join", rooms: Repo.all(Room)
   end
 
   def show(conn, %{"slug" => slug}) do
@@ -25,7 +25,7 @@ defmodule DingMyBells.RoomController do
         users = room.users.all
 
         render conn, "show.html",
-          className: "game",
+          class_name: "game",
           room:    room,
           song:    Song.notes_for(room.song),
           present: users |> Enum.count,

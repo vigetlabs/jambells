@@ -1,6 +1,6 @@
 defmodule Song do
-  def song_for(room) do
-    case room.song do
+  def notes_for(song_name) do
+    case song_name do
       "jinglebells" ->
         jinglebells
       "deck_the_halls" ->

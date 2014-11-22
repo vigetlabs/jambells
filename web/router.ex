@@ -15,6 +15,9 @@ defmodule DingMyBells.Router do
     get "/:slug",  DingMyBells.RoomController, :show
     post "/rooms", DingMyBells.RoomController, :create
 
+    # testing songs route
+    get "/play/:song", DingMyBells.SongController, :preview
+
     channel "room", DingMyBells.RoomChannel
   end
 end

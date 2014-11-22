@@ -1,0 +1,4 @@
+Previewing <%= pretty(@song_name) %>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/ring.js"></script>

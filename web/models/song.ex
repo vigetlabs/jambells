@@ -2,7 +2,7 @@ defmodule Song do
   def jinglebells do
     json_parse %{
       "name": "Jingle Bells",
-      "bpm": 152,
+      "bpm": 200,
       "measure": "4/4",
       "roles": ["E", "G", "C", "D", "F"],
       "notes": [

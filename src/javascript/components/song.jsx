@@ -4,6 +4,7 @@
 
 var React = require('react')
 var Note  = require('./note')
+var bellMotionDetector = require('../util/bell_motion_detector')
 
 module.exports = React.createClass({
 
@@ -51,6 +52,17 @@ module.exports = React.createClass({
   componentDidMount: function() {
     this.state.start = null;
     window.requestAnimationFrame(this.step);
+
+    if (window.DeviceOrientationEvent) {
+      this.bellMotionDetector = bellMotionDetector(this.props.bell, this.props.playerNote.toLowerCase())
+      window.addEventListener('devicemotion', this.bellMotionDetector, false)
+    }
+  },
+
+  componentDidUnmount: function() {
+    if (window.DeviceOrientationEvent) {
+      window.removeEventListener('devicemotion', this.bellMotionDetector, false)
+    }
   },
 
   renderNotes: function(notes) {

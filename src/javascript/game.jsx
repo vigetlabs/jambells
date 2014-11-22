@@ -1,6 +1,8 @@
 /**
  * @jsx React.DOM
  */
+window.AudioContext = window.AudioContext || window.webkitAudioContext
+
 var React   = window.React = require('react')
 var Song    = require('./components/song')
 var Bell    = require('./lib/Bell')
@@ -56,7 +58,7 @@ module.exports = function(container) {
 
       $("#game-page").html("Game started, you're player " + (playerNumber + 1))
 
-      React.renderComponent(<Song bpm={data.song.bpm} notes={data.song.notes.reverse()} playerNote={data.song.roles[playerNumber]} />, container)
+      React.renderComponent(<Song bpm={data.song.bpm} notes={data.song.notes.reverse()} playerNote={data.song.roles[playerNumber]} bell={ bell } />, container)
     })
   })
 }

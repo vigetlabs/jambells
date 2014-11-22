@@ -1,14 +1,19 @@
-<div id="game-lobby" class="game-page" data-id="<%= @room.id %>" data-song="<%= @song %>">
-  <a href="/">Home</a>
-  <p>Room: <%= @room.access_code %></p>
-  <p>Song: <%= pretty(@room.song) %></p>
-  <p>Users Present: <span id="users-present"><%= @present %></span></p>
-  <p>Users Ready: <span id="users-ready"><%= @ready %></span></p>
-  <a id="ready-button" href="#">I'm Ready</a>
-  <input id="noteSelection" />
+<div id="game-lobby" class="thin-wrap detail-wrap" data-id="<%= @room.id %>" data-song="<%= @song %>">
+  <p>Friends can join by entering the following code on jambells.com</p>
+  <p class="room-code-wrap"><%= @room.access_code %></p>
+  <div class="game-details">
+    <p>Song: <%= pretty(@room.song) %></p>
+    <p>Players Joined: <span id="users-present"><%= @present %></span></p>
+    <p>Players Ready: <span id="users-ready"><%= @ready %></span></p>
+  </div>
+
   <div id="start-game" style="display:none">
     <a href="#">Start the Song!</a>
   </div>
+
+  <input class="hide-text" id="noteSelection" />
+
+  <button id="ready-button" class="button -block -gold">I'm Ready!</button>
 </div>
 
 <div id="game" class="game-page"></div>

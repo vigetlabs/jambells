@@ -8,7 +8,7 @@
         <option value="we_wish_you">We Wish You a Merry Christmas</option>
       </select>
     </div>
-    <button type="submit" class="button -gold -block -large">Start</button>
-    <a href="/play" class="button -block -green -large">Back</a>
+    <button type="submit" class="button -gold -block">Start</button>
+    <a href="/play" class="button -block -green">Back</a>
   </form>
 </div>

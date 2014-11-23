@@ -45,11 +45,8 @@ namespace :deploy do
 
   task :symlink, roles: :web do
     run <<-TASKS
-      cd #{current_path}                                                            &&
-      ln -nsf #{shared_path}/repo.ex      #{release_path}/lib/ding_my_bells/repo.ex &&
-      ln -nsf #{shared_path}/deps         #{release_path}/deps                      &&
-      ln -nsf #{shared_path}/_build       #{release_path}/_build                    &&
-      ln -nsf #{shared_path}/node_modules #{release_path}/node_modules
+      cd #{current_path} &&
+      cp #{shared_path}/repo.ex #{release_path}/lib/ding_my_bells/repo.ex
     TASKS
   end
 

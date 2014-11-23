@@ -13,9 +13,8 @@ set :ssh_options, {:forward_agent => true}
 
 set :normalize_asset_timestamps, false
 set :deploy_via, :remote_cache
-after "deploy:update", "deploy:cleanup"
 
-after "deploy:update", "deploy:build", "deploy:cleanup"
+after "deploy:update", "deploy:prepare"
 
 namespace :assets do
   task :precompile, roles: :web do
@@ -39,16 +38,28 @@ namespace :deploy do
     end
   end
 
-  task :build, roles: :web do
-    # run "cd #{current_path} && mix deps.get && cp ../../gitignored/repo.ex lib/ding_my_bells/repo.ex && MIX_ENV=#{mix_env} mix release"
+  task :prepare, roles: :web do
+    symlink
+    build
+  end
+
+  task :symlink, roles: :web do
     run <<-TASKS
-      cd #{current_path}                                    &&
-      mix deps.get                                          &&
-      cp ../../gitignored/repo.ex lib/ding_my_bells/repo.ex &&
-      cp -r ../../gitignored/node_modules ./node_modules    &&
-      npm install                                           &&
-      cp -r ./node_modules ../../gitignored/node_modules    &&
-      ./node_modules/.bin/gulp build                        &&
+      cd #{current_path}                                                            &&
+      ln -nsf #{shared_path}/repo.ex      #{release_path}/lib/ding_my_bells/repo.ex &&
+      ln -nsf #{shared_path}/deps         #{release_path}/deps                      &&
+      ln -nsf #{shared_path}/_build       #{release_path}/_build                    &&
+      ln -nsf #{shared_path}/node_modules #{release_path}/node_modules
+    TASKS
+  end
+
+  task :build, roles: :web do
+    run <<-TASKS
+      cd #{current_path} &&
+      mix deps.get       &&
+      npm install        &&
+      gulp build         &&
+      gulp compress      &&
       MIX_ENV=#{mix_env} mix release
     TASKS
   end

@@ -5,5 +5,5 @@ set :mix_env, :dev
 set :deploy_to, "/var/www/ding_my_bells"
 
 set :default_environment, {
-  'PATH' => "$PATH:/var/www/src/elixir/bin:/var/www/src/node/.bin/"
+  'PATH' => "$PATH:/var/www/src/elixir/bin"
 }

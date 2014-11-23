@@ -55,11 +55,11 @@ namespace :deploy do
 
   task :build, roles: :web do
     run <<-TASKS
-      cd #{current_path} &&
-      mix deps.get       &&
-      npm install        &&
-      gulp build         &&
-      gulp compress      &&
+      cd #{current_path}                &&
+      mix deps.get                      &&
+      npm install                       &&
+      ./node_modules/.bin/gulp build    &&
+      ./node_modules/.bin/gulp compress &&
       MIX_ENV=#{mix_env} mix release
     TASKS
   end

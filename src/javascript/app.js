@@ -1,7 +1,8 @@
 var $    = require('jquery')
 var Game = require('./game')
 
-require('./preview')
+// js for previewing songs in full
+// require('./preview')
 
 // Index page
 // #TODO Add basic routing

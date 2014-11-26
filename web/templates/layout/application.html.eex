@@ -14,7 +14,7 @@
     <script>try{Typekit.load();}catch(e){}</script>
   </head>
 
-  <body class="<%= @class_name %>">
+  <body class="<%= @class_name %> ef-test-edit">
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-584LVD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

@@ -49,7 +49,6 @@ namespace :deploy do
       cd #{current_path}                                                            &&
       ln -nsf #{shared_path}/repo.ex      #{release_path}/lib/ding_my_bells/repo.ex &&
       ln -nsf #{shared_path}/deps         #{release_path}/deps                      &&
-      cp -r #{shared_path}/_build         #{release_path}/_build                    &&
       ln -nsf #{shared_path}/node_modules #{release_path}/node_modules
     TASKS
   end

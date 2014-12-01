@@ -10,6 +10,8 @@ var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var ComputerPlayer = require('./util/computer_player')
 
+var ringDebounceDelay = false;
+
 var Game = function(container) {
   this.container = container
   this.cacheDom()
@@ -46,7 +48,16 @@ Game.prototype = {
   },
 
   ring: function() {
-    this.bell.ring(this.note)
+    if (!ringDebounceDelay) {
+      ringDebounceDelay = true;
+      setTimeout(function(){
+        ringDebounceDelay = false;
+      }, 100);
+
+      this.bell.ring(this.note)
+    }
+
+    return false
   },
 
   setup: function(chan) {

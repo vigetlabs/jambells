@@ -12,75 +12,12 @@ defmodule Song do
     end
   end
 
-  defp sequence do
-    json_parse %{
-      "name": "Sequence",
-      "bpm": 50,
-      "measure": "4/4",
-      "roles": [],
-      "notes": [
-        "C3",
-        "",
-        "C3s",
-        "",
-        "D3",
-        "",
-        "D3s",
-        "",
-        "E3",
-        "",
-        "F3",
-        "",
-        "F3s",
-        "",
-        "G3",
-        "",
-        "G3s",
-        "",
-        "A3",
-        "",
-        "A3s",
-        "",
-        "B3",
-        "",
-
-        "C4",
-        "",
-        "C4s",
-        "",
-        "D4",
-        "",
-        "D4s",
-        "",
-        "E4",
-        "",
-        "F4",
-        "",
-        "F4s",
-        "",
-        "G4",
-        "",
-        "G4s",
-        "",
-        "A4",
-        "",
-        "A4s",
-        "",
-        "B4",
-        "",
-
-        "C5",
-        ""
-      ]
-    }
-  end
-
   defp jinglebells do
     json_parse %{
       "name": "Jingle Bells",
-      "bpm": 200,
+      "bpm": 300,
       "measure": "4/4",
-      "roles": ["E4", "G4", "C4", "D4", "F4"],
+      "roles": ["E4", "F4", "G4", "D4", "C4"],
       "notes": [
         "E4",
         "",
@@ -217,9 +154,9 @@ defmodule Song do
   defp deck_the_halls do
     json_parse %{
       "name": "Deck the Halls",
-      "bpm": 135,
+      "bpm": 250,
       "measure": "4/4",
-      "roles": ["F3s", "G3", "A3", "B3", "C4", "D4", "E4", "F4s", "G4"],
+      "roles": ["A3", "B3", "G3", "C4", "D4", "E4", "F3s", "F4s", "G4"],
       "notes": [
         "D4",
         "",
@@ -356,9 +293,9 @@ defmodule Song do
   defp we_wish_you do
     json_parse %{
       "name": "We Wish You a Merry Christmas",
-      "bpm": 120,
+      "bpm": 220,
       "measure": "3/4",
-      "roles": ["G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4"],
+      "roles": ["C4", "G3", "D4", "A3", "B3", "E4", "F4", "G4"],
       "notes": [
         "",
         "",
@@ -461,6 +398,69 @@ defmodule Song do
         "",
         "",
         "",
+        ""
+      ]
+    }
+  end
+
+  defp sequence do
+    json_parse %{
+      "name": "Sequence",
+      "bpm": 50,
+      "measure": "4/4",
+      "roles": [],
+      "notes": [
+        "C3",
+        "",
+        "C3s",
+        "",
+        "D3",
+        "",
+        "D3s",
+        "",
+        "E3",
+        "",
+        "F3",
+        "",
+        "F3s",
+        "",
+        "G3",
+        "",
+        "G3s",
+        "",
+        "A3",
+        "",
+        "A3s",
+        "",
+        "B3",
+        "",
+        # octave
+        "C4",
+        "",
+        "C4s",
+        "",
+        "D4",
+        "",
+        "D4s",
+        "",
+        "E4",
+        "",
+        "F4",
+        "",
+        "F4s",
+        "",
+        "G4",
+        "",
+        "G4s",
+        "",
+        "A4",
+        "",
+        "A4s",
+        "",
+        "B4",
+        "",
+        # octave
+        "C5",
         ""
       ]
     }

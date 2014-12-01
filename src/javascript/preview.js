@@ -2,12 +2,12 @@ var $ = require('jquery')
 var Bell = require('./lib/Bell')
 
 var audioContext = new AudioContext()
-var bell = new Bell(audioContext)
+var bell         = new Bell(audioContext)
 
-var song_info   = $("#game-lobby").data("song")
+var song_info   = $("#room-info").data("song")
 
 var notes       = song_info.notes
-var miliPerBeat = 30000 / song_info.bpm
+var miliPerBeat = 60000 / song_info.bpm
 
 var index = 0
 

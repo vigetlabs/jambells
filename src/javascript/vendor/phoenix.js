@@ -225,7 +225,7 @@
       Socket.prototype.onConnClose = function(event) {
         var callback, _i, _len, _ref, _results;
         if (typeof console.log === "function") {
-          console.log("WS close: ", event);
+          // console.log("WS close: ", event);
         }
         clearInterval(this.reconnectTimer);
         clearInterval(this.heartbeatTimer);
@@ -246,7 +246,7 @@
       Socket.prototype.onConnError = function(error) {
         var callback, _i, _len, _ref, _results;
         if (typeof console.log === "function") {
-          console.log("WS error: ", error);
+          // console.log("WS error: ", error);
         }
         _ref = this.stateChangeCallbacks.error;
         _results = [];
@@ -373,7 +373,7 @@
       Socket.prototype.onMessage = function(rawMessage) {
         var chan, channel, event, message, topic, _i, _len, _ref, _ref1, _results;
         if (typeof console.log === "function") {
-          console.log("message received: ", rawMessage);
+          // console.log("message received: ", rawMessage);
         }
         _ref = JSON.parse(rawMessage.data), channel = _ref.channel, topic = _ref.topic, event = _ref.event, message = _ref.message;
         _ref1 = this.channels;

@@ -6,7 +6,7 @@ var React              = require('react')
 var Note               = require('./note')
 var bellMotionDetector = require('../util/bell_motion_detector')
 var $                  = require('jquery')
-var SongStore          = require('../stores/song');
+var SongStore          = require('../stores/song')
 
 module.exports = React.createClass({
 
@@ -65,7 +65,7 @@ module.exports = React.createClass({
   },
 
   componentDidUpdate: function(prevProps, prevState) {
-    if ( this.state.playing ) {
+    if (this.state.playing) {
       window.requestAnimationFrame(this.step)
     } else {
       window.cancelAnimationFrame(this.step)

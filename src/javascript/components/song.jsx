@@ -6,13 +6,16 @@ var React              = require('react')
 var Note               = require('./note')
 var bellMotionDetector = require('../util/bell_motion_detector')
 var $                  = require('jquery')
+var SongStore          = require('../stores/song');
 
 module.exports = React.createClass({
 
   getInitialState: function() {
     return {
       miliElapsed : 0,
-      start       : null,
+      start_time  : null,
+      delta_time  : 0,
+      playing     : false,
       ended       : false
     }
   },
@@ -42,20 +45,42 @@ module.exports = React.createClass({
   },
 
   step: function(timestamp) {
-    if (!this.state.start) this.setState({ start: timestamp })
-    this.setState({ miliElapsed: timestamp - this.state.start })
-    if (this.state.miliElapsed < this.totalMil()) {
-      window.requestAnimationFrame(this.step);
+    this.setState({
+      miliElapsed: timestamp - this.state.delta_time
+    })
+
+    if (this.state.miliElapsed < this.totalMil() ) {
+      window.requestAnimationFrame(this.step)
     } else {
       this.setState({
-        ended : true
+        playing : false,
+        ended   : true
       })
     }
   },
 
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.playing && ! prevState.playing) {
+      window.requestAnimationFrame(this.step)
+    } else if ( ! this.state.playing ) {
+      window.cancelAnimationFrame(this.step)
+    }
+  },
+
+  onChange: function() {
+    this.setState({
+      playing : SongStore.get('playing')
+    })
+  },
+
   componentDidMount: function() {
+    SongStore.on('change', this.onChange)
+
     this.beatHeight = $('body').height() / 5
-    window.requestAnimationFrame(this.step);
+
+    this.setState({
+      start_time : new Date
+    })
 
     if (window.DeviceOrientationEvent) {
       this.bellMotionDetector = bellMotionDetector(this.props.bell, this.props.playerNote.toLowerCase())
@@ -76,20 +101,24 @@ module.exports = React.createClass({
     }.bind(this))
   },
 
+  renderCompleted: function() {
+    return (
+      <main className="song-container">
+        <div className="song-ended">
+          <h2>Nice Playing!</h2>
+          <a href="/" className="button -gold -large">Back to Home</a>
+        </div>
+      </main>
+    )
+  },
+
   render: function() {
+    if ( ! this.state.playing && ! this.state.ended) return false
+
+    if (this.state.ended) return this.renderCompleted()
+
     var style = {
       WebkitTransform : 'translateY(' + this.top() + 'px)'
-    }
-
-    if (this.state.ended) {
-      return (
-        <main className="song-container">
-          <div className="song-ended">
-            <h2>Nice Playing!</h2>
-            <a href="/" className="button -gold -large">Back to Home</a>
-          </div>
-        </main>
-      )
     }
 
     return (

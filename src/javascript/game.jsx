@@ -9,6 +9,7 @@ var Bell           = require('./lib/Bell')
 var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var ComputerPlayer = require('./util/computer_player')
+var SongActions    = require('./actions/song')
 
 var ringDebounceDelay = false;
 
@@ -21,10 +22,15 @@ var Game = function(container) {
   this.computerBell = new ComputerPlayer(this.bell)
   this.userToken = Math.random().toString(36).substr(2)
   this.gameLeader = false
+  this.attachSong();
   this.connect()
 }
 
 Game.prototype = {
+  attachSong: function() {
+    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes.reverse()} playerNote={this.data.song.roles[playerNumber]} bell={ this.bell } />, this.container)
+  },
+
   connect: function() {
     var socket = new Phoenix.Socket("ws://" + location.host + "/ws");
     socket.join("room", this.data.id.toString(), {}, this.setup.bind(this))
@@ -82,7 +88,7 @@ Game.prototype = {
     playerNumber = message.user_info.indexOf(this.userToken)
     this.$lobby.hide()
     this.$game.show()
-    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes.reverse()} playerNote={this.data.song.roles[playerNumber]} bell={ this.bell } />, this.container)
+    GameActions.play();
 
     if (this.gameLeader && this.ready < this.data.song.roles.length) {
       var unassignedNotes = this.data.song.roles.slice(this.ready)

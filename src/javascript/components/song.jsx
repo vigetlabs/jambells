@@ -15,6 +15,7 @@ module.exports = React.createClass({
       miliElapsed : 0,
       start_time  : null,
       delta_time  : 0,
+      player_note : null,
       playing     : false,
       ended       : false
     }
@@ -45,13 +46,17 @@ module.exports = React.createClass({
   },
 
   step: function(timestamp) {
+    if ( ! this.state.start_time) {
+      this.setState({
+        start_time : timestamp
+      })
+    }
+
     this.setState({
-      miliElapsed: timestamp - this.state.delta_time
+      miliElapsed: timestamp - this.state.start_time
     })
 
-    if (this.state.miliElapsed < this.totalMil() ) {
-      window.requestAnimationFrame(this.step)
-    } else {
+    if (this.state.miliElapsed > this.totalMil() ) {
       this.setState({
         playing : false,
         ended   : true
@@ -60,44 +65,29 @@ module.exports = React.createClass({
   },
 
   componentDidUpdate: function(prevProps, prevState) {
-    if (this.state.playing && ! prevState.playing) {
+    if ( this.state.playing ) {
       window.requestAnimationFrame(this.step)
-    } else if ( ! this.state.playing ) {
+    } else {
       window.cancelAnimationFrame(this.step)
     }
   },
 
   onChange: function() {
     this.setState({
-      playing : SongStore.get('playing')
+      playing     : SongStore.get('playing'),
+      player_note : this.props.playerNotes[SongStore.get('player_note')]
     })
   },
 
   componentDidMount: function() {
-    SongStore.on('change', this.onChange)
+    SongStore.on('change', this.onChange.bind(this))
 
     this.beatHeight = $('body').height() / 5
-
-    this.setState({
-      start_time : new Date
-    })
-
-    if (window.DeviceOrientationEvent) {
-      this.bellMotionDetector = bellMotionDetector(this.props.bell, this.props.playerNote.toLowerCase())
-      window.addEventListener('devicemotion', this.bellMotionDetector, false)
-    }
-  },
-
-  componentDidUnmount: function() {
-    if (window.DeviceOrientationEvent) {
-      window.removeEventListener('devicemotion', this.bellMotionDetector, false)
-    }
   },
 
   renderNotes: function(notes) {
     return notes.map(function(note, index){
-
-      return <Note alt={index % 2 ? true : false} note={note} beat={index + 1} playerNote={this.props.playerNote} />
+      return <Note alt={index % 2 ? true : false} note={note} beat={index + 1} playerNote={this.state.player_note} />
     }.bind(this))
   },
 
@@ -113,9 +103,9 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    if ( ! this.state.playing && ! this.state.ended) return false
-
     if (this.state.ended) return this.renderCompleted()
+
+    if ( ! this.state.playing) return <noscript />
 
     var style = {
       WebkitTransform : 'translateY(' + this.top() + 'px)'

@@ -22,18 +22,13 @@ module.exports = React.createClass({
   },
 
   noteContent: function() {
-    var note = this.props.note
+    var note       = this.props.note
+    var typeOfNote = note === this.props.playerNote ? 'player-note' : 'other-note'
+    var className  = 'type-' + note + ' ' + typeOfNote + (this.props.alt ? ' -alt' : '');
 
-    if (note === this.props.playerNote) {
+    if (note) {
       return (
-        <figure className={'type-' + note + ' player-note' + (this.props.alt ? ' -alt' : '')}>
-          <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="0" height="0" alt="" />
-          <span>{note}</span>
-        </figure>
-      )
-    } else if (note) {
-      return (
-        <figure className={'type-' + note + ' other-note' + (this.props.alt ? ' -alt' : '')}>
+        <figure className={className}>
           <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="0" height="0" alt="" />
           <span>{note}</span>
         </figure>

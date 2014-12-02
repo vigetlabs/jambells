@@ -13,7 +13,7 @@ if (song_info) {
   var index = 0
 
   var playNote = function() {
-    console.log(notes[index])
+    // console.log(notes[index])
 
     bell.ring(notes[index].toLowerCase())
 
@@ -22,7 +22,7 @@ if (song_info) {
     if (index < notes.length) {
       setTimeout(playNote, miliPerBeat)
     } else {
-      console.log("Song over")
+      // console.log("Song over")
     }
   }
 

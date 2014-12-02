@@ -6,13 +6,17 @@ var React              = require('react')
 var Note               = require('./note')
 var bellMotionDetector = require('../util/bell_motion_detector')
 var $                  = require('jquery')
+var SongStore          = require('../stores/song')
 
 module.exports = React.createClass({
 
   getInitialState: function() {
     return {
       miliElapsed : 0,
-      start       : null,
+      start_time  : null,
+      delta_time  : 0,
+      player_note : null,
+      playing     : false,
       ended       : false
     }
   },
@@ -42,54 +46,69 @@ module.exports = React.createClass({
   },
 
   step: function(timestamp) {
-    if (!this.state.start) this.setState({ start: timestamp })
-    this.setState({ miliElapsed: timestamp - this.state.start })
-    if (this.state.miliElapsed < this.totalMil()) {
-      window.requestAnimationFrame(this.step);
-    } else {
+    if ( ! this.state.start_time) {
       this.setState({
-        ended : true
+        start_time : timestamp
+      })
+    }
+
+    this.setState({
+      miliElapsed: timestamp - this.state.start_time
+    })
+
+    if (this.state.miliElapsed > this.totalMil() ) {
+      this.setState({
+        playing : false,
+        ended   : true
       })
     }
   },
 
-  componentDidMount: function() {
-    this.beatHeight = $('body').height() / 5
-    window.requestAnimationFrame(this.step);
-
-    if (window.DeviceOrientationEvent) {
-      this.bellMotionDetector = bellMotionDetector(this.props.bell, this.props.playerNote.toLowerCase())
-      window.addEventListener('devicemotion', this.bellMotionDetector, false)
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.playing) {
+      window.requestAnimationFrame(this.step)
+    } else {
+      window.cancelAnimationFrame(this.step)
     }
   },
 
-  componentDidUnmount: function() {
-    if (window.DeviceOrientationEvent) {
-      window.removeEventListener('devicemotion', this.bellMotionDetector, false)
-    }
+  onChange: function() {
+    this.setState({
+      playing     : SongStore.get('playing'),
+      player_note : this.props.playerNotes[SongStore.get('player_note')]
+    })
+  },
+
+  componentDidMount: function() {
+    SongStore.on('change', this.onChange.bind(this))
+
+    this.beatHeight = $('body').height() / 5
   },
 
   renderNotes: function(notes) {
     return notes.map(function(note, index){
-
-      return <Note alt={index % 2 ? true : false} note={note} beat={index + 1} playerNote={this.props.playerNote} />
+      return <Note alt={index % 2 ? true : false} note={note} beat={index + 1} playerNote={this.state.player_note} />
     }.bind(this))
   },
 
+  renderCompleted: function() {
+    return (
+      <main className="song-container">
+        <div className="song-ended">
+          <h2>Nice Playing!</h2>
+          <a href="/" className="button -gold -large">Back to Home</a>
+        </div>
+      </main>
+    )
+  },
+
   render: function() {
+    if (this.state.ended) return this.renderCompleted()
+
+    if ( ! this.state.playing) return <noscript />
+
     var style = {
       WebkitTransform : 'translateY(' + this.top() + 'px)'
-    }
-
-    if (this.state.ended) {
-      return (
-        <main className="song-container">
-          <div className="song-ended">
-            <h2>Nice Playing!</h2>
-            <a href="/" className="button -gold -large">Back to Home</a>
-          </div>
-        </main>
-      )
     }
 
     return (

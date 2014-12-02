@@ -28,7 +28,7 @@ var Game = function(container) {
 
 Game.prototype = {
   attachSong: function() {
-    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes.reverse()} playerNote={this.data.song.roles[playerNumber]} bell={ this.bell } />, this.container)
+    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes.reverse()} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
   },
 
   connect: function() {
@@ -47,7 +47,7 @@ Game.prototype = {
   },
 
   start: function(e) {
-    if(this.$startButton.not(':disabled')) {
+    if (this.$startButton.not(':disabled')) {
       e.preventDefault()
       this.chan.send("game:start", {})
     }
@@ -85,10 +85,10 @@ Game.prototype = {
   },
 
   renderGame: function(message) {
-    playerNumber = message.user_info.indexOf(this.userToken)
     this.$lobby.hide()
     this.$game.show()
-    GameActions.play();
+    SongActions.play();
+    SongActions.setPlayerNote(message.user_info.indexOf(this.userToken))
 
     if (this.gameLeader && this.ready < this.data.song.roles.length) {
       var unassignedNotes = this.data.song.roles.slice(this.ready)
@@ -98,8 +98,8 @@ Game.prototype = {
 
   renderRoomInfo: function(message) {
     // any time a user joins or leaves you get this message
-    present         = message.users_present
-    userInfo        = message.user_info
+    var present     = message.users_present
+    var userInfo    = message.user_info
     this.ready      = message.users_ready
     this.gameLeader = userInfo[0] == this.userToken
 

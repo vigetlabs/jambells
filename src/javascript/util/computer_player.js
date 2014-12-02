@@ -26,10 +26,10 @@ ComputerPlayer.prototype = {
   ringNote: function(note) {
     return function() {
       if (this.notesToPlay.indexOf(note) !== -1) {
-        console.log('COMPUTER', note)
+        // console.log('COMPUTER', note)
         this.bell.ring(note.toLowerCase())
-      } else if(note !== '') {
-        console.log('PLAYER')
+      } else if (note !== '') {
+        // console.log('PLAYER')
       }
     }
   }

@@ -88,8 +88,7 @@ Game.prototype = {
     this.$lobby.hide()
     this.$game.show()
 
-    SongActions.play()
-    SongActions.setPlayerNote(message.user_info.indexOf(this.userToken))
+    SongActions.play(message.user_info.indexOf(this.userToken))
 
     if (this.gameLeader && this.ready < this.data.song.roles.length) {
       var unassignedNotes = this.data.song.roles.slice(this.ready)

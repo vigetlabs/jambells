@@ -1,32 +1,30 @@
 var $ = require('jquery')
-var Bell = require('./lib/Bell')
 
-var audioContext = new AudioContext()
-var bell         = new Bell(audioContext)
+var song_info = $("#room-info").data("song")
 
-var song_info   = $("#room-info").data("song")
+if (song_info != undefined) {
+  var Bell = require('./lib/Bell')
 
-var notes       = song_info.notes
-var miliPerBeat = 60000 / song_info.bpm
+  var audioContext = new AudioContext()
+  var bell         = new Bell(audioContext)
 
-var index = 0
+  var notes       = song_info.notes
+  var miliPerBeat = 60000 / song_info.bpm
 
-var playNote = function() {
-  console.log(notes[index])
+  var index = 0
 
-  bell.ring(notes[index].toLowerCase())
+  var playNotes = function() {
+    notes.forEach(function(note_info){
+      var note  = note_info.note.toLowerCase()
+      var delay = note_info.milliseconds_from_start
 
-  index++
-
-  if (index < notes.length) {
-    setTimeout(playNote, miliPerBeat)
-  } else {
-    console.log("Song over")
+      setTimeout(function(){bell.ring(note)}, delay)
+    })
   }
+
+  $("#preview-play").click(function(e) {
+    e.preventDefault()
+
+    playNotes()
+  })
 }
-
-$("#preview-play").click(function(e) {
-  e.preventDefault()
-
-  playNote()
-})

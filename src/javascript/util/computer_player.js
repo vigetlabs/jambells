@@ -5,11 +5,12 @@ var ComputerPlayer = function(bell) {
 
 ComputerPlayer.prototype = {
   play: function(song, notesToPlay) {
-    this.bpm = song.bpm
+    this.bpm         = song.bpm
     this.miliPerBeat = 60000 / parseFloat(this.bpm)
     this.notesToPlay = notesToPlay
-    this.allNotes = song.notes.slice(0)
+    this.allNotes    = song.notes.slice(0)
     this.allNotes.reverse()
+
     var firstBeatTime = this.miliPerBeat * 4
     var noteTimes = []
 

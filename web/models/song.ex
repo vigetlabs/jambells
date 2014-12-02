@@ -15,138 +15,214 @@ defmodule Song do
   defp jinglebells do
     json_parse %{
       "name": "Jingle Bells",
-      "bpm": 300,
+      "bpm": 150,
       "measure": "4/4",
       "roles": ["E4", "F4", "G4", "D4", "C4"],
       "notes": [
-        "E4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "",
-        "",
-        "E4",
-        "",
-        "G4",
-        "",
-        "C4",
-        "",
-        "",
-        "D4",
-        "E4",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "F4",
-        "",
-        "F4",
-        "",
-        "F4",
-        "",
-        "",
-        "F4",
-        "F4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "E4",
-        "E4",
-        "",
-        "D4",
-        "",
-        "D4",
-        "",
-        "E4",
-        "",
-        "D4",
-        "",
-        "",
-        "",
-        "G4",
-        "",
-        "",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "",
-        "",
-        "E4",
-        "",
-        "G4",
-        "",
-        "C4",
-        "",
-        "",
-        "D4",
-        "E4",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "F4",
-        "",
-        "F4",
-        "",
-        "F4",
-        "",
-        "F4",
-        "",
-        "F4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "",
-        "E4",
-        "E4",
-        "G4",
-        "",
-        "G4",
-        "",
-        "F4",
-        "",
-        "D4",
-        "",
-        "C4",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 0
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 480
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 960
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 1920
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 2400
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 2880
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 3840
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 4320
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 4800
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 5520
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 5760
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 7680
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 8160
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 8640
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 9360
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 9600
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 10080
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 10560
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 11040
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 11280
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 11520
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 12000
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 12480
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 12960
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 13440
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 14400
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 15360
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 15840
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 16320
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 17280
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 17760
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 18240
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 19200
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 19680
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 20160
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 20880
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 21120
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 23040
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 23520
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 24000
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 24480
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 24960
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 25440
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 25920
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 26400
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 26640
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 26880
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 27360
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 27840
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 28320
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 28800
+        }
       ]
     }
   end
@@ -154,138 +230,282 @@ defmodule Song do
   defp deck_the_halls do
     json_parse %{
       "name": "Deck the Halls",
-      "bpm": 250,
+      "bpm": 125,
       "measure": "4/4",
       "roles": ["A3", "B3", "G3", "C4", "D4", "E4", "F3s", "F4s", "G4"],
       "notes": [
-        "D4",
-        "",
-        "",
-        "C4",
-        "B3",
-        "",
-        "A3",
-        "",
-        "G3",
-        "",
-        "A3",
-        "",
-        "B3",
-        "",
-        "G3",
-        "",
-        "A3",
-        "B3",
-        "C4",
-        "A3",
-        "B3",
-        "",
-        "",
-        "A3",
-        "G3",
-        "",
-        "F3s",
-        "",
-        "G3",
-        "",
-        "",
-        "",
-        "D4",
-        "",
-        "",
-        "C4",
-        "B3",
-        "",
-        "A3",
-        "",
-        "G3",
-        "",
-        "A3",
-        "",
-        "B3",
-        "",
-        "G3",
-        "",
-        "A3",
-        "B3",
-        "C4",
-        "A3",
-        "B3",
-        "",
-        "",
-        "A3",
-        "G3",
-        "",
-        "F3s",
-        "",
-        "G3",
-        "",
-        "",
-        "",
-        "A3",
-        "",
-        "",
-        "B3",
-        "C4",
-        "",
-        "A3",
-        "",
-        "B3",
-        "",
-        "",
-        "C4",
-        "D4",
-        "",
-        "A3",
-        "",
-        "B3",
-        "C4",
-        "D4",
-        "",
-        "E4",
-        "F4s",
-        "G4",
-        "",
-        "F4s",
-        "",
-        "E4",
-        "",
-        "D4",
-        "",
-        "",
-        "",
-        "D4",
-        "",
-        "",
-        "C4",
-        "B3",
-        "",
-        "A3",
-        "",
-        "G3",
-        "",
-        "A3",
-        "",
-        "B3",
-        "",
-        "G3",
-        "",
-        "E4",
-        "E4",
-        "E4",
-        "E4",
-        "D4",
-        "",
-        "",
-        "C4",
-        "B3",
-        "",
-        "A3",
-        "",
-        "G3",
-        "",
-        "",
-        ""
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 0
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 720
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 960
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 1440
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 1920
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 2400
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 2880
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 3360
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 3840
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 4080
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 4320
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 4560
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 4800
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 5520
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 5760
+        },
+        %{
+          "note": "F3s",
+          "milliseconds_from_start": 6240
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 6720
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 7680
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 8400
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 8640
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 9120
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 9600
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 10080
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 10560
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 11040
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 11520
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 11760
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 12000
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 12240
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 12480
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 13200
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 13440
+        },
+        %{
+          "note": "F3s",
+          "milliseconds_from_start": 13920
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 14400
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 15360
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 16080
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 16320
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 16800
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 17280
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 18000
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 18240
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 18720
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 19200
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 19440
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 19680
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 20160
+        },
+        %{
+          "note": "F4s",
+          "milliseconds_from_start": 20400
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 20640
+        },
+        %{
+          "note": "F4s",
+          "milliseconds_from_start": 21120
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 21600
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 22080
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 23040
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 23760
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 24000
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 24480
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 24960
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 25440
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 25920
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 26400
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 26880
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 27120
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 27360
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 27600
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 27840
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 28560
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 28800
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 29280
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 29760
+        }
       ]
     }
   end
@@ -293,112 +513,218 @@ defmodule Song do
   defp we_wish_you do
     json_parse %{
       "name": "We Wish You a Merry Christmas",
-      "bpm": 220,
+      "bpm": 110,
       "measure": "3/4",
       "roles": ["C4", "G3", "D4", "A3", "B3", "E4", "F4", "G4"],
       "notes": [
-        "",
-        "",
-        "",
-        "",
-        "G3",
-        "",
-        "C4",
-        "",
-        "C4",
-        "D4",
-        "C4",
-        "B3",
-        "A3",
-        "",
-        "A3",
-        "",
-        "A3",
-        "",
-        "D4",
-        "",
-        "D4",
-        "E4",
-        "D4",
-        "C4",
-        "B3",
-        "",
-        "G3",
-        "",
-        "G3",
-        "",
-        "E4",
-        "",
-        "E4",
-        "F4",
-        "E4",
-        "D4",
-        "C4",
-        "",
-        "A3",
-        "",
-        "G3",
-        "G3",
-        "A3",
-        "",
-        "D4",
-        "",
-        "B3",
-        "",
-        "C4",
-        "",
-        "",
-        "",
-        "G3",
-        "",
-        "C4",
-        "",
-        "C4",
-        "",
-        "C4",
-        "",
-        "B3",
-        "",
-        "",
-        "",
-        "B3",
-        "",
-        "C4",
-        "",
-        "B3",
-        "",
-        "A3",
-        "",
-        "G3",
-        "",
-        "",
-        "",
-        "D4",
-        "",
-        "E4",
-        "",
-        "D4",
-        "",
-        "C4",
-        "",
-        "G4",
-        "",
-        "G3",
-        "",
-        "G3",
-        "G3",
-        "A3",
-        "",
-        "D4",
-        "",
-        "B3",
-        "",
-        "C4",
-        "",
-        "",
-        "",
-        "",
-        ""
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 960
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 1440
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 1920
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 2160
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 2400
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 2640
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 2880
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 3360
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 3840
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 4320
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 4800
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 5040
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 5280
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 5520
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 5760
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 6240
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 6720
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 7200
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 7680
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 7920
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 8160
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 8400
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 8640
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 9120
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 9600
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 9840
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 10080
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 10560
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 11040
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 11520
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 12480
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 12960
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 13440
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 13920
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 14400
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 15360
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 15840
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 16320
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 16800
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 17280
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 18240
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 18720
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 19200
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 19680
+        },
+        %{
+          "note": "G4",
+          "milliseconds_from_start": 20160
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 20640
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 21120
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 21360
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 21600
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 22080
+        },
+        %{
+          "note": "B3",
+          "milliseconds_from_start": 22560
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 23040
+        }
       ]
     }
   end

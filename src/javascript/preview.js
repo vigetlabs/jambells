@@ -1,30 +1,35 @@
-var $ = require('jquery')
+var Bell         = require('./lib/Bell')
+var audioContext = new AudioContext()
 
-var song_info = $("#room-info").data("song")
+var Preview = function(el) {
+  this.el      = el
+  this.preview = document.querySelector('#preview-play')
+  this.bell    = new Bell(audioContext)
+  this.song    = JSON.parse(this.el.getAttribute('data-song'))
+  this.notes   = this.song.notes
+  this.bindEvents()
+};
 
-if (song_info != undefined) {
-  var Bell = require('./lib/Bell')
+Preview.prototype = {
+  bindEvents: function() {
+    this.preview.addEventListener('click', this.playNotes.bind(this))
+  },
 
-  var audioContext = new AudioContext()
-  var bell         = new Bell(audioContext)
-
-  var notes       = song_info.notes
-  var miliPerBeat = 60000 / song_info.bpm
-
-  var index = 0
-
-  var playNotes = function() {
-    notes.forEach(function(note_info){
+  playNotes: function() {
+    this.notes.forEach(function(note_info){
       var note  = note_info.note.toLowerCase()
       var delay = note_info.milliseconds_from_start
 
-      setTimeout(function(){bell.ring(note)}, delay)
-    })
+      setTimeout(this.ringBellNote(note).bind(this), delay)
+    }.bind(this))
+  },
+
+  ringBellNote: function(note) {
+    return function() {
+      console.log('Play', note)
+      this.bell.ring(note)
+    }.bind(this)
   }
-
-  $("#preview-play").click(function(e) {
-    e.preventDefault()
-
-    playNotes()
-  })
 }
+
+module.exports = Preview

@@ -1,14 +1,17 @@
-var $    = require('jquery')
-var Game = require('./game')
+var $       = require('jquery')
+var Game    = require('./game')
+var Preview = require('./preview')
 
 // js for previewing songs in full
-require('./preview')
+var previewNode = document.querySelector('#room-info')
+
+if (previewNode) new Preview(previewNode)
 
 // Index page
 // #TODO Add basic routing
-$("#enter-room").submit(function(e) {
+$('#enter-room').submit(function(e) {
   e.preventDefault()
-  window.location = "/" + $("#room-code").val()
+  window.location = '/' + $('#room-code').val()
 })
 
 // Game page

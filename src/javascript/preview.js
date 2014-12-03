@@ -1,61 +1,35 @@
-// Fix this if anyone cares at some point...
-// #TODO - i broke this. Love, Dan
+var Bell         = require('./lib/Bell')
+var audioContext = new AudioContext()
 
-// var $ = require('jquery')
+var Preview = function(el) {
+  this.el      = el
+  this.preview = document.querySelector('#preview-play')
+  this.bell    = new Bell(audioContext)
+  this.song    = JSON.parse(this.el.getAttribute('data-song'))
+  this.notes   = this.song.notes
+  this.bindEvents()
+};
 
-// var song_info = $("#room-info").data("song")
+Preview.prototype = {
+  bindEvents: function() {
+    this.preview.addEventListener('click', this.playNotes.bind(this))
+  },
 
-// if (song_info != undefined) {
-//   var Bell = require('./lib/Bell')
+  playNotes: function() {
+    this.notes.forEach(function(note_info){
+      var note  = note_info.note.toLowerCase()
+      var delay = note_info.milliseconds_from_start
 
-// <<<<<<< HEAD
-// if (song_info) {
-//   var notes       = song_info.notes
-//   var miliPerBeat = 60000 / song_info.bpm
+      setTimeout(this.ringBellNote(note).bind(this), delay)
+    }.bind(this))
+  },
 
-//   var index = 0
+  ringBellNote: function(note) {
+    return function() {
+      console.log('Play', note)
+      this.bell.ring(note)
+    }.bind(this)
+  }
+}
 
-//   var playNote = function() {
-//     console.log(notes[index])
-
-//     bell.ring(notes[index].toLowerCase())
-
-//     index++
-
-//     if (index < notes.length) {
-//       setTimeout(playNote, miliPerBeat)
-//     } else {
-//       console.log("Song over")
-//     }
-// =======
-//   var audioContext = new AudioContext()
-//   var bell         = new Bell(audioContext)
-
-//   var notes       = song_info.notes
-//   var miliPerBeat = 60000 / song_info.bpm
-
-//   var index = 0
-
-//   var playNotes = function() {
-//     notes.forEach(function(note_info){
-//       var note  = note_info.note.toLowerCase()
-//       var delay = note_info.milliseconds_from_start
-
-//       setTimeout(function(){bell.ring(note)}, delay)
-//     })
-// >>>>>>> Converted existing songs to new song format
-//   }
-
-//   $("#preview-play").click(function(e) {
-//     e.preventDefault()
-// <<<<<<< HEAD
-
-//     playNote()
-//   })
-
-// =======
-
-//     playNotes()
-//   })
-// >>>>>>> Converted existing songs to new song format
-// }
+module.exports = Preview

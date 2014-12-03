@@ -11,12 +11,16 @@
   @include fill;
 
   > li {
-    @include row;
+    border: 1px solid red;
     font-size: 40px;
     font-weight: 600;
     height: 20%;
+    left: 0;
     line-height: 100%;
+    position: absolute;
     text-align: center;
+    top: 0;
+    width: 100%;
 
     figure.player-note ,
     figure.other-note  {

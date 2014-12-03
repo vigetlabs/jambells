@@ -1,4 +1,6 @@
-var Bell         = require('./lib/Bell')
+var $ = require('jquery')
+var Bell = require('./lib/HandBell')
+// #TODO - i broke this. Love, Dan
 var audioContext = new AudioContext()
 var bell         = new Bell(audioContext)
 

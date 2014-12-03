@@ -22,11 +22,11 @@ module.exports = React.createClass({
   },
 
   percentageOffset: function() {
-    return (this.props.difference / this.props.timeWindowInMilliseconds) * 100
+    return (this.props.difference / this.props.timeWindowInMilliseconds ) * 100
   },
 
   top: function() {
-    return this.props.beatOffset - this.percentageOffset()
+    return -this.percentageOffset() // - this.props.beatOffset
   },
 
   noteContent: function() {

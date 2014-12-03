@@ -10,15 +10,17 @@ var SongStore          = require('../stores/song')
 
 module.exports = React.createClass({
 
+  BEGINNING_SONG_BUFFER : 2000,
+  ENDING_SONG_BUFFER    : 2000,
+  TIME_WINDOW_IN_MS     : 3000,
+
   getInitialState: function() {
     return {
-      beat_offset                 : 80, // Percentage
       ended                       : false,
       milliseconds_elapsed        : 0,
       player_note                 : null,
       playing                     : false,
-      start_time                  : null,
-      time_window_in_milliseconds : 5000
+      start_time                  : null
     }
   },
 
@@ -37,7 +39,8 @@ module.exports = React.createClass({
       milliseconds_elapsed: timestamp - this.state.start_time
     })
 
-    if (this.state.milliseconds_elapsed > this.songLength() ) {
+    // Song has ended
+    if (this.state.milliseconds_elapsed > this.songLength() + this.ENDING_SONG_BUFFER) {
       this.setState({
         playing : false,
         ended   : true
@@ -68,21 +71,22 @@ module.exports = React.createClass({
     var difference
     var note
     var delay
+    var viewable
 
     return notes.map(function(note_info, index){
       note       = note_info.note.toLowerCase()
       delay      = note_info.milliseconds_from_start
       difference = delay - this.state.milliseconds_elapsed
+      viewable   = difference > -this.TIME_WINDOW_IN_MS * 0.8 && difference < this.TIME_WINDOW_IN_MS * 0.2
 
-      if (difference > -1000 && difference < 4000) {
+      if (viewable) {
         return (
           <Note alt={index % 2 ? true : false}
                 beat={index + 1}
-                beatOffset={this.state.beat_offset}
                 difference={difference}
                 note={note}
                 playerNote={this.state.player_note}
-                timeWindowInMilliseconds={this.state.time_window_in_milliseconds} />
+                timeWindowInMilliseconds={this.TIME_WINDOW_IN_MS} />
         )
       }
 

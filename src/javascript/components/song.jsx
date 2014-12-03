@@ -12,37 +12,18 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      miliElapsed : 0,
-      start_time  : null,
-      delta_time  : 0,
-      player_note : null,
-      playing     : false,
-      ended       : false
+      beat_offset                 : 80, // Percentage
+      ended                       : false,
+      milliseconds_elapsed        : 0,
+      player_note                 : null,
+      playing                     : false,
+      start_time                  : null,
+      time_window_in_milliseconds : 5000
     }
   },
 
-  beatsPerMili: function() {
-    return parseFloat(this.props.bpm) / 60000
-  },
-
-  miliPerBeat: function() {
-    return 60000 / parseFloat(this.props.bpm)
-  },
-
-  beatsElapsed: function() {
-    return this.state.miliElapsed * this.beatsPerMili()
-  },
-
-  totalMil: function() {
-    return this.miliPerBeat() * this.props.notes.length
-  },
-
-  initialTop: function() {
-    return -(this.beatHeight * this.props.notes.length)
-  },
-
-  top: function() {
-    return this.initialTop() + (this.beatsElapsed() * this.beatHeight)
+  songLength: function() {
+    return this.props.notes[this.props.notes.length-1].milliseconds_from_start
   },
 
   step: function(timestamp) {
@@ -53,10 +34,10 @@ module.exports = React.createClass({
     }
 
     this.setState({
-      miliElapsed: timestamp - this.state.start_time
+      milliseconds_elapsed: timestamp - this.state.start_time
     })
 
-    if (this.state.miliElapsed > this.totalMil() ) {
+    if (this.state.milliseconds_elapsed > this.songLength() ) {
       this.setState({
         playing : false,
         ended   : true
@@ -75,19 +56,36 @@ module.exports = React.createClass({
   onChange: function() {
     this.setState({
       playing     : SongStore.get('playing'),
-      player_note : this.props.playerNotes[SongStore.get('player_note')]
+      player_note : this.props.playerNotes[SongStore.get('player_note')].toLowerCase()
     })
   },
 
   componentDidMount: function() {
     SongStore.on('change', this.onChange.bind(this))
-
-    this.beatHeight = $('body').height() / 5
   },
 
   renderNotes: function(notes) {
-    return notes.map(function(note, index){
-      return <Note alt={index % 2 ? true : false} note={note} beat={index + 1} playerNote={this.state.player_note} />
+    var difference
+    var note
+    var delay
+
+    return notes.map(function(note_info, index){
+      note       = note_info.note.toLowerCase()
+      delay      = note_info.milliseconds_from_start
+      difference = delay - this.state.milliseconds_elapsed
+
+      if (difference > -1000 && difference < 4000) {
+        return (
+          <Note alt={index % 2 ? true : false}
+                beat={index + 1}
+                beatOffset={this.state.beat_offset}
+                difference={difference}
+                note={note}
+                playerNote={this.state.player_note}
+                timeWindowInMilliseconds={this.state.time_window_in_milliseconds} />
+        )
+      }
+
     }.bind(this))
   },
 
@@ -107,14 +105,10 @@ module.exports = React.createClass({
 
     if ( ! this.state.playing) return <noscript />
 
-    var style = {
-      WebkitTransform : 'translateY(' + this.top() + 'px)'
-    }
-
     return (
       <main className="song-container">
         <div className="song-music">
-          <ol className="song-notes" style={style}>
+          <ol className="song-notes">
             {this.renderNotes(this.props.notes)}
           </ol>
         </div>

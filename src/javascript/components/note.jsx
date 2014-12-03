@@ -21,6 +21,14 @@ module.exports = React.createClass({
     })
   },
 
+  percentageOffset: function() {
+    return (this.props.difference / this.props.timeWindowInMilliseconds) * 100
+  },
+
+  top: function() {
+    return this.props.beatOffset - this.percentageOffset()
+  },
+
   noteContent: function() {
     var note       = this.props.note
     var typeOfNote = note === this.props.playerNote ? 'player-note' : 'other-note'
@@ -40,9 +48,12 @@ module.exports = React.createClass({
 
   render: function() {
     var beat = this.props.beat
+    var style = {
+      WebkitTransform : 'translateY(' + this.top() + '%)'
+    }
 
     return (
-      <li className={'beat-' + beat}>
+      <li className={'beat-' + beat} style={style}>
         { this.noteContent() }
       </li>
     )

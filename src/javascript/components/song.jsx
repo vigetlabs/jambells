@@ -4,7 +4,6 @@
 
 var React              = require('react')
 var Note               = require('./note')
-var bellMotionDetector = require('../util/bell_motion_detector')
 var $                  = require('jquery')
 var SongStore          = require('../stores/song')
 
@@ -54,6 +53,11 @@ module.exports = React.createClass({
     } else {
       window.cancelAnimationFrame(this.step)
     }
+    // TODO: Initialize bell here?
+  },
+
+  componentDidUnmount: function() {
+    // TODO: Tear down bell here?
   },
 
   onChange: function() {

@@ -9,6 +9,7 @@
   "browser": {},
   "browserify": {
     "transform": [
+      "coffeeify",
       "reactify"
     ]
   },
@@ -16,6 +17,7 @@
     "browser-sync": "^1.5.8",
     "browserify": "^6.1.0",
     "browserify-shim": "^3.8.0",
+    "coffeeify": "^1.0.0",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-changed": "^1.0.0",
@@ -28,6 +30,7 @@
     "gulp-util": "^3.0.0",
     "pretty-hrtime": "^0.2.2",
     "require-dir": "^0.1.0",
+    "smokesignals": "0.0.7",
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.0.0"
   },

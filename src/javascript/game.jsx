@@ -1,27 +1,24 @@
 /**
  * @jsx React.DOM
  */
-window.AudioContext = window.AudioContext || window.webkitAudioContext
 
 var React          = window.React = require('react')
 var Song           = require('./components/song')
-var Bell           = require('./lib/Bell')
+var HandBell       = require('./lib/HandBell')
 var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
-var ComputerPlayer = require('./util/computer_player')
 var SongActions    = require('./actions/song')
-
-var ringDebounceDelay = false
+var ComputerPlayer = require('./lib/computer_player')
+var getNoteUrl     = require('./util/getNoteUrl')
+var audioContext   = require('./lib/audioContext')
 
 var Game = function(container) {
   this.container = container
   this.cacheDom()
-  this.data         = this.$lobby.data()
-  this.note         = this.$noteSelection.val()
-  this.bell         = new Bell( new AudioContext() )
-  // this.computerBell = new ComputerPlayer(this.bell)
-  this.userToken    = Math.random().toString(36).substr(2)
-  this.gameLeader   = false
+  this.data = this.$lobby.data()
+  this.computerPlayer = new ComputerPlayer()
+  this.userToken = Math.random().toString(36).substr(2)
+  this.gameLeader = false
   this.attachSong()
   this.connect()
 }
@@ -57,39 +54,31 @@ Game.prototype = {
     this.chan.send('game:pong', {ping_time: message.ping_time})
   },
 
-  ring: function() {
-    if (!ringDebounceDelay) {
-      ringDebounceDelay = true
-      setTimeout(function(){
-        ringDebounceDelay = false
-      }, 100)
-
-      this.bell.ring(this.note)
-    }
-
-    return false
-  },
-
   setup: function(chan) {
     this.chan = chan
-
     this.$readyButton.click(this.announceReady.bind(this))
     this.$startButton.click(this.start.bind(this))
-    this.$game.on('touchstart mousedown', this.ring.bind(this))
-    this.chan.send('user:joined', {user_token: this.userToken})
-    this.chan.on('room:update', this.renderRoomInfo.bind(this))
+    this.chan.send("user:joined", {user_token: this.userToken})
+    this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on('game:ping', this.pong.bind(this))
-    this.chan.on('game:started', this.renderGame.bind(this))
+    this.chan.on("game:started", this.renderGame.bind(this))
   },
 
   announceReady: function(e) {
     e.preventDefault()
+    // Initialize bell with touch
+    this.handBell.initialize()
+    this.handBell.sound.play()
     this.$readyButton.hide()
     this.$startButton.show()
     this.chan.send('user:ready', {})
   },
 
   renderGame: function(message) {
+    var playerNumber = message.user_info.indexOf(this.userToken)
+    // var unassignedNotes = this.data.song.roles.slice(this.ready)
+    // this.computerPlayer.initialize(this.data.song, unassignedNotes)
+
     this.$lobby.hide()
     this.$game.show()
 
@@ -99,8 +88,7 @@ Game.prototype = {
     setTimeout(function(){SongActions.play(playerIndex)}, startDelay)
 
     if (this.gameLeader && this.ready < this.data.song.roles.length) {
-      var unassignedNotes = this.data.song.roles.slice(this.ready)
-      // this.computerBell.play(this.data.song, unassignedNotes)
+      // this.computerPlayer.play()
     }
   },
 
@@ -122,8 +110,13 @@ Game.prototype = {
     }
 
     // TODO: This should be a react view probably
-    this.note = this.data.song.roles[userTokens.indexOf(this.userToken)].toLowerCase()
-    this.$noteSelection.val(this.note)
+    if(!this.handBell) {
+        var note = this.data.song.roles[userInfo.indexOf(this.userToken)].toLowerCase()
+        this.handBell = new HandBell(getNoteUrl(note), audioContext)
+        this.$game.on('click', this.handBell.ding.bind(this.handBell))
+        this.$noteSelection.val(note);
+    }
+
     this.$usersPresent.html(present)
     this.$usersReady.html(this.ready)
   }

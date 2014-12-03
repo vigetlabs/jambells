@@ -18,7 +18,7 @@ module.exports = {
   },
   browserify: {
     debug         : true,
-    extensions    : ['.js', '.jsx'],
+    extensions    : ['.js', '.jsx', '.coffee'],
     bundleConfigs : [{
       entries: src + '/javascript/app.js',
       dest: dest + '/js',

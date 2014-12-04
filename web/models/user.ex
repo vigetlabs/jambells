@@ -5,6 +5,7 @@ defmodule User do
   schema "users" do
     field :ready, :boolean
     field :token, :string
+    field :latency, :float
     belongs_to :room, Room
   end
 end

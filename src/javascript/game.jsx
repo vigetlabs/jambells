@@ -53,6 +53,10 @@ Game.prototype = {
     }
   },
 
+  pong: function(message) {
+    this.chan.send('game:pong', {ping_time: message.ping_time})
+  },
+
   ring: function() {
     if (!ringDebounceDelay) {
       ringDebounceDelay = true
@@ -74,6 +78,7 @@ Game.prototype = {
     this.$game.on('touchstart mousedown', this.ring.bind(this))
     this.chan.send('user:joined', {user_token: this.userToken})
     this.chan.on('room:update', this.renderRoomInfo.bind(this))
+    this.chan.on('game:ping', this.pong.bind(this))
     this.chan.on('game:started', this.renderGame.bind(this))
   },
 
@@ -88,7 +93,10 @@ Game.prototype = {
     this.$lobby.hide()
     this.$game.show()
 
-    SongActions.play(message.user_info.indexOf(this.userToken))
+    var playerIndex = message.user_tokens.indexOf(this.userToken)
+    var startDelay  = message.start_delays[playerIndex]
+
+    setTimeout(function(){SongActions.play(playerIndex)}, startDelay)
 
     if (this.gameLeader && this.ready < this.data.song.roles.length) {
       var unassignedNotes = this.data.song.roles.slice(this.ready)
@@ -99,9 +107,9 @@ Game.prototype = {
   renderRoomInfo: function(message) {
     // any time a user joins or leaves you get this message
     var present     = message.users_present
-    var userInfo    = message.user_info
+    var userTokens  = message.user_tokens
     this.ready      = message.users_ready
-    this.gameLeader = userInfo[0] == this.userToken
+    this.gameLeader = userTokens[0] == this.userToken
 
     if (this.gameLeader) {
       this.$startButton.text('Start the Song!')
@@ -114,7 +122,7 @@ Game.prototype = {
     }
 
     // TODO: This should be a react view probably
-    this.note = this.data.song.roles[userInfo.indexOf(this.userToken)].toLowerCase()
+    this.note = this.data.song.roles[userTokens.indexOf(this.userToken)].toLowerCase()
     this.$noteSelection.val(this.note)
     this.$usersPresent.html(present)
     this.$usersReady.html(this.ready)

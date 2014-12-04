@@ -37,12 +37,32 @@ defmodule DingMyBells.RoomChannel do
     socket
   end
 
+  def event(socket, "game:pong", message) do
+    # measure latency as 1/2 the time for a round trip
+    latency = (now - message["ping_time"]) * (1/2)
+    user    = get_assign(socket, :user)
+
+    case user do
+      %User{} ->
+        # save latency in miliseconds
+        Repo.update %{user | latency: latency * 1000}
+
+        if all_users_ponged(socket) do
+          broadcast socket, "game:started", room_info_with_delays(room)
+        end
+      _ ->
+        # noop
+    end
+
+    socket
+  end
+
   def event(socket, "game:start", _message) do
     room = get_assign(socket, :room_id) |> Room.find
 
     if !room.active do
       Repo.update %{room | active: true}
-      broadcast socket, "game:started", room_info(room)
+      broadcast socket, "game:ping", %{ping_time: now}
     end
 
     socket
@@ -78,8 +98,36 @@ defmodule DingMyBells.RoomChannel do
     present = users |> Enum.count
     ready   = users |> Enum.filter(fn(u) -> u.ready end) |> Enum.count
 
-    user_info = users |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end) |> Enum.map(&(&1.token))
+    user_tokens = users |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end) |> Enum.map(&(&1.token))
 
-    %{users_present: present, users_ready: ready, user_info: user_info}
+    %{users_present: present, users_ready: ready, user_tokens: user_tokens}
+  end
+
+  defp room_info_with_delays(room) do
+    users = room.users.all
+
+    start_delays = users
+      |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end)
+      |> Enum.map(&(&1.latency))
+      |> calculate_delays
+
+    Map.merge(room_info(room), %{start_delays: start_delays})
+  end
+
+  defp all_users_ponged(socket) do
+    room = get_assign(socket, :room_id) |> Room.find
+
+    Enum.all?(room.users.all, fn(user) -> user.latency != 0.0 end)
+  end
+
+  defp now do
+    {_, seconds, micro_seconds} = :erlang.now
+    seconds + (micro_seconds / 1_000_000)
+  end
+
+  defp calculate_delays(latencies) do
+    # subtract each latency value from the group's max latency
+    # [1.2, 1.5, 2] -> [0.8, 0.5, 0]
+    Enum.map(latencies, fn(latency) -> Enum.max(latencies) - latency end)
   end
 end

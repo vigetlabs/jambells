@@ -34,7 +34,6 @@ Game.prototype = {
 
   cacheDom: function() {
     this.$lobby         = $('#game-lobby')
-    this.$noteSelection = $('#noteSelection')
     this.$readyButton   = $('#ready-button')
     this.$startButton   = $('#start-game')
     this.$game          = $('#game')
@@ -109,12 +108,12 @@ Game.prototype = {
       this.$startButton.removeAttr('disabled')
     }
 
-    // TODO: This should be a react view probably
-    if(!this.handBell) {
-        var note = this.data.song.roles[userTokens.indexOf(this.userToken)].toLowerCase()
-        this.handBell = new HandBell(getNoteUrl(note), audioContext)
-        this.$game.on('click', this.handBell.ding.bind(this.handBell))
-        this.$noteSelection.val(note);
+    var noteAssignment = this.data.song.roles[userTokens.indexOf(this.userToken)]
+
+    if (this.note != noteAssignment) {
+      this.note = noteAssignment
+      this.handBell = new HandBell(getNoteUrl(this.note), audioContext)
+      this.$game.on('click', this.handBell.ding.bind(this.handBell))
     }
 
     this.$usersPresent.html(present)

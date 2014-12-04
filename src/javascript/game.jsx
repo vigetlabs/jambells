@@ -4,7 +4,7 @@
 
 var React          = window.React = require('react')
 var Song           = require('./components/song')
-var HandBell       = require('./lib/HandBell')
+var HandBell       = require('./lib/Handbell')
 var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var SongActions    = require('./actions/song')

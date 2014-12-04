@@ -4,6 +4,7 @@
   overflow: hidden;
   position: absolute;
   top: 0;
+  transform: translateZ(0);
   width: 100%;
 }
 
@@ -34,6 +35,7 @@
 }
 
 .note-target {
+  filter: blur(0px);
   height: 20%;
   left: 0;
   overflow: hidden;
@@ -42,6 +44,10 @@
   top: 60%;
   width: 100%;
 
+  &.-pulse {
+    filter: blur(3px);
+  }
+
   &:before,
   &:after {
     @include pseudo;
@@ -49,6 +55,7 @@
     height: 8px;
     margin-top: -6px;
     top: 50%;
+    transition: background 0.1s ease-out;
   }
 
   &:after {

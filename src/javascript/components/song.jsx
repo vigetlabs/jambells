@@ -2,10 +2,11 @@
  * @jsx React.DOM
  */
 
-var React              = require('react')
-var Note               = require('./note')
-var $                  = require('jquery')
-var SongStore          = require('../stores/song')
+var React     = require('react/addons')
+var Note      = require('./note')
+var $         = require('jquery')
+var SongStore = require('../stores/song')
+var cx        = React.addons.classSet
 
 module.exports = React.createClass({
 
@@ -27,6 +28,10 @@ module.exports = React.createClass({
     return this.props.notes[this.props.notes.length-1].milliseconds_from_start
   },
 
+  bpmToMs: function() {
+    return 60 / this.props.bpm * 1000
+  },
+
   step: function(timestamp) {
     if ( ! this.state.start_time) {
       this.setState({
@@ -44,6 +49,8 @@ module.exports = React.createClass({
         playing : false,
         ended   : true
       })
+
+      clearInterval(this.pulseInterval)
     }
   },
 
@@ -65,10 +72,26 @@ module.exports = React.createClass({
       playing     : SongStore.get('playing'),
       player_note : this.props.playerNotes[SongStore.get('player_note')].toLowerCase()
     })
+
+    if (this.state.playing) {
+      this.setPulseOnNoteTarget()
+    }
   },
 
   componentDidMount: function() {
     SongStore.on('change', this.onChange.bind(this))
+  },
+
+  setPulseOnNoteTarget: function() {
+    var targetNode = this.refs.noteTarget.getDOMNode()
+
+    this.pulseInterval = setInterval(function(){
+      targetNode.classList.add('-pulse')
+
+      setTimeout(function(){
+        targetNode.classList.remove('-pulse')
+      }.bind(this), 100)
+    }.bind(this), this.bpmToMs())
   },
 
   renderNotes: function(notes) {
@@ -120,7 +143,7 @@ module.exports = React.createClass({
             {this.renderNotes(this.props.notes)}
           </ol>
         </div>
-        <div className="note-target">
+        <div className="note-target" ref="noteTarget">
           <figure>
             <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" width="0" height="0" alt="" />
           </figure>

@@ -2,35 +2,30 @@ var Sound        = require('./Sound')
 var getNoteUrl   = require('../util/getNoteUrl')
 var audioContext = require('./audioContext')
 
-var ComputerPlayer = function() {
-  this.atNote = 0
-}
+ComputerPlayer = {
+  play: function(noteObjects, unassignedNotes) {
+    // TODO: Move TIME_WINDOW_IN_MS to shared variable
+    this.firstBeatTime   = 1000 // Song.TIME_WINDOW_IN_MS / 3
+    this.noteObjects     = noteObjects
+    this.unassignedNotes = unassignedNotes
+    this.handBells       = {}
+    this.noteTimes       = []
+    this.noteObjects.forEach(this.initializeNote.bind(this))
 
-ComputerPlayer.prototype = {
-  initialize: function(song, notesToPlay) {
-    this.bpm = song.bpm
-    this.miliPerBeat = 60000 / parseFloat(this.bpm)
-    this.firstBeatTime = this.miliPerBeat * 4
-    this.notesToPlay = notesToPlay
-    this.allNotes = song.notes.slice(0).reverse()
-    this.handBells = {}
-    this.noteTimes = []
-    this.allNotes.forEach(this.initializeNote.bind(this))
-  },
-
-  play: function() {
     this.noteTimes.forEach(this.queueNote.bind(this))
   },
 
-  initializeNote: function(note, index) {
-    if(note && !this.handBells[note]) {
-      this.handBells[note] = new Sound(getNoteUrl(note), audioContext)
-    }
+  initializeNote: function(noteObject, index) {
+    if (this.unassignedNotes.indexOf(noteObject.note) != -1) {
+      if (!this.handBells[noteObject.note]) {
+        this.handBells[noteObject.note] = new Sound(getNoteUrl(noteObject.note), audioContext)
+      }
 
-    this.noteTimes.push({
-      note: note,
-      delay: (this.firstBeatTime + index * this.miliPerBeat)
-    })
+      this.noteTimes.push({
+        note  : noteObject.note,
+        delay : (this.firstBeatTime + noteObject.milliseconds_from_start)
+      })
+    }
   },
 
   queueNote: function(noteTime) {
@@ -38,9 +33,7 @@ ComputerPlayer.prototype = {
   },
 
   ringNote: function(note) {
-    if (this.notesToPlay.indexOf(note) !== -1) {
-      this.handBells[note].play()
-    }
+    this.handBells[note].play()
   }
 }
 

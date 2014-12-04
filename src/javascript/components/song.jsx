@@ -9,9 +9,8 @@ var SongStore          = require('../stores/song')
 
 module.exports = React.createClass({
 
-  BEGINNING_SONG_BUFFER : 2000,
-  ENDING_SONG_BUFFER    : 2000,
-  TIME_WINDOW_IN_MS     : 3000,
+  ENDING_SONG_BUFFER : 2000,
+  TIME_WINDOW_IN_MS  : 3000,
 
   getInitialState: function() {
     return {

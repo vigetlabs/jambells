@@ -16,7 +16,6 @@ var Game = function(container) {
   this.container = container
   this.cacheDom()
   this.data = this.$lobby.data()
-  this.computerPlayer = new ComputerPlayer()
   this.userToken = Math.random().toString(36).substr(2)
   this.gameLeader = false
   this.attachSong()
@@ -75,9 +74,6 @@ Game.prototype = {
   },
 
   renderGame: function(message) {
-    // var unassignedNotes = this.data.song.roles.slice(this.ready)
-    // this.computerPlayer.initialize(this.data.song, unassignedNotes)
-
     this.$lobby.hide()
     this.$game.show()
 
@@ -86,11 +82,14 @@ Game.prototype = {
     var playerIndex = message.user_tokens.indexOf(this.userToken)
     var startDelay  = message.start_delays[playerIndex]
 
-    setTimeout(function(){SongActions.play(playerIndex)}, startDelay)
+    setTimeout(function() {
+      SongActions.play(playerIndex)
 
-    if (this.gameLeader && this.ready < this.data.song.roles.length) {
-      // this.computerPlayer.play()
-    }
+      if (this.gameLeader && this.ready < this.data.song.roles.length) {
+        var unassignedNotes = this.data.song.roles.slice(this.ready)
+        ComputerPlayer.play(this.data.song.notes, unassignedNotes)
+      }
+    }.bind(this), startDelay)
   },
 
   renderRoomInfo: function(message) {

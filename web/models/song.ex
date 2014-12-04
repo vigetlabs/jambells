@@ -15,7 +15,7 @@ defmodule Song do
   defp jinglebells do
     json_parse %{
       "name": "Jingle Bells",
-      "bpm": 150,
+      "bpm": 125,
       "measure": "4/4",
       "roles": ["E4", "F4", "G4", "D4", "C4"],
       "notes": [
@@ -513,7 +513,7 @@ defmodule Song do
   defp we_wish_you do
     json_parse %{
       "name": "We Wish You a Merry Christmas",
-      "bpm": 110,
+      "bpm": 125,
       "measure": "3/4",
       "roles": ["C4", "G3", "D4", "A3", "B3", "E4", "F4", "G4"],
       "notes": [

@@ -1,6 +1,5 @@
 .song-container {
   @include fill;
-  pointer-events: none;
 
   &::selection {
     background: transparent;

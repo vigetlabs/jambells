@@ -36,6 +36,7 @@
 .note-target {
   height: 20%;
   left: 0;
+  overflow: hidden;
   position: absolute;
   text-align: center;
   top: 60%;
@@ -44,36 +45,32 @@
   &:before,
   &:after {
     @include pseudo;
-    background: rgba($color--gold, 0.7);
-    height: 12px;
+    background: rgba($color--gold, 0.4);
+    height: 8px;
     margin-top: -6px;
     top: 50%;
-    width: 40%;
   }
 
   &:after {
-    left: 60%;
+    left: 50%;
+    margin-left: 60px;
+    right: 0;
   }
 
   &:before {
-    right: 60%;
+    margin-right: 60px;
+    right: 50%;
   }
 
   figure {
     border-radius: 50%;
-    border: 12px solid rgba($color--gold, 0.7);
-    height: 100%;
+    border: 8px solid rgba($color--gold, 0.4);
+    height: 100px;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
-
-    img {
-      display: block;
-      height: 100%;
-      opacity: 0.01;
-      width: auto;
-    }
+    width: 100px;
   }
 }
 

@@ -21,52 +21,43 @@
     text-align: center;
 
     figure {
-      font-size: 40px;
-      font-weight: 600;
-    }
-
-    figure.player-note ,
-    figure.other-note  {
-      background: $color--gold;
       border-radius: 50%;
-      height: 74%;
       left: 50%;
-      max-height: 80px;
       position: absolute;
+      text-align: center;
       top: 50%;
       transform: translateY(-50%) translateX(-50%);
-      width: auto;
 
-      img {
-        height: 100%;
-        max-height: 80px;
-        opacity: 0.01;
-        width: auto;
+      &.player-note {
+        background: $color--gold;
+        padding-top: 21px;
+        height: 80px;
+        width: 80px;
+
+        svg {
+          fill: #fff;
+          width: 38px;
+        }
       }
 
-      span {
-        font-size: 32px;
-        left: 0;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
+      &.other-note {
+        background: $color--forest--dark;
+        padding-top: 11px;
+        height: 40px;
+        width: 40px;
+
+        svg {
+          fill: #8eae81;
+          width: 20px;
+        }
       }
-    }
 
-    figure.other-note {
-      background: $color--forest--dark;
-      font-size: 16px;
-      height: 60%;
-      opacity: 0.8;
-    }
+      &:not(.player-note) {
+        left: 16%;
 
-    figure:not(.player-note) {
-      left: 10%;
-
-      &.-alt {
-        left: auto;
-        right: 10%;
+        &.-alt {
+          left: 84%;
+        }
       }
     }
   }

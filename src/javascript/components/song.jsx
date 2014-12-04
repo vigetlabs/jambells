@@ -59,7 +59,7 @@ module.exports = React.createClass({
   onChange: function() {
     this.setState({
       playing     : SongStore.get('playing'),
-      player_note : this.props.playerNotes[SongStore.get('player_note')].toLowerCase()
+      player_note : this.props.playerNotes[SongStore.get('player_note')]
     })
   },
 
@@ -74,7 +74,7 @@ module.exports = React.createClass({
     var viewable
 
     return notes.map(function(note_info, index){
-      note       = note_info.note.toLowerCase()
+      note       = note_info.note
       delay      = note_info.milliseconds_from_start
       difference = delay - this.state.milliseconds_elapsed
       viewable   = difference > -tempo.TIME_WINDOW_IN_MS * 0.8 && difference < tempo.TIME_WINDOW_IN_MS * 0.2

@@ -13,7 +13,6 @@ html, body {
   background: $base-background-color;
   height: 100%;
   max-width: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -35,6 +34,7 @@ body {
     margin-top: 0px;
   }
 }
+
 .row {
   @include row;
 }

@@ -75,6 +75,8 @@
 }
 
 body.game {
+  @include touch-scroll;
+
   .wrap,
   main {
     height: 100%;

@@ -82,6 +82,8 @@ Game.prototype = {
     this.$lobby.hide()
     this.$game.show()
 
+    console.log(message.start_delays)
+
     var playerIndex = message.user_tokens.indexOf(this.userToken)
     var startDelay  = message.start_delays[playerIndex]
 

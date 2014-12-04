@@ -2,16 +2,13 @@
  * @jsx React.DOM
  */
 
-var React              = require('react')
-var Note               = require('./note')
-var $                  = require('jquery')
-var SongStore          = require('../stores/song')
+var React     = require('react')
+var Note      = require('./note')
+var $         = require('jquery')
+var SongStore = require('../stores/song')
+var tempo     = require('../constants/tempo')
 
 module.exports = React.createClass({
-
-  ENDING_SONG_BUFFER : 2000,
-  TIME_WINDOW_IN_MS  : 3000,
-
   getInitialState: function() {
     return {
       ended                       : false,
@@ -38,7 +35,7 @@ module.exports = React.createClass({
     })
 
     // Song has ended
-    if (this.state.milliseconds_elapsed > this.songLength() + this.ENDING_SONG_BUFFER) {
+    if (this.state.milliseconds_elapsed > this.songLength() + tempo.ENDING_SONG_BUFFER) {
       this.setState({
         playing : false,
         ended   : true
@@ -80,7 +77,7 @@ module.exports = React.createClass({
       note       = note_info.note.toLowerCase()
       delay      = note_info.milliseconds_from_start
       difference = delay - this.state.milliseconds_elapsed
-      viewable   = difference > -this.TIME_WINDOW_IN_MS * 0.8 && difference < this.TIME_WINDOW_IN_MS * 0.2
+      viewable   = difference > -tempo.TIME_WINDOW_IN_MS * 0.8 && difference < tempo.TIME_WINDOW_IN_MS * 0.2
 
       if (viewable) {
         return (
@@ -89,7 +86,7 @@ module.exports = React.createClass({
                 difference={difference}
                 note={note}
                 playerNote={this.state.player_note}
-                timeWindowInMilliseconds={this.TIME_WINDOW_IN_MS} />
+                timeWindowInMilliseconds={tempo.TIME_WINDOW_IN_MS} />
         )
       }
 

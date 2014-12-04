@@ -1,11 +1,11 @@
 var Sound        = require('./Sound')
 var getNoteUrl   = require('../util/getNoteUrl')
 var audioContext = require('./audioContext')
+var tempo        = require('../constants/tempo')
 
 ComputerPlayer = {
   play: function(noteObjects, unassignedNotes) {
-    // TODO: Move TIME_WINDOW_IN_MS to shared variable
-    this.firstBeatTime   = 1000 // Song.TIME_WINDOW_IN_MS / 3
+    this.firstBeatDelay  = this.calculateFirstBeatDelay()
     this.noteObjects     = noteObjects
     this.unassignedNotes = unassignedNotes
     this.handBells       = {}
@@ -23,7 +23,7 @@ ComputerPlayer = {
 
       this.noteTimes.push({
         note  : noteObject.note,
-        delay : (this.firstBeatTime + noteObject.milliseconds_from_start)
+        delay : (this.firstBeatDelay + noteObject.milliseconds_from_start)
       })
     }
   },
@@ -34,6 +34,10 @@ ComputerPlayer = {
 
   ringNote: function(note) {
     this.handBells[note].play()
+  },
+
+  calculateFirstBeatDelay: function() {
+    return tempo.TIME_WINDOW_IN_MS / 3
   }
 }
 

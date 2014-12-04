@@ -9,8 +9,6 @@
 
   <button id="ready-button" class="button -block -gold">I'm Ready!</button>
   <button id="start-game" href="#" disabled style="display:none" class="button -block -gold">Start the Song!</button>
-
-  <input class="hide-text" id="noteSelection" />
 </div>
 
 <div id="game" class="game-page"></div>

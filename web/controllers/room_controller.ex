@@ -1,14 +1,13 @@
 defmodule DingMyBells.RoomController do
   use Phoenix.Controller
   import DingMyBells.Router.Helpers
-  alias Phoenix.Controller.Flash
 
   plug :action
 
   def index(conn, _params) do
     render conn, "index.html", class_name: "home"
   end
-  
+
   def join(conn, _params) do
     render conn, "join.html", class_name: "join", rooms: Repo.all(Room)
   end

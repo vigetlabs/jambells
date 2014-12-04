@@ -75,7 +75,6 @@ Game.prototype = {
   },
 
   renderGame: function(message) {
-    var playerNumber = message.user_info.indexOf(this.userToken)
     // var unassignedNotes = this.data.song.roles.slice(this.ready)
     // this.computerPlayer.initialize(this.data.song, unassignedNotes)
 
@@ -113,7 +112,7 @@ Game.prototype = {
 
     // TODO: This should be a react view probably
     if(!this.handBell) {
-        var note = this.data.song.roles[userInfo.indexOf(this.userToken)].toLowerCase()
+        var note = this.data.song.roles[userTokens.indexOf(this.userToken)].toLowerCase()
         this.handBell = new HandBell(getNoteUrl(note), audioContext)
         this.$game.on('click', this.handBell.ding.bind(this.handBell))
         this.$noteSelection.val(note);

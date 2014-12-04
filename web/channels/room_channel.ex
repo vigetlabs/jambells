@@ -47,7 +47,9 @@ defmodule DingMyBells.RoomChannel do
         # save latency in miliseconds
         Repo.update %{user | latency: latency * 1000}
 
-        if all_users_ponged(socket) do
+        room = get_assign(socket, :room_id) |> Room.find
+
+        if all_users_ponged(room) do
           broadcast socket, "game:started", room_info_with_delays(room)
         end
       _ ->
@@ -114,9 +116,7 @@ defmodule DingMyBells.RoomChannel do
     Map.merge(room_info(room), %{start_delays: start_delays})
   end
 
-  defp all_users_ponged(socket) do
-    room = get_assign(socket, :room_id) |> Room.find
-
+  defp all_users_ponged(room) do
     Enum.all?(room.users.all, fn(user) -> user.latency != 0.0 end)
   end
 

@@ -4,7 +4,7 @@
       <label for="room-code">Enter the code for the room you'd like to join:</label>
       <input id="room-code" class="room-code" type="text" placeholder="Enter Code" maxlength="4">
     </div>
-    
+
     <input type="submit" class="button -gold -block" value="Join Choir">
     <a href="/" class="button -block -green">Back</a>
   </form>

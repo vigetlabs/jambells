@@ -11,6 +11,13 @@ defmodule DingMyBells.View do
   end
 
   def pretty(song_key) do
-    String.replace(song_key, "_", " ") |> String.capitalize
+    case song_key do
+      "jinglebells" ->
+        "Jingle Bells"
+      "deck_the_halls" ->
+        "Deck the Halls"
+      "we_wish_you" ->
+        "We Wish You a Merry Christmass"
+    end
   end
 end

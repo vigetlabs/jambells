@@ -21,6 +21,9 @@ module.exports = class Handbell
     else
       @sound.on('ready', @ready)
 
+  off: () =>
+    window.removeEventListener('devicemotion', @ring)
+
   ready: =>
     @emit('ready')
 

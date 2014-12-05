@@ -111,6 +111,11 @@ Game.prototype = {
     var noteAssignment = this.data.song.roles[userTokens.indexOf(this.userToken)]
 
     if (this.note != noteAssignment) {
+      if (this.handBell) {
+        this.$game.off('click')
+        this.handBell.off()
+      }
+
       this.note = noteAssignment
       this.handBell = new HandBell(getNoteUrl(this.note), audioContext)
       this.$game.on('click', this.handBell.ding.bind(this.handBell))

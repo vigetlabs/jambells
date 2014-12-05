@@ -18,6 +18,7 @@ var Game = function(container) {
   this.data = this.$lobby.data()
   this.userToken = Math.random().toString(36).substr(2)
   this.gameLeader = false
+  this.gameStarted = false
   this.attachSong()
   this.connect()
 }
@@ -73,22 +74,27 @@ Game.prototype = {
   },
 
   renderGame: function(message) {
-    this.$lobby.hide()
-    this.$game.show()
+    if (this.gameStarted === false) {
+      console.log("Starting game")
+      this.gameStarted = true
 
-    console.log(message.start_delays)
+      this.$lobby.hide()
+      this.$game.show()
 
-    var playerIndex = message.user_tokens.indexOf(this.userToken)
-    var startDelay  = message.start_delays[playerIndex]
+      console.log(message.start_delays)
 
-    setTimeout(function() {
-      SongActions.play(playerIndex)
+      var playerIndex = message.user_tokens.indexOf(this.userToken)
+      var startDelay  = message.start_delays[playerIndex]
 
-      if (this.gameLeader && this.ready < this.data.song.roles.length) {
-        var unassignedNotes = this.data.song.roles.slice(this.ready)
-        ComputerPlayer.play(this.data.song.notes, unassignedNotes)
-      }
-    }.bind(this), startDelay)
+      setTimeout(function() {
+        SongActions.play(playerIndex)
+
+        if (this.gameLeader && this.ready < this.data.song.roles.length) {
+          var unassignedNotes = this.data.song.roles.slice(this.ready)
+          ComputerPlayer.play(this.data.song.notes, unassignedNotes)
+        }
+      }.bind(this), startDelay)
+    }
   },
 
   renderRoomInfo: function(message) {

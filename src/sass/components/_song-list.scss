@@ -40,7 +40,7 @@ $difficulty-width: 34px;
     overflow: hidden;
     position: absolute;
     top: 26px;
-    width: $difficulty-width*6;
+    width: $difficulty-width * 6;
   }
 
   &:after {
@@ -48,15 +48,15 @@ $difficulty-width: 34px;
   }
 
   &.-easy:after {
-    width: $difficulty-width*2;
+    width: $difficulty-width * 2;
   }
 
   &.-medium:after {
-    width: $difficulty-width*4;
+    width: $difficulty-width * 4;
   }
 
   &.-hard:after {
-    width: $difficulty-width*6;
+    width: $difficulty-width * 6;
   }
 
   @include bp-retina {

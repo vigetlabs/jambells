@@ -37,6 +37,10 @@ body {
   }
 }
 
+body.game & {
+  height: 100%;
+}
+
 .page-main {
   @include row;
   margin-top: 60px;

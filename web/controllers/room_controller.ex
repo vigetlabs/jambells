@@ -12,6 +12,10 @@ defmodule DingMyBells.RoomController do
     render conn, "join.html", class_name: "join", rooms: Repo.all(Room)
   end
 
+  def join(conn, %{"room_id" => room_id) do
+    self.show room_id
+  end
+
   def show(conn, %{"slug" => slug}) do
     room  = Room.find_by_slug(slug)
 

@@ -29,7 +29,13 @@
 
   // Sizes
   &.-large {
-    padding: 20px 40px;
+    @include bp-tall {
+      padding: 20px 40px;
+    }
+
+    @include bp-mobile-only {
+      padding: 20px 40px;
+    }
   }
 
   // Shapes

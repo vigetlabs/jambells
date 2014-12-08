@@ -38,19 +38,16 @@ defmodule DingMyBells.RoomChannel do
   end
 
   def event(socket, "game:pong", message) do
-    # measure latency as 1/2 the time for a round trip
-    latency = (now - message["ping_time"]) * (1/2)
-    user    = get_assign(socket, :user)
+    user = get_assign(socket, :user)
 
     case user do
       %User{} ->
-        # save latency in miliseconds
-        Repo.update %{user | latency: latency * 1000}
+        Repo.update %{user | ponged: true}
 
         room = get_assign(socket, :room_id) |> Room.find
 
         if all_users_ponged(room) do
-          broadcast socket, "game:started", room_info_with_delays(room)
+          broadcast socket, "game:started", room_info(room)
         end
       _ ->
         # noop
@@ -64,7 +61,7 @@ defmodule DingMyBells.RoomChannel do
 
     if !room.active do
       Repo.update %{room | active: true}
-      broadcast socket, "game:ping", %{ping_time: now}
+      broadcast socket, "game:ping", %{}
     end
 
     socket
@@ -105,29 +102,7 @@ defmodule DingMyBells.RoomChannel do
     %{users_present: present, users_ready: ready, user_tokens: user_tokens}
   end
 
-  defp room_info_with_delays(room) do
-    users = room.users.all
-
-    start_delays = users
-      |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end)
-      |> Enum.map(&(&1.latency))
-      |> calculate_delays
-
-    Map.merge(room_info(room), %{start_delays: start_delays})
-  end
-
   defp all_users_ponged(room) do
-    Enum.all?(room.users.all, fn(user) -> user.latency != 0.0 end)
-  end
-
-  defp now do
-    {_, seconds, micro_seconds} = :erlang.now
-    seconds + (micro_seconds / 1_000_000)
-  end
-
-  defp calculate_delays(latencies) do
-    # subtract each latency value from the group's max latency
-    # [1.2, 1.5, 2] -> [0.8, 0.5, 0]
-    Enum.map(latencies, fn(latency) -> Enum.max(latencies) - latency end)
+    Enum.all?(room.users.all, fn(user) -> user.ponged end)
   end
 end

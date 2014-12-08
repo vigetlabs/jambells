@@ -50,7 +50,7 @@ Game.prototype = {
   },
 
   pong: function(message) {
-    this.chan.send('game:pong', {ping_time: message.ping_time})
+    this.chan.send('game:pong', {})
   },
 
   setup: function(chan) {
@@ -75,25 +75,19 @@ Game.prototype = {
 
   renderGame: function(message) {
     if (this.gameStarted === false) {
-      console.log("Starting game")
       this.gameStarted = true
 
       this.$lobby.hide()
       this.$game.show()
 
-      console.log(message.start_delays)
-
       var playerIndex = message.user_tokens.indexOf(this.userToken)
-      var startDelay  = message.start_delays[playerIndex]
 
-      setTimeout(function() {
-        SongActions.play(playerIndex)
+      SongActions.play(playerIndex)
 
-        if (this.gameLeader && this.ready < this.data.song.roles.length) {
-          var unassignedNotes = this.data.song.roles.slice(this.ready)
-          ComputerPlayer.play(this.data.song.notes, unassignedNotes)
-        }
-      }.bind(this), startDelay)
+      if (this.gameLeader && this.ready < this.data.song.roles.length) {
+        var unassignedNotes = this.data.song.roles.slice(this.ready)
+        ComputerPlayer.play(this.data.song.notes, unassignedNotes)
+      }
     }
   },
 

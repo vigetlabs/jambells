@@ -6,6 +6,7 @@ defmodule User do
     field :ready, :boolean
     field :token, :string
     field :latency, :float
+    field :ponged, :boolean
     belongs_to :room, Room
   end
 end

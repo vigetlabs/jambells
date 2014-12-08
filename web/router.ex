@@ -19,6 +19,7 @@ defmodule DingMyBells.Router do
     get "/new",    DingMyBells.RoomController, :new
     get "/:slug",  DingMyBells.RoomController, :show
     post "/rooms", DingMyBells.RoomController, :create
+    post "/join",   DingMyBells.RoomController, :join
 
     channel "room", DingMyBells.RoomChannel
   end

@@ -57,8 +57,9 @@ body {
 
 .thin-wrap {
   @include wrap;
-  z-index: 2;
   max-width: 420px;
+  padding: 0;
+  z-index: 2;
 
   &.-center {
     text-align: center;

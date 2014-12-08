@@ -3,7 +3,8 @@
   text-align: center;
 
   .logo {
-    margin: 0;
+    background: url(../images/header-stitch-across.png) no-repeat center 19px;
+    margin: 0 -20px;
   }
 
   .logo-text {
@@ -38,6 +39,7 @@
   }
 
   body.home & {
+    padding: 30px 0 26px;
     position: relative;
     margin-bottom: 40px;
 
@@ -57,10 +59,10 @@
         background-size: 210px 13px;
       }
     }
-  }
 
-  body.home & {
-    padding: 30px 0 26px;
+    .logo {
+      background-image: none;
+    }
 
     @include bp-mobile-only {
       padding: 60px 0 0;

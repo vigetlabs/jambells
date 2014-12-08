@@ -1,0 +1,79 @@
+$difficulty-width: 34px;
+
+.song-list {
+  p {
+    margin: 0;
+  }
+
+  li {
+    @include clear-fix;
+    background: $color--forest--dark;
+    border: 3px solid $color--forest--dark;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 6px 11px;
+
+    &.-selected {
+      border-color: $color--forest--light;
+    }
+  }
+}
+
+.song-list__title {
+  font-size: 1.6em;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.song-list__difficulty {
+  font-size: 0.8em;
+  position: relative;
+
+  &:before,
+  &:after {
+    background: url('../images/difficulty-empty.png') repeat;
+    content: "";
+    display: block;
+    height: 8px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 26px;
+    width: $difficulty-width*6;
+  }
+
+  &:after {
+    background: url('../images/difficulty-full.png') repeat;
+  }
+
+  &.-easy:after {
+    width: $difficulty-width*2;
+  }
+
+  &.-medium:after {
+    width: $difficulty-width*4;
+  }
+
+  &.-hard:after {
+    width: $difficulty-width*6;
+  }
+
+  @include bp-retina {
+    &:before {
+      background: url('../images/difficulty-empty@2x.png') repeat;
+      background-size: 34px 8px;
+    }
+
+    &:after {
+      background: url('../images/difficulty-full@2x.png') repeat;
+      background-size: 34px 8px;
+    }
+  }
+}
+
+.song-list__notes {
+  color: lighten($color--forest--light, 10%);
+  float: right;
+  font-size: 0.8em;
+}

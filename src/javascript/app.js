@@ -37,9 +37,13 @@ if (previewNode) new Preview(previewNode)
 
 // Index page
 // #TODO Add basic routing
-$('#enter-room').submit(function(e) {
+var $roomLink = $('#room-link')
+var $roomCode = $('.room-code')
+
+$roomCode.on('input', function(e) {
   e.preventDefault()
-  window.location = '/' + $('#room-code').val()
+
+  $roomLink.attr('href', '/' + $(this).val())
 })
 
 // Game page

@@ -1,6 +1,6 @@
 <div class="thin-wrap -center">
-  <p>Play in a handbell choir with your friends using your phone.</p>
-  <p class="bp-desktop small">For the best experience, visit this site on your mobile phone.</p>
+  <p class="bp-tablet">Play in a handbell choir with your friends using your phone.</p>
+  <p class="bp-tablet small">For the best experience, visit this site on your mobile phone.</p>
 
   <a href="/new" class="button -block -gold -large">Start a Choir</a>
   <a href="/join" class="button -block -green -large">Join a Choir</a>

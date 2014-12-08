@@ -28,6 +28,7 @@
   .tagline {
     @include hide-text;
     color: $color--forest--light;
+    font-size: 20px;
   }
 
   @include bp-mobile-only {
@@ -58,12 +59,16 @@
     }
   }
 
-  body.play &,
   body.home & {
     padding: 30px 0 26px;
 
     @include bp-mobile-only {
-      padding: 15px 0 37px;
+      padding: 60px 0 0;
+      margin-bottom: 20px;
+
+      &:before {
+        display: none;
+      }
 
       .logo-bells,
       .logo-text {
@@ -74,12 +79,12 @@
       .logo-text {
         @include un-hide-text;
       }
-    }
-  }
 
-  body.play & {
-    .tagline {
-      @include un-hide-text;
+      .tagline {
+        @include un-hide-text;
+      }
+
+
     }
   }
 }

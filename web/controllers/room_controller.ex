@@ -41,6 +41,10 @@ defmodule DingMyBells.RoomController do
     redirect conn, room_path(:show, room.access_code)
   end
 
+  def freestyle(conn, _params) do
+    render conn, "freestyle.html"
+  end
+
   def not_found(conn, _params) do
     render conn, "not_found.html"
   end

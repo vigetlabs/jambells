@@ -7,7 +7,7 @@
 
     &:hover,
     &:focus {
-      background: darken($color--gold, 10%);  
+      background: darken($color--gold, 10%);
     }
   }
 
@@ -16,7 +16,7 @@
 
     &:hover,
     &:focus {
-      background: darken($color--forest--dark, 10%);  
+      background: darken($color--forest--dark, 10%);
     }
   }
 
@@ -36,6 +36,17 @@
     @include bp-mobile-only {
       padding: 20px 40px;
     }
+  }
+
+  &.-skinny {
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 35px;
+    line-height: 140px;
+  }
+
+  &.-tall {
+    height: 170px;
   }
 
   // Shapes

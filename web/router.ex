@@ -14,11 +14,12 @@ defmodule DingMyBells.Router do
     get "/preview",       DingMyBells.PreviewController, :index
     get "/preview/:song", DingMyBells.PreviewController, :show
 
-    get "/",       DingMyBells.RoomController, :index
-    get "/join",   DingMyBells.RoomController, :join
-    get "/new",    DingMyBells.RoomController, :new
-    get "/:slug",  DingMyBells.RoomController, :show
-    post "/rooms", DingMyBells.RoomController, :create
+    get "/",          DingMyBells.RoomController, :index
+    get "/join",      DingMyBells.RoomController, :join
+    get "/new",       DingMyBells.RoomController, :new
+    get "/freestyle", DingMyBells.RoomController, :freestyle
+    get "/:slug",     DingMyBells.RoomController, :show
+    post "/rooms",    DingMyBells.RoomController, :create
 
     channel "room", DingMyBells.RoomChannel
   end

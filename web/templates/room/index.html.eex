@@ -4,4 +4,5 @@
 
   <a href="/new" class="button -block -gold -large">Start a Choir</a>
   <a href="/join" class="button -block -green -large">Join a Choir</a>
+  <a href="/freestyle" class="button -block -green -large">Freestyle</a>
 </div>

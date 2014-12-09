@@ -1,6 +1,7 @@
-var $       = require('jquery')
-var Game    = require('./game')
-var Preview = require('./preview')
+var $         = require('jquery')
+var Game      = require('./game')
+var Preview   = require('./preview')
+var Freestyle = require('./freestyle')
 
 var songSelect = function() {
   var $container = $('.song-list');
@@ -29,9 +30,13 @@ var songSelect = function() {
 
 songSelect.init();
 
+// js for freestyling
+var freestyleNode = document.querySelector('#freestyle-note-select')
+
+if (freestyleNode) new Freestyle()
 
 // js for previewing songs in full
-var previewNode = document.querySelector('#room-info')
+var previewNode = document.querySelector('#preview-room-info')
 
 if (previewNode) new Preview(previewNode)
 

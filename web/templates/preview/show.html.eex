@@ -2,4 +2,4 @@
 
 <a id="preview-play" href="#">Play</a>
 
-<div id="room-info" data-song="<%= @song_notes %>"></div>
+<div id="preview-room-info" data-song="<%= @song_notes %>"></div>

@@ -1,0 +1,39 @@
+<div class="thin-wrap -center">
+  <div>1. Select a Note</div>
+  <div>2. Click on the PLAY button</div>
+  <div>3. Keep clicking or shake your mobile device</div>
+
+  <br>
+
+  <select id="freestyle-note-select">
+    <option value="C3">C3</option>
+    <option value="C3s">C3#</option>
+    <option value="D3">D3</option>
+    <option value="D3s">D3#</option>
+    <option value="E3">E3</option>
+    <option value="F3">F3</option>
+    <option value="F3s">F3#</option>
+    <option value="G3">G3</option>
+    <option value="G3s">G3#</option>
+    <option value="A3">A3</option>
+    <option value="A3s">A3#</option>
+    <option value="B3">B3</option>
+    <option value="C4" selected>C4</option>
+    <option value="C4s">C4#</option>
+    <option value="D4">D4</option>
+    <option value="D4s">D4#</option>
+    <option value="E4">E4</option>
+    <option value="F4">F4</option>
+    <option value="F4s">F4#</option>
+    <option value="G4">G4</option>
+    <option value="G4s">G4#</option>
+    <option value="A4">A4</option>
+    <option value="A4s">A4#</option>
+    <option value="B4">B4</option>
+    <option value="C5">C5</option>
+  </select>
+</div>
+
+<br><br>
+
+<a href="#" class="button -block -gold -skinny -tall -rounded" id="play-button">PLAY</a>

@@ -19,20 +19,20 @@ Freestyle.prototype = {
   setupHandbell: function() {
     var note = this.$select.val()
 
-    if (this.handBell) {
-      console.log("shutting down handbell")
-      this.$play.off('click')
-      this.handBell.off()
-    }
-
     this.handBell = new HandBell(getNoteUrl(note), audioContext)
     this.handBell.initialize()
     this.$play.on('click', this.handBell.ding.bind(this.handBell))
   },
 
+  updateHandbell: function() {
+    var note = this.$select.val()
+
+    this.handBell.update(getNoteUrl(note), audioContext)
+  },
+
   watchSelect: function() {
     this.$select.change(function() {
-      this.setupHandbell()
+      this.updateHandbell()
     }.bind(this))
   }
 }

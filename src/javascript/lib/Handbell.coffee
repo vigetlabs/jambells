@@ -10,6 +10,9 @@ module.exports = class Handbell
     eventsModule.convert(@)
     @sound = new Sound(audioUrl, audioContext)
 
+  update: (audioUrl, audioContext) ->
+    @sound = new Sound(audioUrl, audioContext)
+
   initialize: () =>
     # Bell must be initialized by user input (touch) to play sounds on iOS
     @sound.initialize()

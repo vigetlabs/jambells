@@ -34,15 +34,6 @@
         <p class="tagline">Handbells on Your Phone</p>
       </header>
       <main role="main">
-
-        <%= if notice = Flash.get(@conn, :notice) do %>
-          <div class="container">
-            <div class="row">
-              <p><%= notice %></p>
-            </div>
-          </div>
-        <% end %>
-
         <%= @inner %>
       </main>
     </div>

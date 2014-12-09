@@ -6,8 +6,6 @@ defmodule DingMyBells.View do
     import DingMyBells.Router.Helpers
 
     use Phoenix.HTML
-
-    alias Phoenix.Controller.Flash
   end
 
   def pretty(song_key) do

@@ -67,6 +67,15 @@ defmodule DingMyBells.RoomChannel do
     socket
   end
 
+  def event(socket, "game:restart", _message) do
+    room = get_assign(socket, :room_id) |> Room.find
+    reset(room)
+
+    broadcast socket, "game:restarted", %{}
+
+    socket
+  end
+
   def leave(socket, _message) do
     user = get_assign(socket, :user)
 
@@ -100,6 +109,14 @@ defmodule DingMyBells.RoomChannel do
     user_tokens = users |> Enum.sort(fn(u1, u2) -> u1.id < u2.id end) |> Enum.map(&(&1.token))
 
     %{users_present: present, users_ready: ready, user_tokens: user_tokens}
+  end
+
+  defp reset(room) do
+    Repo.update %{room | active: false}
+
+    Enum.each room.users.all, fn(user) ->
+      Repo.update %{user | ponged: false}
+    end
   end
 
   defp all_users_ponged(room) do

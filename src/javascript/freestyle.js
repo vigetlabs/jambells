@@ -26,6 +26,7 @@ Freestyle.prototype = {
     }
 
     this.handBell = new HandBell(getNoteUrl(note), audioContext)
+    this.handBell.initialize()
     this.$play.on('click', this.handBell.ding.bind(this.handBell))
   },
 

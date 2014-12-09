@@ -1,7 +1,5 @@
-var $            = require('jquery')
-var HandBell     = require('./lib/Handbell')
-var audioContext = require('./lib/audioContext')
-var getNoteUrl   = require('./util/getNoteUrl')
+var $        = require('jquery')
+var HandBell = require('./lib/Handbell')
 
 var Freestyle = function() {
   this.initialize()
@@ -19,7 +17,7 @@ Freestyle.prototype = {
   setupHandbell: function() {
     var note = this.$select.val()
 
-    this.handBell = new HandBell(getNoteUrl(note), audioContext)
+    this.handBell = new HandBell(note)
     this.handBell.initialize()
     this.$play.on('click', this.handBell.ding.bind(this.handBell))
   },
@@ -27,7 +25,7 @@ Freestyle.prototype = {
   updateHandbell: function() {
     var note = this.$select.val()
 
-    this.handBell.update(getNoteUrl(note), audioContext)
+    this.handBell.setNote(note)
   },
 
   watchSelect: function() {

@@ -6,12 +6,12 @@ module.exports = class Handbell
 
   threshold: 400 # event.rotationRate.alpha threshold
 
-  constructor: (audioUrl, audioContext) ->
+  constructor: (note) ->
     eventsModule.convert(@)
-    @sound = new Sound(audioUrl, audioContext)
+    @setNote(note)
 
-  update: (audioUrl, audioContext) ->
-    @sound = new Sound(audioUrl, audioContext)
+  setNote: (note) ->
+    @sound = new Sound(note)
 
   initialize: () =>
     # Bell must be initialized by user input (touch) to play sounds on iOS
@@ -23,9 +23,6 @@ module.exports = class Handbell
       @ready()
     else
       @sound.on('ready', @ready)
-
-  off: () =>
-    window.removeEventListener('devicemotion', @ring)
 
   ready: =>
     @emit('ready')

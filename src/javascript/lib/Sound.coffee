@@ -1,15 +1,16 @@
+getNoteUrl   = require('../util/getNoteUrl')
+audioContext = require('./audioContext')
 eventsModule = require('smokesignals')
-AudioContext = window.AudioContext || window.webkitAudioContext
 testAudio    = document.createElement('audio')
 
 module.exports = class Sound
 
   volume: 1
 
-  constructor: (url, context) ->
+  constructor: (note) ->
     eventsModule.convert(@)
-    @context = context || new AudioContext()
-    @load(url)
+    @context = audioContext
+    @load(getNoteUrl(note))
 
   initialize: =>
     @volume = 0

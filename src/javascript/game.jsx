@@ -9,8 +9,6 @@ var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var SongActions    = require('./actions/song')
 var ComputerPlayer = require('./lib/computer_player')
-var getNoteUrl     = require('./util/getNoteUrl')
-var audioContext   = require('./lib/audioContext')
 
 var Game = function(container) {
   this.container = container
@@ -111,14 +109,14 @@ Game.prototype = {
     var noteAssignment = this.data.song.roles[userTokens.indexOf(this.userToken)]
 
     if (this.note != noteAssignment) {
-      if (this.handBell) {
-        this.$game.off('click')
-        this.handBell.off()
-      }
-
       this.note = noteAssignment
-      this.handBell = new HandBell(getNoteUrl(this.note), audioContext)
-      this.$game.on('click', this.handBell.ding.bind(this.handBell))
+
+      if (this.handBell) {
+        this.handBell.setNote(this.note)
+      } else {
+        this.handBell = new HandBell(this.note)
+        this.$game.on('click', this.handBell.ding.bind(this.handBell))
+      }
     }
 
     this.$usersPresent.html(present)

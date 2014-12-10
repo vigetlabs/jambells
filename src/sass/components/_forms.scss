@@ -32,8 +32,27 @@ select {
   }
 }
 
+select {
+  background: transparent;
+  border: none;
+  height: 42px;
+  width: 110%;
+}
+
 .field {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+
+  &.-select {
+    background: $color--forest--dark url(../images/select-arrow.png) no-repeat right center;
+    border: 3px solid $color--forest--dark;
+    border-radius: $button-border-radius;
+    overflow: hidden;
+
+    @include bp-retina {
+      background-image: url(../images/select-arrow@2x.png);
+      background-size: 42px 48px;
+    }
+  }
 }
 
 input.room-code {

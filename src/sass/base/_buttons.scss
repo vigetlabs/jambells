@@ -38,15 +38,9 @@
     }
   }
 
-  &.-skinny {
-    max-width: 300px;
-    margin: 0 auto;
-    font-size: 35px;
-    line-height: 140px;
-  }
-
-  &.-tall {
-    height: 170px;
+  &.-x-large {
+    font-size: 28px;
+    padding: 25px 40px;
   }
 
   // Shapes

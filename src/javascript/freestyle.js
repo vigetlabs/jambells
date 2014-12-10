@@ -17,7 +17,7 @@ Freestyle.prototype = {
     if (isTouch) {
       this.$play.addClass('-show')
       this.$play.on(respondToEvent, function(e){
-        this.handBell.ding.call(this.handBell)
+        this.handBell.ding()
         this.$play.removeClass('-show')
       }.bind(this))
     }

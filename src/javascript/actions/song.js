@@ -8,6 +8,10 @@ module.exports = {
       type  : Actions.PLAY_SONG,
       param : param
     });
+  },
+
+  replay: function() {
+    Dispatcher.dispatch({ type : Actions.REPLAY_SONG });
   }
 
 };

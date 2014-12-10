@@ -2,11 +2,11 @@
  * @jsx React.DOM
  */
 
-var React     = require('react')
-var Note      = require('./note')
-var $         = require('jquery')
-var SongStore = require('../stores/song')
-var tempo     = require('../constants/tempo')
+var React       = require('react')
+var Note        = require('./note')
+var SongStore   = require('../stores/song')
+var SongActions = require('../actions/song')
+var tempo       = require('../constants/tempo')
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -49,11 +49,17 @@ module.exports = React.createClass({
     } else {
       window.cancelAnimationFrame(this.step)
     }
-    // TODO: Initialize bell here?
   },
 
-  componentDidUnmount: function() {
-    // TODO: Tear down bell here?
+  replaySong: function() {
+    this.setState({
+      ended                       : false,
+      milliseconds_elapsed        : 0,
+      player_note                 : this.props.playerNotes[SongStore.get('player_note')],
+      playing                     : true,
+      start_time                  : null
+    })
+    SongActions.replay()
   },
 
   onChange: function() {
@@ -98,7 +104,8 @@ module.exports = React.createClass({
       <main className="song-container">
         <div className="song-ended">
           <h2>Nice Playing!</h2>
-          <a href="/" className="button -gold -large">Back to Home</a>
+          <button className="button -gold -large" onClick={this.replaySong}>Play Again</button>
+          <a href="/" className="button -green -large">Back to Home</a>
         </div>
       </main>
     )

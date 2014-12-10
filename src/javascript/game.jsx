@@ -8,6 +8,7 @@ var HandBell       = require('./lib/Handbell')
 var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var SongActions    = require('./actions/song')
+var SongStore      = require('./stores/song')
 var ComputerPlayer = require('./lib/computer_player')
 
 var Game = function(container) {
@@ -18,6 +19,7 @@ var Game = function(container) {
   this.gameLeader = false
   this.gameStarted = false
   this.attachSong()
+  this.listenForReplay()
   this.connect()
 }
 
@@ -38,6 +40,14 @@ Game.prototype = {
     this.$game          = $('#game')
     this.$usersPresent  = $('#users-present')
     this.$usersReady    = $('#users-ready')
+  },
+
+  listenForReplay: function() {
+    SongStore.on('change', this.replay.bind(this))
+  },
+
+  replay: function(e) {
+    this.chan.send('game:start', {})
   },
 
   start: function(e) {

@@ -27,6 +27,10 @@ var Song = assign({}, Events.EventEmitter.prototype, {
   set: function(key, value) {
     _data = typeof key === 'object' ? assign({}, _data, key) : _data[key] = value
     Song.emit(CHANGE)
+  },
+
+  replay: function() {
+    Song.emit(CHANGE)
   }
 
 })
@@ -41,6 +45,11 @@ Dispatcher.register(function(action) {
         'player_note' : action.param
       })
       break
+
+    case Actions.REPLAY_SONG:
+      Song.replay()
+      break
+
     default:
       return true
   }

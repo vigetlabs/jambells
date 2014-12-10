@@ -54,7 +54,7 @@ defmodule DingMyBells.RoomController do
   end
 
   defp randomAccessCode do
-    Enum.map(1..4, fn(x) -> randomLetter end) |> Enum.join
+    Enum.map(1..4, fn(_x) -> randomLetter end) |> Enum.join
   end
 
   defp randomLetter do

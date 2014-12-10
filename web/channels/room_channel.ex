@@ -37,7 +37,7 @@ defmodule DingMyBells.RoomChannel do
     socket
   end
 
-  def event(socket, "game:pong", message) do
+  def event(socket, "game:pong", _message) do
     user = get_assign(socket, :user)
 
     case user do

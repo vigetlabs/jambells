@@ -1,6 +1,6 @@
 var $        = require('jquery')
 var HandBell = require('./lib/Handbell')
-
+var respondToEvent = ('ontouchend' in document) ? 'touchstart' : 'click'
 var Freestyle = function() {
   this.initialize()
 }
@@ -11,14 +11,15 @@ Freestyle.prototype = {
     this.$body    = $('body')
 
     this.setupHandbell()
-    this.watchButtons()
   },
 
   setupHandbell: function() {
     var note = this.$buttons.filter('.-active').data('note')
 
     this.handBell = new HandBell(note)
-    this.$body.on('touchstart', this.handBell.initialize)
+    this.handBell.initialize()
+    this.$buttons.on(respondToEvent, this.updateHandbell.bind(this))
+    this.$buttons.on(respondToEvent, this.handBell.ding.bind(this.handBell))
   },
 
   updateHandbell: function(e) {
@@ -29,10 +30,6 @@ Freestyle.prototype = {
     $el.addClass('-active')
 
     this.handBell.setNote(note)
-  },
-
-  watchButtons: function() {
-    this.$buttons.on('touchstart', this.updateHandbell.bind(this))
   }
 }
 

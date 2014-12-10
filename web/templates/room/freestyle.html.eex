@@ -1,6 +1,6 @@
 <div class="thin-wrap -center">
   <div class="freestyle-note-div">
-    <button class="freestyle-note-button -active" data-note="C3">C3</button>
+    <button class="freestyle-note-button" data-note="C3">C3</button>
     <button class="freestyle-note-button" data-note="C3s">C3#</button>
     <button class="freestyle-note-button" data-note="D3">D3</button>
     <button class="freestyle-note-button" data-note="D3s">D3#</button>
@@ -12,7 +12,7 @@
     <button class="freestyle-note-button" data-note="A3">A3</button>
     <button class="freestyle-note-button" data-note="A3s">A3#</button>
     <button class="freestyle-note-button" data-note="B3">B3</button>
-    <button class="freestyle-note-button" data-note="C4">C4</button>
+    <button class="freestyle-note-button -active" data-note="C4">C4</button>
     <button class="freestyle-note-button" data-note="C4s">C4#</button>
     <button class="freestyle-note-button" data-note="D4">D4</button>
     <button class="freestyle-note-button" data-note="D4s">D4#</button>

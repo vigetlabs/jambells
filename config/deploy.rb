@@ -49,7 +49,8 @@ namespace :deploy do
       cd #{current_path}                                                            &&
       ln -nsf #{shared_path}/repo.ex      #{release_path}/lib/ding_my_bells/repo.ex &&
       ln -nsf #{shared_path}/deps         #{release_path}/deps                      &&
-      ln -nsf #{shared_path}/node_modules #{release_path}/node_modules
+      ln -nsf #{shared_path}/node_modules #{release_path}/node_modules              &&
+      cp -r   #{shared_path}/_build       #{release_path}/_build
     TASKS
   end
 
@@ -72,22 +73,22 @@ namespace :deploy do
   end
 
   task :restart, roles: :web do
-    if is_application_running?(current_path)
-      run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells stop"
-    end
-
-    run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells start"
+    stop if is_application_running?(current_path)
+    start
   end
 
   task :start, roles: :web do
-    run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells start"
+    run "cd #{current_path}/rel/ding_my_bells/bin && JB_ASSET_PATH=#{current_path}/priv/static ./ding_my_bells start"
   end
 
   task :migrate, roles: :web do
     if is_application_running?(current_path)
-      run "cd #{current_path} && ./rel/ding_my_bells/bin/ding_my_bells stop && mix ecto.migrate Repo && ./rel/ding_my_bells/bin/ding_my_bells start"
+      stop
+      run "cd #{current_path} && mix ecto.migrate Repo"
+      start
     else
-      run "cd #{current_path} && mix ecto.migrate Repo && ./rel/ding_my_bells/bin/ding_my_bells start"
+      run "cd #{current_path} && mix ecto.migrate Repo"
+      start
     end
   end
 

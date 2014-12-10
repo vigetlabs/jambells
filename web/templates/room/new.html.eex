@@ -18,7 +18,7 @@
       <li data-select="we_wish_you">
         <p class="song-list__title">We Wish You a Merry Christmas</p>
         <p class="song-list__difficulty -medium">Intermediate</p>
-        <p class="song-list__notes">6 Notes</p>
+        <p class="song-list__notes">9 Notes</p>
       </li>
       <li data-select="deck_the_halls">
         <p class="song-list__title">Deck the Halls</p>

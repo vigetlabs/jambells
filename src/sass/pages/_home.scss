@@ -1,4 +1,8 @@
 $animName: "jbInstruction";
+$ease-out-circ--custom: cubic-bezier(0.055, 0.535, 0.450, 0.940);
+$ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$ease-in-out-quart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+$ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
 .instructions {
   background: url('../images/bg-stitch.png') repeat center top;
@@ -25,26 +29,32 @@ $animName: "jbInstruction";
 .demo__hand {
   background: url('/images/hands2.png') no-repeat left center;
   background-size: 561px 129px;
-  bottom: -15px;
+  bottom: -25px;
   height: 160px;
   left: 50%;
   margin-left: -85px;
   position: absolute;
-  transform: rotate(43deg);
+  transform: rotateZ(43deg);
   width: 250px;
 
-  -webkit-animation: $animName 5s infinite; /* Safari 4+ */
-  -moz-animation:    $animName 5s infinite; /* Fx 5+ */
-  -o-animation:      $animName 5s infinite; /* Opera 12+ */
-  animation:         $animName 5s infinite; /* IE 10+, Fx 29+ */
+  -webkit-animation: $animName 1.5s infinite $ease-in-out-quart; /* Safari 4+ */
+  -moz-animation:    $animName 1.5s infinite $ease-in-out-quart; /* Fx 5+ */
+  -o-animation:      $animName 1.5s infinite $ease-in-out-quart; /* Opera 12+ */
+  animation:         $animName 1.5s infinite $ease-in-out-quart; /* IE 10+, Fx 29+ */
 }
 
 @include animate($animName) {
   0% {
-    color: red;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg);
   }
-  50% {
-    color: white;
+  45% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg);
+  }
+  60% {
+    transform: rotateX(45deg) rotateY(3deg) rotateZ(43deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg);
   }
 }
 

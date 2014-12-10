@@ -14,7 +14,7 @@ set :ssh_options, {:forward_agent => true}
 set :normalize_asset_timestamps, false
 set :deploy_via, :remote_cache
 
-after "deploy:finalize_update", "deploy:prepare"
+after "deploy:update", "deploy:prepare"
 
 namespace :assets do
   task :precompile, roles: :web do
@@ -22,15 +22,15 @@ namespace :assets do
   end
 end
 
-def is_application_running?
+def is_application_running?(path)
   pid = capture(%Q{ps ax -o pid= -o command=|
-      grep "#{release_path}/rel/ding_my_bells/.*/[b]eam"|awk '{print $1}'})
+      grep "#{path}/rel/ding_my_bells/.*/[b]eam"|awk '{print $1}'})
   return pid != ""
 end
 
 namespace :deploy do
   task :is_running, roles: :web do
-    is_running = is_application_running?
+    is_running = is_application_running?(current_path)
     if is_running
       puts "Application is running"
     else
@@ -72,26 +72,26 @@ namespace :deploy do
   end
 
   task :restart, roles: :web do
-    stop if is_application_running?
+    stop if is_application_running?(current_path)
     start
   end
 
   task :start, roles: :web do
-    run "cd #{release_path}/rel/ding_my_bells/bin && JB_ASSET_PATH=#{release_path}/priv/static ./ding_my_bells start"
+    run "cd #{current_path}/rel/ding_my_bells/bin && JB_ASSET_PATH=#{current_path}/priv/static ./ding_my_bells start"
   end
 
   task :migrate, roles: :web do
-    if is_application_running?
+    if is_application_running?(current_path)
       stop
-      run "cd #{release_path} && mix ecto.migrate Repo"
+      run "cd #{current_path} && mix ecto.migrate Repo"
       start
     else
-      run "cd #{release_path} && mix ecto.migrate Repo"
+      run "cd #{current_path} && mix ecto.migrate Repo"
       start
     end
   end
 
   task :stop, roles: :web do
-    run "cd #{release_path}/rel/ding_my_bells/bin && ./ding_my_bells stop"
+    run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells stop"
   end
 end

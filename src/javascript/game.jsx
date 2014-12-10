@@ -48,7 +48,6 @@ Game.prototype = {
   },
 
   pong: function(message) {
-    console.log("this is a test, remove soon")
     this.chan.send('game:pong', {})
   },
 

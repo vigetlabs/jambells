@@ -104,8 +104,8 @@ module.exports = React.createClass({
       <main className="song-container">
         <div className="song-ended">
           <h2>Nice Playing!</h2>
-          <button className="button -gold -large" onClick={this.replaySong}>Play Again</button>
-          <a href="/" className="button -green -large">Back to Home</a>
+          <button className="button -gold -large -block" onClick={this.replaySong}>Play Again</button>
+          <a href="/" className="button -green -large -block">Back to Home</a>
         </div>
       </main>
     )

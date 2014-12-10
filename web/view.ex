@@ -2,9 +2,6 @@ defmodule DingMyBells.View do
   use Phoenix.View, root: "web/templates"
 
   using do
-    import DingMyBells.I18n
-    import DingMyBells.Router.Helpers
-
     use Phoenix.HTML
   end
 

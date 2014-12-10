@@ -14,7 +14,7 @@ set :ssh_options, {:forward_agent => true}
 set :normalize_asset_timestamps, false
 set :deploy_via, :remote_cache
 
-after "deploy:update", "deploy:prepare"
+after "deploy:finalize_update", "deploy:prepare"
 
 namespace :assets do
   task :precompile, roles: :web do

@@ -41,6 +41,11 @@ input.room-code {
   height: 76px;
   text-align: center;
   text-transform: uppercase;
+
+  @include placeholder {
+    font-size: 28px;
+    padding: 5px;
+  }
 }
 
 select {

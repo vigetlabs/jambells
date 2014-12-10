@@ -28,8 +28,10 @@
     <div class="wrap">
       <header class="global-header">
         <h1 class="logo">
-          <a href="/"><span class="logo-bells" aria-hidden-"true"></span></a>
-          <span class="logo-text">JamBells</span>
+          <a href="/">
+            <span class="logo-bells" aria-hidden="true"></span>
+            <span class="logo-text">JamBells</span>
+          </a>
         </h1>
         <p class="tagline">Handbells on Your Phone</p>
       </header>

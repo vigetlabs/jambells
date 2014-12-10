@@ -31,3 +31,19 @@
     }
   }
 }
+
+.freestyle-style-button {
+  @include button($color--forest--dark);
+  display: none;
+  margin: 0 1% 4px 0;
+  width: 19%;
+
+  &.-active {
+    @include button($color--gold);
+  }
+
+  &.-show {
+    display: block;
+    transition: all 0 0 linear;
+  }
+}

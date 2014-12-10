@@ -9,8 +9,10 @@ var Freestyle = function() {
 
 Freestyle.prototype = {
   initialize: function() {
-    this.$buttons = $('.freestyle-note-button')
-    this.$play    = $('#play-now')
+    this.$buttons  = $('.freestyle-note-button')
+    this.$styles   = $('.freestyle-style-button')
+    this.$play     = $('#play-now')
+    this.touchPlay = true
 
     this.setupHandbell()
 
@@ -22,7 +24,7 @@ Freestyle.prototype = {
       }.bind(this))
     }
 
-    this.$buttons.on(respondToEvent, this.updateHandbell.bind(this))
+    this.setupWatchers()
   },
 
   setupHandbell: function() {
@@ -31,6 +33,11 @@ Freestyle.prototype = {
 
     this.handBell = new HandBell(note)
     this.handBell.initialize()
+  },
+
+  setupWatchers: function() {
+    this.$buttons.on(respondToEvent, this.updateHandbell.bind(this))
+    this.$styles.on(respondToEvent, this.updateStyle.bind(this))
   },
 
   updateHandbell: function(e) {
@@ -45,7 +52,21 @@ Freestyle.prototype = {
       this.handBell.setNote(note)
     }
 
-    !isTouch && this.handBell.ding()
+    if (isTouch) {
+      this.touchPlay && this.handBell.ding()
+    } else {
+      this.handBell.ding()
+    }
+  },
+
+  updateStyle: function(e) {
+    var $el   = $(e.target)
+    var style = $el.data('style')
+
+    this.$styles.removeClass('-active')
+    $el.addClass('-active')
+
+    this.touchPlay = (style == "touch")
   }
 }
 

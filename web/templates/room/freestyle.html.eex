@@ -1,4 +1,6 @@
 <div class="thin-wrap -center">
+  <button class="freestyle-style-button" data-style="touch">Touch</button>
+  <button class="freestyle-style-button -active" data-style="shake">Shake</button>
   <div class="freestyle-note-div">
     <div class="freestyle-button-wrapper">
       <button class="freestyle-note-button" data-note="C3">C3</button>

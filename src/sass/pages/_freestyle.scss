@@ -14,3 +14,20 @@
     @include button($color--gold);
   }
 }
+
+.freestyle-button-wrapper {
+  @include clear-fix;
+  position: relative;
+
+  .-fill {
+    @include fill;
+    display: none;
+    font-size: 32px;
+    width: 100%;
+
+    &.-show {
+      display: block;
+      transition: all 0 0 linear;
+    }
+  }
+}

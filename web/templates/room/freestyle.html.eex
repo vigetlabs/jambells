@@ -1,30 +1,33 @@
 <div class="thin-wrap -center">
   <div class="freestyle-note-div">
-    <button class="freestyle-note-button" data-note="C3">C3</button>
-    <button class="freestyle-note-button" data-note="C3s">C3#</button>
-    <button class="freestyle-note-button" data-note="D3">D3</button>
-    <button class="freestyle-note-button" data-note="D3s">D3#</button>
-    <button class="freestyle-note-button" data-note="E3">E3</button>
-    <button class="freestyle-note-button" data-note="F3">F3</button>
-    <button class="freestyle-note-button" data-note="F3s">F3#</button>
-    <button class="freestyle-note-button" data-note="G3">G3</button>
-    <button class="freestyle-note-button" data-note="G3s">G3#</button>
-    <button class="freestyle-note-button" data-note="A3">A3</button>
-    <button class="freestyle-note-button" data-note="A3s">A3#</button>
-    <button class="freestyle-note-button" data-note="B3">B3</button>
-    <button class="freestyle-note-button -active" data-note="C4">C4</button>
-    <button class="freestyle-note-button" data-note="C4s">C4#</button>
-    <button class="freestyle-note-button" data-note="D4">D4</button>
-    <button class="freestyle-note-button" data-note="D4s">D4#</button>
-    <button class="freestyle-note-button" data-note="E4">E4</button>
-    <button class="freestyle-note-button" data-note="F4">F4</button>
-    <button class="freestyle-note-button" data-note="F4s">F4#</button>
-    <button class="freestyle-note-button" data-note="G4">G4</button>
-    <button class="freestyle-note-button" data-note="G4s">G4#</button>
-    <button class="freestyle-note-button" data-note="A4">A4</button>
-    <button class="freestyle-note-button" data-note="A4s">A4#</button>
-    <button class="freestyle-note-button" data-note="B4">B4</button>
-    <button class="freestyle-note-button" data-note="C5">C5</button>
+    <div class="freestyle-button-wrapper">
+      <button class="freestyle-note-button" data-note="C3">C3</button>
+      <button class="freestyle-note-button" data-note="C3s">C3#</button>
+      <button class="freestyle-note-button" data-note="D3">D3</button>
+      <button class="freestyle-note-button" data-note="D3s">D3#</button>
+      <button class="freestyle-note-button" data-note="E3">E3</button>
+      <button class="freestyle-note-button" data-note="F3">F3</button>
+      <button class="freestyle-note-button" data-note="F3s">F3#</button>
+      <button class="freestyle-note-button" data-note="G3">G3</button>
+      <button class="freestyle-note-button" data-note="G3s">G3#</button>
+      <button class="freestyle-note-button" data-note="A3">A3</button>
+      <button class="freestyle-note-button" data-note="A3s">A3#</button>
+      <button class="freestyle-note-button" data-note="B3">B3</button>
+      <button class="freestyle-note-button -active" data-note="C4">C4</button>
+      <button class="freestyle-note-button" data-note="C4s">C4#</button>
+      <button class="freestyle-note-button" data-note="D4">D4</button>
+      <button class="freestyle-note-button" data-note="D4s">D4#</button>
+      <button class="freestyle-note-button" data-note="E4">E4</button>
+      <button class="freestyle-note-button" data-note="F4">F4</button>
+      <button class="freestyle-note-button" data-note="F4s">F4#</button>
+      <button class="freestyle-note-button" data-note="G4">G4</button>
+      <button class="freestyle-note-button" data-note="G4s">G4#</button>
+      <button class="freestyle-note-button" data-note="A4">A4</button>
+      <button class="freestyle-note-button" data-note="A4s">A4#</button>
+      <button class="freestyle-note-button" data-note="B4">B4</button>
+      <button class="freestyle-note-button" data-note="C5">C5</button>
+      <button id="play-now" class="button -gold -fill">Tap here<br>to start<br>jamming!</button>
+    </div>
   </div>
 
   <a href="/" class="button -block -green">Back</a>

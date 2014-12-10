@@ -1,6 +1,4 @@
 <div class="thin-wrap -center">
-  <button class="freestyle-style-button" data-style="touch">Touch</button>
-  <button class="freestyle-style-button -active" data-style="shake">Shake</button>
   <div class="freestyle-note-div">
     <div class="freestyle-button-wrapper">
       <button class="freestyle-note-button" data-note="C3">C3</button>
@@ -31,6 +29,10 @@
       <button id="play-now" class="button -gold -fill">Tap here<br>to start<br>jamming!</button>
     </div>
   </div>
+
+  <div class="freestyle-style-instructions">Enable sound on touch?</div>
+  <button class="freestyle-style-button" data-style="touch">Yes</button>
+  <button class="freestyle-style-button -active" data-style="shake">No</button>
 
   <a href="/" class="button -block -green">Back</a>
 </div>

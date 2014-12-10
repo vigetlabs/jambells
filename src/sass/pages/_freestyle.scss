@@ -1,7 +1,7 @@
 .freestyle-note-div {
   @include clear-fix;
   margin-bottom: 1em;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .freestyle-note-button {
@@ -35,7 +35,7 @@
 .freestyle-style-button {
   @include button($color--forest--dark);
   display: none;
-  margin: 0 1% 4px 0;
+  margin: 0 1% 15px 0;
   width: 25%;
 
   &.-active {
@@ -44,5 +44,14 @@
 
   &.-show {
     display: inline-block;
+  }
+}
+
+.freestyle-style-instructions {
+  display: none;
+  margin: 10px;
+
+  &.-show {
+    display: block;
   }
 }

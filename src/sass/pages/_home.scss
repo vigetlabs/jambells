@@ -45,16 +45,16 @@ $ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
 @include animate($animName) {
   0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg) translateY(0) translateX(0);
   }
-  45% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg);
+  48% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg) translateY(0) translateX(0);
   }
   60% {
-    transform: rotateX(45deg) rotateY(3deg) rotateZ(43deg);
+    transform: rotateX(45deg) rotateY(3deg) rotateZ(43deg) translateY(15px) translateX(5px);
   }
   100% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg) translateY(0) translateX(0);
   }
 }
 

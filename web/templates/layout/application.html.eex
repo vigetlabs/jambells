@@ -5,13 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <title>JamBells</title>
-    <meta name="description" content="Make a hand bell choir and play a song using your phone! Invite up to 12 friends to play with you.">
+    <title>JamBells – Play handbells with your friends!</title>
+    <meta name="description" content="Play handbells! Bring together a group of friends with this mobile web app that creates a handbell choir on the fly.">
     <meta name="author" content="Pointless Corp., Viget Labs">
     <link rel="stylesheet" href="<%= stylesheet_path("app") %>">
 
     <script src="//use.typekit.net/vpq2mie.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
+
+    <!-- Facebook/OG Meta -->
+    <meta property="og:title" content="JamBells" />
+    <meta property="og:url" content="http://jambells.com" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Play handbells! Bring together a group of friends with this mobile web app that creates a handbell choir on the fly." /> 
+    <meta property="og:site_name" content="JamBells" /> 
+
+    <!-- Twitter Meta -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@jambellsapp" />
+    <meta property="twitter:title" content="JamBells" />
+    <meta property="twitter:description" content="Play handbells! Bring together a group of friends with this mobile web app that creates a handbell choir on the fly." />
+    <meta property="twitter:image" content="" />
+    <meta property="twitter:url" content="@jambellsapp" />
+    <meta property="twitter:domain" content="http://jambells.com" />
+
+    <!-- Schema Meta -->
+    <meta itemprop="name" content="JamBells">
+    <meta itemprop="url" content="http://www.jambells.com">
+    <meta itemprop="description" content="Play handbells! Bring together a group of friends with this mobile web app that creates a handbell choir on the fly.">
+    <meta itemprop="image" content="">
+    <meta itemprop="screenshot" content="">
+    <meta itemprop="applicationCategory" content="Game">
+    <meta itemprop="applicationSubCategory" content="Musical Game">
+    <meta itemprop="creator" content="Viget Labs">
+    <meta itemprop="genre" content="music">
+    <meta itemprop="isFamilyFriendly" content="true">
   </head>
 
   <body class="<%= @class_name %>">

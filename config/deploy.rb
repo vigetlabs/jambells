@@ -60,6 +60,9 @@ namespace :deploy do
       npm install                       &&
       ./node_modules/.bin/gulp build    &&
       ./node_modules/.bin/gulp compress &&
+      ./node_modules/.bin/gulp rev      &&
+      rm priv/static/js/app.js          &&
+      rm priv/static/css/app.css        &&
       MIX_ENV=#{mix_env} mix release
     TASKS
   end

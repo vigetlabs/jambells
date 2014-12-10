@@ -32,7 +32,8 @@
     "require-dir": "^0.1.0",
     "smokesignals": "0.0.7",
     "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.0.0"
+    "watchify": "^2.0.0",
+    "gulp-rev": "~2.0.1"
   },
   "dependencies": {
     "flux": "^2.0.1",

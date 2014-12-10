@@ -18,13 +18,11 @@ Freestyle.prototype = {
 
     if (isTouch) {
       this.$play.addClass('-show')
-      this.$play.on(respondToEvent, function(e){
-        this.handBell.ding()
-        this.$play.removeClass('-show')
-      }.bind(this))
+
+      this.setupTouchWatchers()
     }
 
-    this.setupWatchers()
+    this.$buttons.on(respondToEvent, this.updateHandbell.bind(this))
   },
 
   setupHandbell: function() {
@@ -35,9 +33,15 @@ Freestyle.prototype = {
     this.handBell.initialize()
   },
 
-  setupWatchers: function() {
-    this.$buttons.on(respondToEvent, this.updateHandbell.bind(this))
+  setupTouchWatchers: function() {
     this.$styles.on(respondToEvent, this.updateStyle.bind(this))
+
+    this.$play.on(respondToEvent, function(e){
+      this.handBell.ding()
+
+      this.$styles.addClass('-show')
+      this.$play.removeClass('-show')
+    }.bind(this))
   },
 
   updateHandbell: function(e) {

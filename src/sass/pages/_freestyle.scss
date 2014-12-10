@@ -43,7 +43,6 @@
   }
 
   &.-show {
-    display: block;
-    transition: all 0 0 linear;
+    display: inline-block;
   }
 }

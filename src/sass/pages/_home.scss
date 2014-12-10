@@ -37,10 +37,7 @@ $ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   transform: rotateZ(43deg);
   width: 250px;
 
-  -webkit-animation: $animName 1.5s infinite $ease-in-out-quart; /* Safari 4+ */
-  -moz-animation:    $animName 1.5s infinite $ease-in-out-quart; /* Fx 5+ */
-  -o-animation:      $animName 1.5s infinite $ease-in-out-quart; /* Opera 12+ */
-  animation:         $animName 1.5s infinite $ease-in-out-quart; /* IE 10+, Fx 29+ */
+  animation: $animName 1.5s infinite $ease-in-out-quart;
 }
 
 @include animate($animName) {

@@ -45,7 +45,7 @@ Freestyle.prototype = {
       this.handBell.setNote(note)
     }
 
-    this.handBell.ding()
+    !isTouch && this.handBell.ding()
   }
 }
 

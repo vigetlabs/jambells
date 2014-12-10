@@ -26,4 +26,6 @@
     <button class="freestyle-note-button" data-note="B4">B4</button>
     <button class="freestyle-note-button" data-note="C5">C5</button>
   </div>
+
+  <a href="/" class="button -block -green">Back</a>
 </div>

@@ -93,3 +93,18 @@ $default-border-radius : 3px;
   height: $size;
   width: $size;
 }
+
+@mixin animate($name) {
+  @-webkit-keyframes $name {
+    @content;
+  }
+  @-moz-keyframes $name {
+    @content;
+  }
+  @-o-keyframes $name {
+    @content;
+  }
+  @keyframes $name {
+    @content;
+  }
+}

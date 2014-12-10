@@ -2,7 +2,27 @@
   <p class="bp-tablet">Play in a handbell choir with your friends using your phone.</p>
   <p class="bp-tablet small">For the best experience, visit this site on your mobile phone.</p>
 
-  <a href="/new" class="button -block -gold">Start a Choir</a>
-  <a href="/join" class="button -block -green">Join a Choir</a>
-  <a href="/freestyle" class="button -block -green">Freestyle</a>
+  <div class="actions">
+    <a href="/new" class="button -block -gold play-button">Start a Choir</a>
+    <a href="/join" class="button -block -green play-button">Join a Choir</a>
+    <a href="/freestyle" class="button -block -green play-button">Freestyle</a>
+  </div>
+</div>
+
+<div id="instructions" class="instructions wrap">
+  <div class="thin-wrap -center">
+    <p>To ring your bell, hold your phone in front of you and give it a single quick shake forward.</p>
+
+    <div class="demo" aria-hidden="true">
+      <div class="demo__hand"></div>
+    </div>
+
+    <button class="button -block -gold -large">Got it!</button>
+  </div>
+
+  <div class="hide-text">
+    <select id="freestyle-note-select">
+      <option value="A3">A3</option>
+    </select>
+  </div>
 </div>

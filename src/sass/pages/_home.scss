@@ -1,5 +1,61 @@
-body.home {
+$animName: "jbInstruction";
 
+.instructions {
+  background: url('../images/bg-stitch.png') repeat center top;
+  display: none;
+  left: 0;
+  min-height: 100%;
+  padding-top: 30px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.demo {
+  background: $color--forest--dark;
+  border-radius: $button-border-radius;
+  height: 200px;
+  margin-bottom: 2em;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.demo__hand {
+  background: url('/images/hands2.png') no-repeat left center;
+  background-size: 561px 129px;
+  bottom: -15px;
+  height: 160px;
+  left: 50%;
+  margin-left: -85px;
+  position: absolute;
+  transform: rotate(43deg);
+  width: 250px;
+
+  -webkit-animation: $animName 5s infinite; /* Safari 4+ */
+  -moz-animation:    $animName 5s infinite; /* Fx 5+ */
+  -o-animation:      $animName 5s infinite; /* Opera 12+ */
+  animation:         $animName 5s infinite; /* IE 10+, Fx 29+ */
+}
+
+@include animate($animName) {
+  0% {
+    color: red;
+  }
+  50% {
+    color: white;
+  }
+}
+
+
+body.instruct-screen {
+  .instructions {
+    display: block;
+  }
+}
+
+body.home {
   .button.-block {
     margin-left: auto;
     margin-right: auto;
@@ -32,28 +88,32 @@ body.home {
         z-index: 2;
       }
     }
+  }
 
+  @media #{$bp-desktop} {
     .wrap {
       position: static;
 
       &:before,
       &:after {
-        background: url('/images/hands2.png') no-repeat center;
+        background: url('/images/hands2.png') no-repeat left center;
         content: "";
         height: 257px;
         position: absolute;
-        top: 340px;
-        width: 1122px;
+        overflow: hidden;
+        top: 140px;
+        width: 561px;
         z-index: 0;
       }
 
       &:before {
         transform: rotate(35deg);
-        right: -730px;
+        right: -230px;
       }
 
       &:after {
-        left: -680px;
+        background-position: right center;
+        left: -180px;
         transform: rotate(-45deg);
       }
     }
@@ -64,11 +124,11 @@ body.home {
 
       &:before {
         transform: rotate(35deg);
-        right: -680px;
+        right: -180px;
       }
 
       &:after {
-        left: -630px;
+        left: -130px;
         transform: rotate(-45deg);
       }
     }

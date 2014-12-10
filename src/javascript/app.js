@@ -48,7 +48,7 @@ var instructScreen = function() {
   }
 
   var setCookie = function() {
-    // Cookies.create(cookieName, true, 30);
+    Cookies.create(cookieName, true, 30);
   }
 
   var checkCookie = function(e) {

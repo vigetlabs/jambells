@@ -14,7 +14,7 @@ set :ssh_options, {:forward_agent => true}
 set :normalize_asset_timestamps, false
 set :deploy_via, :remote_cache
 
-after "deploy:update", "deploy:prepare"
+after "deploy:finalize_update", "deploy:prepare"
 
 namespace :assets do
   task :precompile, roles: :web do
@@ -22,15 +22,15 @@ namespace :assets do
   end
 end
 
-def is_application_running?(current_path)
+def is_application_running?
   pid = capture(%Q{ps ax -o pid= -o command=|
-      grep "/var/www/ding_my_bells/current/rel/ding_my_bells/.*/[b]eam"|awk '{print $1}'})
+      grep "#{release_path}/rel/ding_my_bells/.*/[b]eam"|awk '{print $1}'})
   return pid != ""
 end
 
 namespace :deploy do
   task :is_running, roles: :web do
-    is_running = is_application_running?(current_path)
+    is_running = is_application_running?
     if is_running
       puts "Application is running"
     else
@@ -46,7 +46,6 @@ namespace :deploy do
 
   task :pre_build, roles: :web do
     run <<-TASKS
-      cd #{current_path}                                                            &&
       ln -nsf #{shared_path}/repo.ex      #{release_path}/lib/ding_my_bells/repo.ex &&
       ln -nsf #{shared_path}/deps         #{release_path}/deps                      &&
       ln -nsf #{shared_path}/node_modules #{release_path}/node_modules              &&
@@ -56,7 +55,7 @@ namespace :deploy do
 
   task :build, roles: :web do
     run <<-TASKS
-      cd #{current_path}                &&
+      cd #{release_path}                &&
       mix deps.get                      &&
       npm install                       &&
       ./node_modules/.bin/gulp build    &&
@@ -73,26 +72,26 @@ namespace :deploy do
   end
 
   task :restart, roles: :web do
-    stop if is_application_running?(current_path)
+    stop if is_application_running?
     start
   end
 
   task :start, roles: :web do
-    run "cd #{current_path}/rel/ding_my_bells/bin && JB_ASSET_PATH=#{current_path}/priv/static ./ding_my_bells start"
+    run "cd #{release_path}/rel/ding_my_bells/bin && JB_ASSET_PATH=#{release_path}/priv/static ./ding_my_bells start"
   end
 
   task :migrate, roles: :web do
-    if is_application_running?(current_path)
+    if is_application_running?
       stop
-      run "cd #{current_path} && mix ecto.migrate Repo"
+      run "cd #{release_path} && mix ecto.migrate Repo"
       start
     else
-      run "cd #{current_path} && mix ecto.migrate Repo"
+      run "cd #{release_path} && mix ecto.migrate Repo"
       start
     end
   end
 
   task :stop, roles: :web do
-    run "cd #{current_path}/rel/ding_my_bells/bin && ./ding_my_bells stop"
+    run "cd #{release_path}/rel/ding_my_bells/bin && ./ding_my_bells stop"
   end
 end

@@ -31,7 +31,7 @@ var songSelect = function() {
 songSelect.init();
 
 // js for freestyling
-var freestyleNode = document.querySelector('#freestyle-note-select')
+var freestyleNode = document.querySelector('.freestyle-note-button')
 
 if (freestyleNode) new Freestyle()
 

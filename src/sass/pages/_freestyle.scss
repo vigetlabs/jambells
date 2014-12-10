@@ -1,3 +1,14 @@
-#freestyle-note-select {
-  width: 25%;
+.freestyle-note-div {
+  margin-top: 30px;
+}
+
+.freestyle-note-button {
+  @include button($color--forest--dark);
+  float: left;
+  margin: 0 1% 4px 0;
+  width: 19%;
+
+  &.-active {
+    @include button($color--gold);
+  }
 }

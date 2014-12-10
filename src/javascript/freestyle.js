@@ -7,31 +7,32 @@ var Freestyle = function() {
 
 Freestyle.prototype = {
   initialize: function() {
-    this.$select = $("#freestyle-note-select")
-    this.$play   = $("#play-button")
+    this.$buttons = $('.freestyle-note-button')
+    this.$body    = $('body')
 
     this.setupHandbell()
-    this.watchSelect()
+    this.watchButtons()
   },
 
   setupHandbell: function() {
-    var note = this.$select.val()
+    var note = this.$buttons.filter('.-active').data('note')
 
     this.handBell = new HandBell(note)
-    this.handBell.initialize()
-    this.$play.on('click', this.handBell.ding.bind(this.handBell))
+    this.$body.on('touchstart', this.handBell.initialize)
   },
 
-  updateHandbell: function() {
-    var note = this.$select.val()
+  updateHandbell: function(e) {
+    var $el = $(e.target)
+    var note = $el.data('note')
+
+    this.$buttons.removeClass('-active')
+    $el.addClass('-active')
 
     this.handBell.setNote(note)
   },
 
-  watchSelect: function() {
-    this.$select.change(function() {
-      this.updateHandbell()
-    }.bind(this))
+  watchButtons: function() {
+    this.$buttons.on('touchstart', this.updateHandbell.bind(this))
   }
 }
 

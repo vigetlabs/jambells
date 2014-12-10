@@ -41,7 +41,6 @@ namespace :deploy do
   task :prepare, roles: :web do
     pre_build
     build
-    post_build
   end
 
   task :pre_build, roles: :web do
@@ -64,10 +63,6 @@ namespace :deploy do
       rm priv/static/css/app.css        &&
       MIX_ENV=#{mix_env} mix release
     TASKS
-  end
-
-  task :post_build, roles: :web do
-    run "cp -r #{release_path}/_build #{shared_path}/_build"
   end
 
   task :restart, roles: :web do

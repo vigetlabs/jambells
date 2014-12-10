@@ -44,7 +44,7 @@ Freestyle.prototype = {
     var $el = $(e.target)
     var note = $el.data('note')
 
-    this.$buttons.removeClass('-active -fill')
+    this.$buttons.removeClass('-active')
     $el.addClass('-active')
 
     if (this.savedNote != note) {

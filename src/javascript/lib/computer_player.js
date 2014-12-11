@@ -18,7 +18,7 @@ ComputerPlayer = {
   initializeNote: function(noteObject, index) {
     if (this.unassignedNotes.indexOf(noteObject.note) != -1) {
       if (!this.handBells[noteObject.note]) {
-        this.handBells[noteObject.note] = new Sound(getNoteUrl(noteObject.note), audioContext)
+        this.handBells[noteObject.note] = new Sound(noteObject.note)
       }
 
       this.noteTimes.push({

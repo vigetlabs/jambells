@@ -5,7 +5,7 @@
   <div class="actions">
     <a href="/new" class="button -block -gold play-button">Start a Choir</a>
     <a href="/join" class="button -block -green play-button">Join a Choir</a>
-    <a href="/freestyle" class="button -block -green play-button">Freestyle</a>
+    <a href="/freestyle" class="button -block -stitch play-button">Freestyle</a>
   </div>
 </div>
 

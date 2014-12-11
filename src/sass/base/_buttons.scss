@@ -20,6 +20,24 @@
     }
   }
 
+  &.-stitch {
+    background: none;
+    border-image: url('../images/stitch-border.png') 65 69 65 69 repeat;
+    border-width: 9px;
+    box-shadow: none;
+    padding: 3px 0;
+
+    @include bp-desktop {
+      border-width: 12px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: rgba(0, 0, 0, 0.06);
+    }
+  }
+
   // Display Types
   &.-block {
     display: block;

@@ -111,9 +111,21 @@ module.exports = React.createClass({
           <div className="thin-wrap -center">
             <h2>Nice Playing!</h2>
             {this.isFirstPlayer() &&
-              <button className="button -green -large -block" onClick={this.replay}>Play Again?</button>
+              <div>
+                <button className="button -green -large" onClick={this.replay}>Play Again?</button>
+              </div>
             }
-            <a href="/" className="button -gold -large -block">Back to Home</a>
+            <div>
+              <a href="/" className="button -gold -large">Back to Home</a>
+            </div>
+            <div>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://jambells.com" target="_blank">
+                Share on Facebook
+              </a>
+              <a href="https://twitter.com/intent/tweet?text=Play %23handbells without any instruments! Try out JamBells at http://jambells.com/ via @JamBellsApp" target="_blank">
+                Share on Twitter
+              </a>
+            </div>
           </div>
         </div>
       </main>

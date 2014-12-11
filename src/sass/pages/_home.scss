@@ -120,10 +120,6 @@ body.home {
     margin-top: 20px;
   }
 
-  .button.-stitch {
-    margin-top: 30px;
-  }
-
   @media #{$bp-desktop} and #{$bp-tall} {
     .global-footer {
       background-image: url('/images/home-footer.png');

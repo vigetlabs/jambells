@@ -1,7 +1,7 @@
 var $         = require('jquery')
 var Game      = require('./game')
 var Preview   = require('./preview')
-var Freestyle = require('./freestyle')
+var Handbell  = require('./lib/Handbell')
 var Cookies   = require('./util/cookies')
 
 var songSelect = function() {
@@ -44,7 +44,9 @@ var instructScreen = function() {
   }
 
   var startSound = function() {
-    var freestyle = new Freestyle();
+    var handBell = new HandBell('C4');
+    handBell.initialize();
+    handBell.ding();
   }
 
   var setCookie = function() {
@@ -52,6 +54,8 @@ var instructScreen = function() {
   }
 
   var checkCookie = function(e) {
+    e.preventDefault();
+
     if(Cookies.read(cookieName) == null) {
       toURL = $(this).attr('href');
       showInstructions();

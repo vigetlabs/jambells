@@ -1,7 +1,5 @@
-var Sound        = require('./Sound')
-var getNoteUrl   = require('../util/getNoteUrl')
-var audioContext = require('./audioContext')
-var tempo        = require('../constants/tempo')
+var Sound = require('./Sound')
+var tempo = require('../constants/tempo')
 
 ComputerPlayer = {
   play: function(noteObjects, unassignedNotes) {

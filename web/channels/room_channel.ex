@@ -71,7 +71,10 @@ defmodule DingMyBells.RoomChannel do
     room = get_assign(socket, :room_id) |> Room.find
     reset(room)
 
-    broadcast socket, "game:restarted", %{}
+    # need to reload room object
+    room = get_assign(socket, :room_id) |> Room.find
+
+    broadcast socket, "game:restarted", room_info(room)
 
     socket
   end

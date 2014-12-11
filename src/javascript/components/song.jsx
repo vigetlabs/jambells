@@ -2,13 +2,24 @@
  * @jsx React.DOM
  */
 
-var React     = require('react')
-var Note      = require('./note')
-var $         = require('jquery')
-var SongStore = require('../stores/song')
-var tempo     = require('../constants/tempo')
+var React       = require('react')
+var Note        = require('./note')
+var $           = require('jquery')
+var SongStore   = require('../stores/song')
+var SongActions = require('../actions/song')
+var tempo       = require('../constants/tempo')
 
 module.exports = React.createClass({
+
+  setRefreshState: function() {
+    this.setState({
+      ended                : false,
+      milliseconds_elapsed : 0,
+      playing              : false,
+      start_time           : null
+    })
+  },
+
   getInitialState: function() {
     return {
       ended                       : false,
@@ -49,11 +60,6 @@ module.exports = React.createClass({
     } else {
       window.cancelAnimationFrame(this.step)
     }
-    // TODO: Initialize bell here?
-  },
-
-  componentDidUnmount: function() {
-    // TODO: Tear down bell here?
   },
 
   onChange: function() {
@@ -65,6 +71,7 @@ module.exports = React.createClass({
 
   componentDidMount: function() {
     SongStore.on('change', this.onChange.bind(this))
+    SongStore.on('refresh', this.setRefreshState.bind(this))
   },
 
   renderNotes: function(notes) {
@@ -93,12 +100,19 @@ module.exports = React.createClass({
     }.bind(this))
   },
 
+  isFirstPlayer: function() {
+    return parseInt(SongStore.get('player_note')) === 0
+  },
+
   renderCompleted: function() {
     return (
       <main className="song-container">
         <div className="song-ended">
           <h2>Nice Playing!</h2>
-          <a href="/" className="button -gold -large">Back to Home</a>
+          {this.isFirstPlayer() &&
+            <button className="button -green -large -block" onClick={this.replay}>Replay?</button>
+          }
+          <a href="/" className="button -gold -large -blog">Back to Home</a>
         </div>
       </main>
     )
@@ -123,5 +137,10 @@ module.exports = React.createClass({
         </div>
       </main>
     )
+  },
+
+  replay: function() {
+    SongActions.replay()
   }
+
 })

@@ -8,6 +8,7 @@ var HandBell       = require('./lib/Handbell')
 var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var SongActions    = require('./actions/song')
+var SongStore      = require('./stores/song')
 var ComputerPlayer = require('./lib/computer_player')
 
 var Game = function(container) {
@@ -19,9 +20,19 @@ var Game = function(container) {
   this.gameStarted = false
   this.attachSong()
   this.connect()
+  this.listenForReplay()
 }
 
 Game.prototype = {
+
+  listenForReplay: function() {
+    SongStore.on('replay', this.emitRestart.bind(this))
+  },
+
+  emitRestart: function () {
+    this.chan.send('game:restart', {})
+  },
+
   attachSong: function() {
     React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
   },
@@ -61,11 +72,22 @@ Game.prototype = {
     this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on('game:ping', this.pong.bind(this))
     this.chan.on("game:started", this.renderGame.bind(this))
+    this.chan.on("game:restarted", this.refreshLobby.bind(this))
 
     for (var i=0; i < this.data.song.roles.length; i++) {
       this.$bellsList.append(this.$bell.clone());
     }
     this.testManyPlayers(this.data.song.roles.length);
+  },
+
+  refreshLobby: function(message) {
+    this.gameStarted = false
+    this.$readyButton.show()
+    this.$startButton.hide()
+    this.$lobby.show()
+    this.$game.hide()
+    this.renderRoomInfo(message)
+    SongActions.refresh()
   },
 
   announceReady: function(e) {

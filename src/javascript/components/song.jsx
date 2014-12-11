@@ -108,11 +108,13 @@ module.exports = React.createClass({
     return (
       <main className="song-container">
         <div className="song-ended">
-          <h2>Nice Playing!</h2>
-          {this.isFirstPlayer() &&
-            <button className="button -green -large -block" onClick={this.replay}>Replay?</button>
-          }
-          <a href="/" className="button -gold -large -blog">Back to Home</a>
+          <div class="thin-wrap -center">
+            <h2>Nice Playing!</h2>
+            {this.isFirstPlayer() &&
+              <button className="button -green -large -block" onClick={this.replay}>Play Again?</button>
+            }
+            <a href="/" className="button -gold -large -block">Back to Home</a>
+          </div>
         </div>
       </main>
     )

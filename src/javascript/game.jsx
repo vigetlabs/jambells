@@ -151,6 +151,9 @@ Game.prototype = {
     this.$usersPresent.html(present)
     this.$usersReady.html(this.ready)
 
+    // Reset in case of game restart
+    this.$bellsList.find('.bell').removeClass('-joined -ready')
+
     var $joinedBells = this.$bellsList.find('.bell:lt(' + present + ')');
     $joinedBells.addClass('-joined');
     this.testManyPlayers(present);

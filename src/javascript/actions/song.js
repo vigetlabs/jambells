@@ -10,8 +10,8 @@ module.exports = {
     });
   },
 
-  replay: function() {
-    Dispatcher.dispatch({ type : Actions.REPLAY_SONG });
+  startRoom: function() {
+    Dispatcher.dispatch({ type : Actions.START_ROOM });
   }
 
 };

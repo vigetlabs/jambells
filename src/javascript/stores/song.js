@@ -3,21 +3,22 @@ var Dispatcher = require('../dispatcher')
 var Actions    = require('../constants/actions')
 var assign     = require('object-assign')
 
-var CHANGE     = 'change'
-
 var _data      = {
-  playing     : false,
-  player_note : null
+  new_room    : false,
+  player_note : null,
+  playing     : false
 }
 
 var Song = assign({}, Events.EventEmitter.prototype, {
 
   onChange: function(callback) {
-    this.on(CHANGE, callback)
+    this.on('change', callback)
+    this.on('replay', callback)
   },
 
   offChange: function(callback) {
-    this.removeListener(CHANGE, callback)
+    this.removeListener('change', callback)
+    this.removeListener('replay', callback)
   },
 
   get: function(key) {
@@ -26,11 +27,11 @@ var Song = assign({}, Events.EventEmitter.prototype, {
 
   set: function(key, value) {
     _data = typeof key === 'object' ? assign({}, _data, key) : _data[key] = value
-    Song.emit(CHANGE)
+    Song.emit('change')
   },
 
-  replay: function() {
-    Song.emit(CHANGE)
+  startRoom: function() {
+    Song.emit('replay')
   }
 
 })
@@ -46,8 +47,14 @@ Dispatcher.register(function(action) {
       })
       break
 
-    case Actions.REPLAY_SONG:
-      Song.replay()
+    case Actions.START_ROOM:
+      Song.startRoom()
+      break
+
+    case Actions.JOIN_ROOM:
+      Song.set({
+        'new_room' : action.param
+      })
       break
 
     default:

@@ -25,7 +25,7 @@ var Game = function(container) {
 
 Game.prototype = {
   attachSong: function() {
-    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
+    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes} playerNotes={this.data.song.roles} songOptions={this.data.options} bell={ this.bell } />, this.container)
   },
 
   connect: function() {
@@ -43,11 +43,11 @@ Game.prototype = {
   },
 
   listenForReplay: function() {
-    SongStore.on('change', this.replay.bind(this))
+    SongStore.on('replay', this.startNewRoom.bind(this))
   },
 
-  replay: function(e) {
-    this.chan.send('game:start', {})
+  startNewRoom: function() {
+    this.chan.send('game:start_new_room', {})
   },
 
   start: function(e) {
@@ -69,6 +69,16 @@ Game.prototype = {
     this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on('game:ping', this.pong.bind(this))
     this.chan.on("game:started", this.renderGame.bind(this))
+    this.chan.on("game:start_room", this.startNewRoom.bind(this))
+    this.chan.on("game:join_room", this.notifyUsers.bind(this))
+  },
+
+  startNewRoom: function() {
+    // Make request to create new room based on dropdown?
+  },
+
+  notifyUsers: function() {
+    SongActions.joinGame(SongStore.get('new_room'))
   },
 
   announceReady: function(e) {

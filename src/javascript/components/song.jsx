@@ -11,11 +11,12 @@ var tempo       = require('../constants/tempo')
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      ended                       : false,
-      milliseconds_elapsed        : 0,
-      player_note                 : null,
-      playing                     : false,
-      start_time                  : null
+      ended                : false,
+      milliseconds_elapsed : 0,
+      new_room             : false,
+      player_note          : null,
+      playing              : false,
+      start_time           : null
     }
   },
 
@@ -51,21 +52,11 @@ module.exports = React.createClass({
     }
   },
 
-  replaySong: function() {
-    this.setState({
-      ended                       : false,
-      milliseconds_elapsed        : 0,
-      player_note                 : this.props.playerNotes[SongStore.get('player_note')],
-      playing                     : true,
-      start_time                  : null
-    })
-    SongActions.replay()
-  },
-
   onChange: function() {
     this.setState({
-      playing     : SongStore.get('playing'),
-      player_note : this.props.playerNotes[SongStore.get('player_note')]
+      new_room    : SongStore.get('new_room'),
+      player_note : this.props.playerNotes[SongStore.get('player_note')],
+      playing     : SongStore.get('playing')
     })
   },
 
@@ -99,12 +90,37 @@ module.exports = React.createClass({
     }.bind(this))
   },
 
+  isFirstPlayer: function() {
+    console.log('Player #', SongStore.get('player_note'));
+
+    var playerIndex = parseInt(SongStore.get('player_note'))
+
+    return playerIndex === 0
+  },
+
+  getOption: function(option, index) {
+    return <option value={index}>{option}</option>
+  },
+
   renderCompleted: function() {
     return (
       <main className="song-container">
         <div className="song-ended">
           <h2>Nice Playing!</h2>
-          <button className="button -gold -large -block" onClick={this.replaySong}>Play Again</button>
+          {this.isFirstPlayer() &&
+            <div>
+              <label>Start another room and to play a song listed below:</label>
+              <select onChange={this._startRoom}>
+                {this.getOption.map(this.props.songOptions)}
+              </select>
+            </div>
+          }
+          {this.state.new_room &&
+            <a href={'/' + this.state.new_room} className="button -gold -large -block">Join New Room?</a>
+          }
+          {!this.state.new_room &&
+            <p>Want to play again? Tell the game creator to <b>Play Again</b>.</p>
+          }
           <a href="/" className="button -green -large -block">Back to Home</a>
         </div>
       </main>
@@ -130,5 +146,9 @@ module.exports = React.createClass({
         </div>
       </main>
     )
+  },
+
+  _startRoom: function() {
+    SongActions.startRoom()
   }
 })

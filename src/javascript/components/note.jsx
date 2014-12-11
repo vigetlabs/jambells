@@ -48,7 +48,9 @@ module.exports = React.createClass({
   render: function() {
     var beat = this.props.beat
     var style = {
-      WebkitTransform : 'translateY(' + this.top() + '%)'
+      WebkitTransform : 'translateY(' + this.top() + '%)',
+      MozTransform    : 'translateY(' + this.top() + '%)',
+      Transform       : 'translateY(' + this.top() + '%)'
     }
 
     return (

@@ -33,7 +33,7 @@ Freestyle.prototype = {
   setupTouchWatchers: function() {
     this.$styles            = $('.freestyle-style-button')
     this.$styleInstructions = $('.freestyle-style-instructions')
-    this.touchPlay          = false
+    this.touchPlay          = true
 
     this.$styles.on(respondToEvent, this.updateStyle.bind(this))
 

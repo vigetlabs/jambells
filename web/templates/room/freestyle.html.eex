@@ -31,8 +31,8 @@
   </div>
 
   <div class="freestyle-style-instructions">Enable sound on touch?</div>
-  <button class="freestyle-style-button" data-style="touch">Yes</button>
-  <button class="freestyle-style-button -active" data-style="shake">No</button>
+  <button class="freestyle-style-button -active" data-style="touch">Yes</button>
+  <button class="freestyle-style-button" data-style="shake">No</button>
 
   <a href="/" class="button -block -green">Back</a>
 </div>

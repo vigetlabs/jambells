@@ -1,7 +1,7 @@
 var $         = require('jquery')
 var Game      = require('./game')
 var Preview   = require('./preview')
-var Handbell  = require('./lib/Handbell')
+var HandBell  = require('./lib/Handbell')
 var Cookies   = require('./util/cookies')
 
 var songSelect = function() {
@@ -54,8 +54,6 @@ var instructScreen = function() {
   }
 
   var checkCookie = function(e) {
-    e.preventDefault();
-
     if(Cookies.read(cookieName) == null) {
       toURL = $(this).attr('href');
       showInstructions();

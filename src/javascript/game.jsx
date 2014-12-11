@@ -106,7 +106,7 @@ Game.prototype = {
       this.$startButton.removeAttr('disabled')
     }
 
-    var noteAssignment = this.data.song.roles[userTokens.indexOf(this.userToken)]
+    var noteAssignment = this.data.song.roles[userTokens.indexOf(this.userToken) % this.data.song.roles.length]
 
     if (this.note != noteAssignment) {
       this.note = noteAssignment

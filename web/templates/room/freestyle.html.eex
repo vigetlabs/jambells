@@ -26,7 +26,7 @@
       <button class="freestyle-note-button" data-note="A4s">A4#</button>
       <button class="freestyle-note-button" data-note="B4">B4</button>
       <button class="freestyle-note-button" data-note="C5">C5</button>
-      <button id="play-now" class="button -gold -fill">Tap here<br>to start<br>jamming!</button>
+      <button id="play-now" class="button -gold -fill">Tap <br>to start<br>jamming</button>
     </div>
   </div>
 

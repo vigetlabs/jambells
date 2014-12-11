@@ -11,7 +11,7 @@
 
 <div id="instructions" class="instructions wrap">
   <div class="thin-wrap -center">
-    <p>To ring your bell, hold your phone in front of you and give it a single quick forward rotation.</p>
+    <p>To ring your bell, give your phone a quick forward rotation. Make sure your sound is turned on and up.</p>
 
     <div class="demo" aria-hidden="true">
       <div class="demo__hand"></div>

@@ -44,7 +44,7 @@ var instructScreen = function() {
   }
 
   var startSound = function() {
-    var freestyle = new Freestyle()
+    var freestyle = new Freestyle();
   }
 
   var setCookie = function() {
@@ -62,7 +62,7 @@ var instructScreen = function() {
   }
 
   var reroute = function() {
-    window.location.replace(toURL);
+    // window.location.replace(toURL);
   }
 
   var addEvents = function() {

@@ -1,5 +1,5 @@
-<div id="game-lobby" class="thin-wrap detail-wrap" data-id="<%= @room.id %>" data-song="<%= @song %>">
-  <p>Friends can join by entering the following code on jambells.com</p>
+<div id="game-lobby" class="thin-wrap -center detail-wrap" data-id="<%= @room.id %>" data-song="<%= @song %>">
+  <p>Friends can join by entering the following code on jambells.com:</p>
   <p class="room-code-wrap"><%= @room.access_code %></p>
   <div class="game-details">
     <p>Song: <%= pretty(@room.song) %></p>

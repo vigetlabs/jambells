@@ -1,7 +1,7 @@
-<div class="thin-wrap">
+<div class="thin-wrap -center">
   <form action="/rooms" method="post">
-    <div class="field">
-      <label for="room[song]">Choose a song:</label>
+    <div class="field" class="hide-text">
+      <label for="room[song]" class="hide-text">Choose a Song</label>
       <select name="room[song]" class="hide-text">
         <option value="jinglebells">Jingle Bells</option>
         <option value="deck_the_halls">Deck The Halls</option>
@@ -13,17 +13,14 @@
       <li data-select="jinglebells">
         <p class="song-list__title">Jingle Bells</p>
         <p class="song-list__difficulty -easy">Easy</p>
-        <p class="song-list__notes">5 Notes</p>
       </li>
       <li data-select="we_wish_you">
         <p class="song-list__title">We Wish You a Merry Christmas</p>
         <p class="song-list__difficulty -medium">Intermediate</p>
-        <p class="song-list__notes">9 Notes</p>
       </li>
       <li data-select="deck_the_halls">
         <p class="song-list__title">Deck the Halls</p>
         <p class="song-list__difficulty -hard">Hard</p>
-        <p class="song-list__notes">10 Notes</p>
       </li>
     </ul>
 

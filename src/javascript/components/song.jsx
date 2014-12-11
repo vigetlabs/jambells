@@ -108,7 +108,7 @@ module.exports = React.createClass({
     return (
       <main className="song-container">
         <div className="song-ended">
-          <div class="thin-wrap -center">
+          <div className="thin-wrap -center">
             <h2>Nice Playing!</h2>
             {this.isFirstPlayer() &&
               <button className="button -green -large -block" onClick={this.replay}>Play Again?</button>

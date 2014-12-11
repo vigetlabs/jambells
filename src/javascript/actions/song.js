@@ -12,6 +12,10 @@ module.exports = {
 
   startRoom: function() {
     Dispatcher.dispatch({ type : Actions.START_ROOM });
+  },
+
+  joinRoom: function() {
+    Dispatcher.dispatch({ type : Actions.JOIN_ROOM });
   }
 
 };

@@ -1,8 +1,9 @@
 $difficulty-width: 34px;
 
 .song-list {
+  margin-bottom: 10px;
+  margin-top: -25px;
   text-align: left;
-  margin-top: -20px;
 
   p {
     margin: 0;
@@ -24,7 +25,7 @@ $difficulty-width: 34px;
 }
 
 .song-list__title {
-  font-size: 1.6em;
+  font-size: 1.4em;
   font-weight: bold;
   line-height: 1.2;
 }

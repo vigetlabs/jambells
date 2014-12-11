@@ -21,6 +21,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.small {
+  color: lighten($color--forest--light, 10%);
+  font-size: 0.8em;
+}
+
 p {
   line-height: $base-line-height;
   margin: 0 0 1.8em;

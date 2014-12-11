@@ -38,6 +38,8 @@ Game.prototype = {
     this.$game          = $('#game')
     this.$usersPresent  = $('#users-present')
     this.$usersReady    = $('#users-ready')
+    this.$bellsList     = $('#bells-list')
+    this.$bell          = $('<span class="bell">CPU</span>')
   },
 
   start: function(e) {
@@ -59,6 +61,11 @@ Game.prototype = {
     this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on('game:ping', this.pong.bind(this))
     this.chan.on("game:started", this.renderGame.bind(this))
+
+    for (var i=0; i < this.data.song.roles.length; i++) {
+      this.$bellsList.append(this.$bell.clone());
+    }
+    this.testManyPlayers(this.data.song.roles.length);
   },
 
   announceReady: function(e) {
@@ -121,6 +128,19 @@ Game.prototype = {
 
     this.$usersPresent.html(present)
     this.$usersReady.html(this.ready)
+
+    var $joinedBells = this.$bellsList.find('.bell:lt(' + present + ')');
+    $joinedBells.addClass('-joined');
+    this.testManyPlayers(present);
+
+    var $readyBells = this.$bellsList.find('.bell:lt(' + this.ready + ')');
+    $readyBells.addClass('-ready');
+  },
+
+  testManyPlayers: function(num) {
+    if(num > 7) {
+      this.$bellsList.addClass('-many');
+    }
   }
 }
 

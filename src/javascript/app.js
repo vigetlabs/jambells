@@ -52,6 +52,8 @@ var instructScreen = function() {
   }
 
   var checkCookie = function(e) {
+    e.preventDefault();
+    
     if(Cookies.read(cookieName) == null) {
       toURL = $(this).attr('href');
       showInstructions();
@@ -62,7 +64,7 @@ var instructScreen = function() {
   }
 
   var reroute = function() {
-    // window.location.replace(toURL);
+    window.location.replace(toURL);
   }
 
   var addEvents = function() {

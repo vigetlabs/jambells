@@ -1,4 +1,5 @@
-$animName: "jbInstruction";
+$handAnimName: "jbHand";
+$armAnimName: "jbArm";
 $ease-out-circ--custom: cubic-bezier(0.055, 0.535, 0.450, 0.940);
 $ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
 $ease-in-out-quart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
@@ -26,32 +27,74 @@ $ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   width: 100%;
 }
 
-.demo__hand {
-  background: url('/images/hands2.png') no-repeat left center;
-  background-size: 561px 129px;
-  bottom: -25px;
-  height: 160px;
+.demo__arm {
+  background: url('../images/arm-side.svg') no-repeat left center;
+  background-size: 155px 155px;
+  bottom: -80px;
+  height: 155px;
   left: 50%;
-  margin-left: -85px;
+  margin-left: -25px;
   position: absolute;
-  transform: rotateZ(43deg);
-  width: 250px;
+  transform: rotate(-30deg);
+  width: 155px;
 
-  animation: $animName 1.5s infinite $ease-in-out-quart;
+  animation: $armAnimName 1.5s infinite $ease-in-out-quart;
 }
 
-@include animate($animName) {
+@include animate($armAnimName) {
   0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg) translateY(0) translateX(0);
+    bottom: -80px;
+    margin-left: -25px;
+    transform: rotate(-30deg);
   }
-  48% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg) translateY(0) translateX(0);
+  45% {
+    bottom: -80px;
+    margin-left: -25px;
+    transform: rotate(-30deg);
   }
-  60% {
-    transform: rotateX(45deg) rotateY(3deg) rotateZ(43deg) translateY(15px) translateX(5px);
+  65% {
+    bottom: -75px;
+    margin-left: -30px;
+    transform: rotate(-35deg);
   }
   100% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(43deg) translateY(0) translateX(0);
+    bottom: -80px;
+    margin-left: -25px;
+    transform: rotate(-30deg);
+  }
+}
+
+.demo__hand {
+  background: url('../images/hand-side.svg') no-repeat right top;
+  background-size: 100px 140px;
+  bottom: -57px;
+  height: 235px;
+  left: 50%;
+  margin-left: -42px;
+  position: absolute;
+  width: 100px;
+  z-index: 2;
+  transform: rotate(5deg);
+
+  animation: $handAnimName 1.5s infinite $ease-in-out-quart;
+}
+
+@include animate($handAnimName) {
+  0% {
+    margin-left: -42px;
+    transform: rotate(5deg);
+  }
+  45% {
+    margin-left: -42px;
+    transform: rotate(5deg);
+  }
+  65% {
+    margin-left: -47px;
+    transform: rotate(-65deg);
+  }
+  100% {
+    margin-left: -42px;
+    transform: rotate(5deg);
   }
 }
 

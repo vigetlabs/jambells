@@ -15,6 +15,7 @@
 
     <div class="demo" aria-hidden="true">
       <div class="demo__hand"></div>
+      <div class="demo__arm"></div>
     </div>
 
     <button class="button -block -gold -large">Got it!</button>

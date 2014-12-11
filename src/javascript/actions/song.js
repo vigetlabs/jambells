@@ -8,6 +8,14 @@ module.exports = {
       type  : Actions.PLAY_SONG,
       param : param
     });
+  },
+
+  createRoom: function() {
+    Dispatcher.dispatch({ type : Actions.CREATE_ROOM });
+  },
+
+  joinRoom: function() {
+    Dispatcher.dispatch({ type : Actions.JOIN_ROOM });
   }
 
 };

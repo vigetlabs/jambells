@@ -8,6 +8,7 @@ var HandBell       = require('./lib/Handbell')
 var $              = require('jquery')
 var Phoenix        = require('./vendor/phoenix')
 var SongActions    = require('./actions/song')
+var SongStore      = require('./stores/song')
 var ComputerPlayer = require('./lib/computer_player')
 
 var Game = function(container) {
@@ -18,12 +19,13 @@ var Game = function(container) {
   this.gameLeader = false
   this.gameStarted = false
   this.attachSong()
+  this.listenForReplay()
   this.connect()
 }
 
 Game.prototype = {
   attachSong: function() {
-    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
+    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes} playerNotes={this.data.song.roles} songOptions={this.data.options} bell={ this.bell } />, this.container)
   },
 
   connect: function() {
@@ -38,6 +40,18 @@ Game.prototype = {
     this.$game          = $('#game')
     this.$usersPresent  = $('#users-present')
     this.$usersReady    = $('#users-ready')
+  },
+
+  listenForReplay: function() {
+    SongStore.on('replay', this.createNewRoom.bind(this))
+  },
+
+  createNewRoom: function() {
+    this.chan.send('game:create_room', {})
+    // Will create a the room here, respond to
+    // client with `game:room_created`, which will
+    // tell all non-Player 1 users to join the
+    // new room by updated the state.
   },
 
   start: function(e) {
@@ -59,6 +73,16 @@ Game.prototype = {
     this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on('game:ping', this.pong.bind(this))
     this.chan.on("game:started", this.renderGame.bind(this))
+    this.chan.on("game:room_created", this.notifyPlayersToJoinRoom.bind(this))
+  },
+
+  notifyPlayersToJoinRoom: function(message) {
+    var room = message.user_tokens.indexOf(this.roomId)
+
+    // No need to tell Player 1 to join new room
+    if (this.playerIndex !== 0) {
+      SongActions.joinRoom(room)
+    }
   },
 
   announceReady: function(e) {
@@ -78,9 +102,9 @@ Game.prototype = {
       this.$lobby.hide()
       this.$game.show()
 
-      var playerIndex = message.user_tokens.indexOf(this.userToken)
+      this.playerIndex = message.user_tokens.indexOf(this.userToken)
 
-      SongActions.play(playerIndex)
+      SongActions.play(this.playerIndex)
 
       if (this.gameLeader && this.ready < this.data.song.roles.length) {
         var unassignedNotes = this.data.song.roles.slice(this.ready)

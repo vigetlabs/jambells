@@ -2,20 +2,21 @@
  * @jsx React.DOM
  */
 
-var React     = require('react')
-var Note      = require('./note')
-var $         = require('jquery')
-var SongStore = require('../stores/song')
-var tempo     = require('../constants/tempo')
+var React       = require('react')
+var Note        = require('./note')
+var SongStore   = require('../stores/song')
+var SongActions = require('../actions/song')
+var tempo       = require('../constants/tempo')
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      ended                       : false,
-      milliseconds_elapsed        : 0,
-      player_note                 : null,
-      playing                     : false,
-      start_time                  : null
+      ended                : false,
+      milliseconds_elapsed : 0,
+      new_room             : false,
+      player_note          : null,
+      playing              : false,
+      start_time           : null
     }
   },
 
@@ -49,17 +50,13 @@ module.exports = React.createClass({
     } else {
       window.cancelAnimationFrame(this.step)
     }
-    // TODO: Initialize bell here?
-  },
-
-  componentDidUnmount: function() {
-    // TODO: Tear down bell here?
   },
 
   onChange: function() {
     this.setState({
-      playing     : SongStore.get('playing'),
-      player_note : this.props.playerNotes[SongStore.get('player_note')]
+      new_room    : SongStore.get('new_room'),
+      player_note : this.props.playerNotes[SongStore.get('player_note')],
+      playing     : SongStore.get('playing')
     })
   },
 
@@ -93,12 +90,34 @@ module.exports = React.createClass({
     }.bind(this))
   },
 
+  isFirstPlayer: function() {
+    return parseInt(SongStore.get('player_note')) === 0
+  },
+
+  getOption: function(option, index) {
+    return <option value={index}>{option}</option>
+  },
+
   renderCompleted: function() {
     return (
       <main className="song-container">
         <div className="song-ended">
           <h2>Nice Playing!</h2>
-          <a href="/" className="button -gold -large">Back to Home</a>
+          {this.isFirstPlayer() &&
+            <div>
+              <label>Start another room and to play a song listed below:</label>
+              <select onChange={this._createRoom}>
+                {this.getOption.map(this.props.songOptions)}
+              </select>
+            </div>
+          }
+          {this.state.new_room &&
+            <a href={'/' + this.state.new_room} className="button -gold -large -block">Join New Room?</a>
+          }
+          {!this.state.new_room &&
+            <p>Want to play again? Tell the game creator to <b>Play Again</b>.</p>
+          }
+          <a href="/" className="button -green -large -block">Back to Home</a>
         </div>
       </main>
     )
@@ -123,5 +142,9 @@ module.exports = React.createClass({
         </div>
       </main>
     )
+  },
+
+  _createRoom: function() {
+    SongActions.createRoom()
   }
 })

@@ -91,11 +91,7 @@ module.exports = React.createClass({
   },
 
   isFirstPlayer: function() {
-    console.log('Player #', SongStore.get('player_note'));
-
-    var playerIndex = parseInt(SongStore.get('player_note'))
-
-    return playerIndex === 0
+    return parseInt(SongStore.get('player_note')) === 0
   },
 
   getOption: function(option, index) {

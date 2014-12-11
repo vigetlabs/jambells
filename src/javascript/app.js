@@ -52,8 +52,6 @@ var instructScreen = function() {
   }
 
   var checkCookie = function(e) {
-    e.preventDefault();
-    
     if(Cookies.read(cookieName) == null) {
       toURL = $(this).attr('href');
       showInstructions();

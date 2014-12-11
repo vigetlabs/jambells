@@ -43,11 +43,12 @@ Game.prototype = {
   },
 
   listenForReplay: function() {
-    SongStore.on('replay', this.startNewRoom.bind(this))
+    SongStore.on('replay', this.createNewRoom.bind(this))
   },
 
-  startNewRoom: function() {
-    this.chan.send('game:start_new_room', {})
+  createNewRoom: function() {
+    this.chan.send('game:create_new_room', {})
+    // Will create a new
   },
 
   start: function(e) {
@@ -69,16 +70,13 @@ Game.prototype = {
     this.chan.on("room:update", this.renderRoomInfo.bind(this))
     this.chan.on('game:ping', this.pong.bind(this))
     this.chan.on("game:started", this.renderGame.bind(this))
-    this.chan.on("game:start_room", this.startNewRoom.bind(this))
-    this.chan.on("game:join_room", this.notifyUsers.bind(this))
+    this.chan.on("game:room_created", this.notifyUsersToJoinRoom.bind(this))
   },
 
-  startNewRoom: function() {
-    // Make request to create new room based on dropdown?
-  },
+  notifyUsersToJoinRoom: function(message) {
+    var room = message.user_tokens.indexOf(this.roomId)
 
-  notifyUsers: function() {
-    SongActions.joinGame(SongStore.get('new_room'))
+    SongActions.joinGame(room)
   },
 
   announceReady: function(e) {

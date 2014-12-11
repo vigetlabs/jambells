@@ -30,7 +30,7 @@ var Song = assign({}, Events.EventEmitter.prototype, {
     Song.emit('change')
   },
 
-  startRoom: function() {
+  createRoom: function() {
     Song.emit('replay')
   }
 
@@ -47,8 +47,8 @@ Dispatcher.register(function(action) {
       })
       break
 
-    case Actions.START_ROOM:
-      Song.startRoom()
+    case Actions.CREATE_ROOM:
+      Song.createRoom()
       break
 
     case Actions.JOIN_ROOM:

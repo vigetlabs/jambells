@@ -106,7 +106,7 @@ module.exports = React.createClass({
           {this.isFirstPlayer() &&
             <div>
               <label>Start another room and to play a song listed below:</label>
-              <select onChange={this._startRoom}>
+              <select onChange={this._createRoom}>
                 {this.getOption.map(this.props.songOptions)}
               </select>
             </div>
@@ -144,7 +144,7 @@ module.exports = React.createClass({
     )
   },
 
-  _startRoom: function() {
-    SongActions.startRoom()
+  _createRoom: function() {
+    SongActions.createRoom()
   }
 })

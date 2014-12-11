@@ -10,8 +10,8 @@ module.exports = {
     });
   },
 
-  startRoom: function() {
-    Dispatcher.dispatch({ type : Actions.START_ROOM });
+  createRoom: function() {
+    Dispatcher.dispatch({ type : Actions.CREATE_ROOM });
   },
 
   joinRoom: function() {

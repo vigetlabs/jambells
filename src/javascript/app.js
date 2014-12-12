@@ -48,7 +48,6 @@ var instructScreen = function() {
 
   var startSound = function() {
     handBell.initialize();
-    handBell.ding();
   }
 
   var setCookie = function() {

@@ -5,14 +5,18 @@
   <div class="actions">
     <a href="/new" class="button -block -gold">Start a Choir</a>
     <a href="/join" class="button -block -green">Join a Choir</a>
-    <a href="/freestyle" class="button -block -stitch">Freestyle</a>
+    <a href="/freestyle" class="button -block -stitch -freestyle-button">Freestyle</a>
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://jambells.com" target="_blank">
-      Share on Facebook
-    </a>
-    <a href="https://twitter.com/intent/tweet?text=Play %23handbells without any instruments! Try out JamBells at http://jambells.com/ via @JamBellsApp" target="_blank">
-      Share on Twitter
-    </a>
+    <div class="social-actions">
+      <span>Share on</span>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://jambells.com" class="social-button" target="_blank">
+         Facebook
+      </a>
+      <span>or</span>
+      <a href="https://twitter.com/intent/tweet?text=Play %23handbells without any instruments! Try out JamBells at http://jambells.com/ via @JamBellsApp" class="social-button" target="_blank">
+        Twitter
+      </a>
+    </div>
   </div>
 </div>
 

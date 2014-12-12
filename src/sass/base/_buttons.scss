@@ -27,6 +27,10 @@
     box-shadow: none;
     padding: 3px 0;
 
+    &.-freestyle-button {
+      margin-top: 30px;
+    }
+
     @include bp-desktop {
       border-width: 12px;
     }
@@ -69,4 +73,10 @@
       background: $color--gold;
     }
   }
+}
+
+.social-button {
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
 }

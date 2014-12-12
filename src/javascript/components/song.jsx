@@ -85,14 +85,14 @@ module.exports = React.createClass({
       this.countInBeats.secondary.play()
     }
 
-    this.setState({
-      pulse : this.state.pulse + 1
-    })
-
     if (this.state.pulse == this.props.countIn) {
       clearInterval(this.pulseInterval)
       this.setState({
         pulse : 0
+      })
+    } else {
+      this.setState({
+        pulse : this.state.pulse + 1
       })
     }
   },

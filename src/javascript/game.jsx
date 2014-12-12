@@ -36,7 +36,7 @@ Game.prototype = {
   },
 
   attachSong: function() {
-    React.renderComponent(<Song bpm={this.data.song.bpm} notes={this.data.song.notes} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
+    React.renderComponent(<Song bpm={this.data.song.bpm} measure={this.data.song.measure} notes={this.data.song.notes} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
   },
 
   connect: function() {

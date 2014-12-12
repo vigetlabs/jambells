@@ -519,126 +519,134 @@ defmodule Song do
       "notes": [
         %{
           "note": "G3",
+          "milliseconds_from_start": 0
+        },
+        %{
+          "note": "C4",
+          "milliseconds_from_start": 480
+        },
+        %{
+          "note": "C4",
           "milliseconds_from_start": 960
+        },
+        %{
+          "note": "D4",
+          "milliseconds_from_start": 1200
         },
         %{
           "note": "C4",
           "milliseconds_from_start": 1440
         },
         %{
-          "note": "C4",
+          "note": "B3",
+          "milliseconds_from_start": 1680
+        },
+        %{
+          "note": "A3",
           "milliseconds_from_start": 1920
         },
         %{
-          "note": "D4",
-          "milliseconds_from_start": 2160
-        },
-        %{
-          "note": "C4",
+          "note": "A3",
           "milliseconds_from_start": 2400
-        },
-        %{
-          "note": "B3",
-          "milliseconds_from_start": 2640
         },
         %{
           "note": "A3",
           "milliseconds_from_start": 2880
         },
         %{
-          "note": "A3",
+          "note": "D4",
           "milliseconds_from_start": 3360
         },
         %{
-          "note": "A3",
+          "note": "D4",
           "milliseconds_from_start": 3840
+        },
+        %{
+          "note": "E4",
+          "milliseconds_from_start": 4080
         },
         %{
           "note": "D4",
           "milliseconds_from_start": 4320
         },
         %{
-          "note": "D4",
-          "milliseconds_from_start": 4800
-        },
-        %{
-          "note": "E4",
-          "milliseconds_from_start": 5040
-        },
-        %{
-          "note": "D4",
-          "milliseconds_from_start": 5280
-        },
-        %{
           "note": "C4",
-          "milliseconds_from_start": 5520
+          "milliseconds_from_start": 4560
         },
         %{
           "note": "B3",
+          "milliseconds_from_start": 4800
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 5280
+        },
+        %{
+          "note": "G3",
           "milliseconds_from_start": 5760
         },
         %{
-          "note": "G3",
+          "note": "E4",
           "milliseconds_from_start": 6240
         },
         %{
-          "note": "G3",
+          "note": "E4",
           "milliseconds_from_start": 6720
+        },
+        %{
+          "note": "F4",
+          "milliseconds_from_start": 6960
         },
         %{
           "note": "E4",
           "milliseconds_from_start": 7200
         },
         %{
-          "note": "E4",
-          "milliseconds_from_start": 7680
-        },
-        %{
-          "note": "F4",
-          "milliseconds_from_start": 7920
-        },
-        %{
-          "note": "E4",
-          "milliseconds_from_start": 8160
-        },
-        %{
           "note": "D4",
-          "milliseconds_from_start": 8400
+          "milliseconds_from_start": 7440
         },
         %{
           "note": "C4",
+          "milliseconds_from_start": 7680
+        },
+        %{
+          "note": "A3",
+          "milliseconds_from_start": 8160
+        },
+        %{
+          "note": "G3",
           "milliseconds_from_start": 8640
+        },
+        %{
+          "note": "G3",
+          "milliseconds_from_start": 8880
         },
         %{
           "note": "A3",
           "milliseconds_from_start": 9120
         },
         %{
-          "note": "G3",
+          "note": "D4",
           "milliseconds_from_start": 9600
         },
         %{
-          "note": "G3",
-          "milliseconds_from_start": 9840
-        },
-        %{
-          "note": "A3",
+          "note": "B3",
           "milliseconds_from_start": 10080
         },
         %{
-          "note": "D4",
+          "note": "C4",
           "milliseconds_from_start": 10560
         },
         %{
-          "note": "B3",
-          "milliseconds_from_start": 11040
-        },
-        %{
-          "note": "C4",
+          "note": "G3",
           "milliseconds_from_start": 11520
         },
         %{
-          "note": "G3",
+          "note": "C4",
+          "milliseconds_from_start": 12000
+        },
+        %{
+          "note": "C4",
           "milliseconds_from_start": 12480
         },
         %{
@@ -646,84 +654,76 @@ defmodule Song do
           "milliseconds_from_start": 12960
         },
         %{
-          "note": "C4",
+          "note": "B3",
           "milliseconds_from_start": 13440
-        },
-        %{
-          "note": "C4",
-          "milliseconds_from_start": 13920
         },
         %{
           "note": "B3",
           "milliseconds_from_start": 14400
         },
         %{
+          "note": "C4",
+          "milliseconds_from_start": 14880
+        },
+        %{
           "note": "B3",
           "milliseconds_from_start": 15360
         },
         %{
-          "note": "C4",
+          "note": "A3",
           "milliseconds_from_start": 15840
         },
         %{
-          "note": "B3",
+          "note": "G3",
           "milliseconds_from_start": 16320
         },
         %{
-          "note": "A3",
-          "milliseconds_from_start": 16800
+          "note": "D4",
+          "milliseconds_from_start": 17280
         },
         %{
-          "note": "G3",
-          "milliseconds_from_start": 17280
+          "note": "E4",
+          "milliseconds_from_start": 17760
         },
         %{
           "note": "D4",
           "milliseconds_from_start": 18240
         },
         %{
-          "note": "E4",
+          "note": "C4",
           "milliseconds_from_start": 18720
         },
         %{
-          "note": "D4",
+          "note": "G4",
           "milliseconds_from_start": 19200
         },
         %{
-          "note": "C4",
+          "note": "G3",
           "milliseconds_from_start": 19680
         },
         %{
-          "note": "G4",
+          "note": "G3",
           "milliseconds_from_start": 20160
         },
         %{
           "note": "G3",
-          "milliseconds_from_start": 20640
-        },
-        %{
-          "note": "G3",
-          "milliseconds_from_start": 21120
-        },
-        %{
-          "note": "G3",
-          "milliseconds_from_start": 21360
+          "milliseconds_from_start": 20400
         },
         %{
           "note": "A3",
-          "milliseconds_from_start": 21600
+          "milliseconds_from_start": 20640
         },
         %{
           "note": "D4",
-          "milliseconds_from_start": 22080
+          "milliseconds_from_start": 21120
         },
         %{
           "note": "B3",
-          "milliseconds_from_start": 22560
+          "milliseconds_from_start": 21600
         },
         %{
           "note": "C4",
-          "milliseconds_from_start": 23040
+          "milliseconds_from_start": 22080
         }
       ]
     }

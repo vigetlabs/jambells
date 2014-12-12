@@ -2,6 +2,7 @@
  * @jsx React.DOM
  */
 
+var HandBell    = require('../lib/Handbell')
 var React       = require('react')
 var Note        = require('./note')
 var $           = require('jquery')
@@ -20,13 +21,18 @@ module.exports = React.createClass({
     })
   },
 
+  bpmToMs: function() {
+    return 60 / this.props.bpm * 1000
+  },
+
   getInitialState: function() {
     return {
-      ended                       : false,
-      milliseconds_elapsed        : 0,
-      player_note                 : null,
-      playing                     : false,
-      start_time                  : null
+      ended                : false,
+      pulse                : 0,
+      milliseconds_elapsed : 0,
+      player_note          : null,
+      playing              : false,
+      start_time           : null
     }
   },
 
@@ -37,12 +43,13 @@ module.exports = React.createClass({
   step: function(timestamp) {
     if ( ! this.state.start_time) {
       this.setState({
-        start_time : timestamp
+        start_time : timestamp + (this.bpmToMs() * (this.getCountInMeasure() - 1))
       })
+      this.countInMeasure()
     }
 
     this.setState({
-      milliseconds_elapsed: timestamp - this.state.start_time
+      milliseconds_elapsed: (timestamp - this.state.start_time)
     })
 
     // Song has ended
@@ -69,9 +76,38 @@ module.exports = React.createClass({
     })
   },
 
+  getCountInMeasure: function() {
+    var timeSignature = this.props.measure.split('/')
+    var first         = parseInt(timeSignature[0])
+    var second        = parseInt(timeSignature[1])
+
+    return (second * 2) - 1
+  },
+
+  countInMeasure: function() {
+
+    this.pulseInterval = setInterval(function(){
+      this.handBell.ding()
+
+      this.setState({
+        pulse : this.state.pulse + 1
+      })
+
+      if (this.state.pulse == this.getCountInMeasure()) {
+        clearInterval(this.pulseInterval)
+        this.setState({
+          pulse : 0
+        })
+      }
+    }.bind(this), this.bpmToMs())
+  },
+
   componentDidMount: function() {
     SongStore.on('change', this.onChange.bind(this))
     SongStore.on('refresh', this.setRefreshState.bind(this))
+
+    this.handBell = new HandBell('ALERT')
+    this.handBell.initialize()
   },
 
   renderNotes: function(notes) {
@@ -111,13 +147,9 @@ module.exports = React.createClass({
           <div className="thin-wrap -center">
             <h2>Nice Playing!</h2>
             {this.isFirstPlayer() &&
-              <div>
-                <button className="button -green -large" onClick={this.replay}>Play Again?</button>
-              </div>
+                <button className="button -green -large -block" onClick={this.replay}>Play Again?</button>
             }
-            <div>
-              <a href="/" className="button -gold -large">Back to Home</a>
-            </div>
+            <a href="/" className="button -gold -large -block">Back to Home</a>
             <div>
               <a href="https://www.facebook.com/sharer/sharer.php?u=http://jambells.com" target="_blank">
                 Share on Facebook

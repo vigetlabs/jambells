@@ -157,9 +157,13 @@ Game.prototype = {
       for(var j=0; j < numMissing; j++) {
         this.$bellsList.append(this.$bell.clone());
       }
-
-      this.$bells = $bellsList.find('.bell');
+    } else if((this.$bells.length > present) && (present >= this.data.song.roles.length)) {
+      var numTooMany = this.$bells.length - present;
+       for(var j=0; j < numTooMany; j++) {
+        this.$bells.last().remove();
+      }
     }
+    this.$bells = this.$bellsList.find('.bell');
 
     // Reset in case of game restart
     this.$bells.removeClass('-joined -ready');

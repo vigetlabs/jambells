@@ -151,8 +151,18 @@ Game.prototype = {
     this.$usersPresent.html(present)
     this.$usersReady.html(this.ready)
 
+    this.$bells = $bellsList.find('.bell');
+    if(this.$bells.length < present) {
+      var numMissing = present - this.$bells.length;
+      for(var j=0; j < numMissing; j++) {
+        this.$bellsList.append(this.$bell.clone());
+      }
+
+      this.$bells = $bellsList.find('.bell');
+    }
+
     // Reset in case of game restart
-    this.$bellsList.find('.bell').removeClass('-joined -ready')
+    this.$bells.removeClass('-joined -ready');
 
     var $joinedBells = this.$bellsList.find('.bell:lt(' + present + ')');
     $joinedBells.addClass('-joined');

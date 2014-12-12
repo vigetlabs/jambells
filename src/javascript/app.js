@@ -1,6 +1,7 @@
 var $         = require('jquery')
 var Game      = require('./game')
 var Preview   = require('./preview')
+var Freestyle = require('./freestyle')
 var HandBell  = require('./lib/Handbell')
 var Cookies   = require('./util/cookies')
 

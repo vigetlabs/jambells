@@ -3,6 +3,7 @@
  */
 
 var HandBell    = require('../lib/Handbell')
+var Sound       = require('../lib/Sound')
 var React       = require('react')
 var Note        = require('./note')
 var $           = require('jquery')
@@ -11,6 +12,10 @@ var SongActions = require('../actions/song')
 var tempo       = require('../constants/tempo')
 
 module.exports = React.createClass({
+
+  bpmToMs: function() {
+    return 60 / this.props.bpm * 1000
+  },
 
   setRefreshState: function() {
     this.setState({
@@ -21,17 +26,13 @@ module.exports = React.createClass({
     })
   },
 
-  bpmToMs: function() {
-    return 60 / this.props.bpm * 1000
-  },
-
   getInitialState: function() {
     return {
       ended                : false,
-      pulse                : 0,
       milliseconds_elapsed : 0,
       player_note          : null,
       playing              : false,
+      pulse                : 0,
       start_time           : null
     }
   },
@@ -43,8 +44,9 @@ module.exports = React.createClass({
   step: function(timestamp) {
     if ( ! this.state.start_time) {
       this.setState({
-        start_time : timestamp + (this.bpmToMs() * (this.getCountInMeasure() - 1))
+        start_time : timestamp + this.props.startOffset
       })
+
       this.countInMeasure()
     }
 
@@ -76,38 +78,38 @@ module.exports = React.createClass({
     })
   },
 
-  getCountInMeasure: function() {
-    var timeSignature = this.props.measure.split('/')
-    var first         = parseInt(timeSignature[0])
-    var second        = parseInt(timeSignature[1])
+  playCountInBeat: function() {
+    if (this.state.pulse % parseInt(this.props.measure.split('/')[0]) == 0) {
+      this.countInBeats.primary.play()
+    } else {
+      this.countInBeats.secondary.play()
+    }
 
-    return (second * 2) - 1
+    this.setState({
+      pulse : this.state.pulse + 1
+    })
+
+    if (this.state.pulse == this.props.countIn) {
+      clearInterval(this.pulseInterval)
+      this.setState({
+        pulse : 0
+      })
+    }
   },
 
   countInMeasure: function() {
-
-    this.pulseInterval = setInterval(function(){
-      this.handBell.ding()
-
-      this.setState({
-        pulse : this.state.pulse + 1
-      })
-
-      if (this.state.pulse == this.getCountInMeasure()) {
-        clearInterval(this.pulseInterval)
-        this.setState({
-          pulse : 0
-        })
-      }
-    }.bind(this), this.bpmToMs())
+    this.playCountInBeat()
+    this.pulseInterval = setInterval(this.playCountInBeat.bind(this), this.bpmToMs())
   },
 
   componentDidMount: function() {
     SongStore.on('change', this.onChange.bind(this))
     SongStore.on('refresh', this.setRefreshState.bind(this))
 
-    this.handBell = new HandBell('ALERT')
-    this.handBell.initialize()
+    this.countInBeats = {
+      primary   : new Sound('PRIMARY'),
+      secondary : new Sound('SECONDARY')
+    }
   },
 
   renderNotes: function(notes) {

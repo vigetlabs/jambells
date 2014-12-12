@@ -2,8 +2,8 @@ var Sound = require('./Sound')
 var tempo = require('../constants/tempo')
 
 ComputerPlayer = {
-  play: function(noteObjects, unassignedNotes) {
-    this.firstBeatDelay  = this.calculateFirstBeatDelay()
+  play: function(noteObjects, unassignedNotes, offset) {
+    this.firstBeatDelay  = this.calculateFirstBeatDelay(offset)
     this.noteObjects     = noteObjects
     this.unassignedNotes = unassignedNotes
     this.handBells       = {}
@@ -34,8 +34,8 @@ ComputerPlayer = {
     this.handBells[note].play()
   },
 
-  calculateFirstBeatDelay: function() {
-    return tempo.TIME_WINDOW_IN_MS / 3
+  calculateFirstBeatDelay: function(offset) {
+    return (tempo.TIME_WINDOW_IN_MS / 3) + offset
   }
 }
 

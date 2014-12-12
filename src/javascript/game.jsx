@@ -27,6 +27,22 @@ var Game = function(container) {
 
 Game.prototype = {
 
+  getCountInMeasure: function() {
+    var timeSignature = this.data.song.measure.split('/')
+    var first         = parseInt(timeSignature[0])
+    var second        = parseInt(timeSignature[1])
+
+    return (second * 2) - 1
+  },
+
+  bpmToMs: function() {
+    return 60 / this.data.song.bpm * 1000
+  },
+
+  getStartOffset: function() {
+    return this.bpmToMs() * (this.getCountInMeasure() - 1)
+  },
+
   listenForReplay: function() {
     SongStore.on('replay', this.emitRestart.bind(this))
   },
@@ -36,7 +52,15 @@ Game.prototype = {
   },
 
   attachSong: function() {
-    React.renderComponent(<Song bpm={this.data.song.bpm} measure={this.data.song.measure} notes={this.data.song.notes} playerNotes={this.data.song.roles} bell={ this.bell } />, this.container)
+    React.renderComponent(
+      <Song bpm={this.data.song.bpm}
+            notes={this.data.song.notes}
+            measure={this.data.song.measure}
+            playerNotes={this.data.song.roles}
+            startOffset={this.getStartOffset()}
+            countIn={this.getCountInMeasure()}
+            bell={this.bell} />
+    , this.container)
   },
 
   connect: function() {
@@ -115,7 +139,7 @@ Game.prototype = {
 
       if (this.gameLeader && this.ready < this.data.song.roles.length) {
         var unassignedNotes = this.data.song.roles.slice(this.ready)
-        ComputerPlayer.play(this.data.song.notes, unassignedNotes)
+        ComputerPlayer.play(this.data.song.notes, unassignedNotes, this.getStartOffset())
       }
     }
   },

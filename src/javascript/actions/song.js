@@ -11,11 +11,11 @@ module.exports = {
   },
 
   replay: function(param) {
-    Dispatcher.dispatch({ type  : Actions.REPLAY });
+    Dispatcher.dispatch({ type : Actions.REPLAY });
   },
 
   refresh: function(param) {
-    Dispatcher.dispatch({ type  : Actions.REFRESH });
+    Dispatcher.dispatch({ type : Actions.REFRESH });
   }
 
 };

@@ -152,12 +152,14 @@ module.exports = React.createClass({
                 <button className="button -green -large -block" onClick={this.replay}>Play Again?</button>
             }
             <a href="/" className="button -gold -large -block">Back to Home</a>
-            <div>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://jambells.com" target="_blank">
-                Share on Facebook
+            <div className="social-actions">
+              <span>Share on</span>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://jambells.com" class="social-button" target="_blank">
+                 Facebook
               </a>
-              <a href="https://twitter.com/intent/tweet?text=Play %23handbells without any instruments! Try out JamBells at http://jambells.com/ via @JamBellsApp" target="_blank">
-                Share on Twitter
+              <span>or</span>
+              <a href="https://twitter.com/intent/tweet?text=Play %23handbells without any instruments! Try out JamBells at http://jambells.com/ via @JamBellsApp" class="social-button" target="_blank">
+                Twitter
               </a>
             </div>
           </div>

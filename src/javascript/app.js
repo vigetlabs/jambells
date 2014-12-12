@@ -40,12 +40,13 @@ var instructScreen = function() {
   var toURL           = '';
   var cookieName      = 'jb_return_visit';
 
+  var handBell = new HandBell('C4');
+
   var showInstructions = function() {
     $container.removeClass('home').addClass('instruct-screen');
   }
 
   var startSound = function() {
-    var handBell = new HandBell('C4');
     handBell.initialize();
     handBell.ding();
   }
@@ -56,9 +57,9 @@ var instructScreen = function() {
 
   var checkCookie = function(e) {
     if(Cookies.read(cookieName) == null) {
+      startSound();
       toURL = $(this).attr('href');
       showInstructions();
-      startSound();
       setCookie();
       e.preventDefault();
     }

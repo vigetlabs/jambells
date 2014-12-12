@@ -151,7 +151,7 @@ Game.prototype = {
     this.$usersPresent.html(present)
     this.$usersReady.html(this.ready)
 
-    this.$bells = $bellsList.find('.bell');
+    this.$bells = this.$bellsList.find('.bell');
     if(this.$bells.length < present) {
       var numMissing = present - this.$bells.length;
       for(var j=0; j < numMissing; j++) {

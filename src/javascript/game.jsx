@@ -10,6 +10,8 @@ var Phoenix        = require('./vendor/phoenix')
 var SongActions    = require('./actions/song')
 var SongStore      = require('./stores/song')
 var ComputerPlayer = require('./lib/computer_player')
+var isTouch        = ('ontouchend' in document)
+var respondToEvent = isTouch ? 'touchstart' : 'click'
 
 var Game = function(container) {
   this.container = container
@@ -144,7 +146,7 @@ Game.prototype = {
         this.handBell.setNote(this.note)
       } else {
         this.handBell = new HandBell(this.note)
-        this.$game.on('click', this.handBell.ding.bind(this.handBell))
+        this.$game.on(respondToEvent, this.handBell.ding.bind(this.handBell))
       }
     }
 

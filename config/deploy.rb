@@ -53,14 +53,14 @@ namespace :deploy do
 
   task :build, roles: :web do
     run <<-TASKS
-      cd #{release_path}                &&
-      mix deps.get                      &&
-      npm install                       &&
-      ./node_modules/.bin/gulp build    &&
-      ./node_modules/.bin/gulp compress &&
-      ./node_modules/.bin/gulp rev      &&
-      rm priv/static/js/app.js          &&
-      rm priv/static/css/app.css        &&
+      cd #{release_path}                  &&
+      mix deps.get                        &&
+      npm install                         &&
+      ./node_modules/.bin/gulp build      &&
+      ./node_modules/.bin/gulp production &&
+      ./node_modules/.bin/gulp rev        &&
+      rm priv/static/js/app.js            &&
+      rm priv/static/css/app.css          &&
       MIX_ENV=#{mix_env} mix release
     TASKS
   end

@@ -29,6 +29,7 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       ended                : false,
+      leader               : false,
       milliseconds_elapsed : 0,
       player_note          : null,
       playing              : false,
@@ -47,7 +48,7 @@ module.exports = React.createClass({
         start_time : timestamp + this.props.startOffset
       })
 
-      this.countInMeasure()
+      this.state.leader && this.countInMeasure()
     }
 
     this.setState({
@@ -74,6 +75,7 @@ module.exports = React.createClass({
   onChange: function() {
     this.setState({
       playing     : SongStore.get('playing'),
+      leader      : SongStore.get('player_note') == 0,
       player_note : this.props.playerNotes[SongStore.get('player_note')]
     })
   },
@@ -98,6 +100,7 @@ module.exports = React.createClass({
   },
 
   countInMeasure: function() {
+    console.log('fired');
     this.playCountInBeat()
     this.pulseInterval = setInterval(this.playCountInBeat.bind(this), this.bpmToMs())
   },

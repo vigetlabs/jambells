@@ -734,1185 +734,764 @@ defmodule Song do
   defp shake_it_off do
     json_parse%{
       "name": "Shake it off",
-      "bpm": 120,
+      "bpm": 160,
       "measure": "4/4",
-      "roles": [ "d4","b4","a4","g4","d4","e4","b3"],
+      # These are the actual legit notes
+      # "roles": ["d6", "b5", "a5", "g5", "d5", "e5", "b4", "a4", "g4"],
+      # These are stepped down. Just missing d5 with this version
+      "roles": ["b4", "a4", "g4", "d4", "e4", "b3", "a3", "g3", "d5"],
       "notes": [
         %{
-          "note": "d4",
-          "milliseconds_from_start": 7000.0
+          "note": "d5",
+          "milliseconds_from_start": 0.0
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 7250.0
+          "milliseconds_from_start": 214.2855
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 7500.0
+          "milliseconds_from_start": 428.571
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 7750.0
+          "milliseconds_from_start": 642.8565
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 8000.0
+          "milliseconds_from_start": 857.142
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 10750.0
+          "milliseconds_from_start": 3214.2825000000003
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 11000.0
+          "note": "d5",
+          "milliseconds_from_start": 3428.568
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 11250.0
+          "milliseconds_from_start": 3642.8535
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 11500.0
+          "milliseconds_from_start": 3857.139
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 11750.0
+          "milliseconds_from_start": 4071.4245
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 12000.0
+          "milliseconds_from_start": 4285.71
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 15000.0
+          "note": "d5",
+          "milliseconds_from_start": 6857.136
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 15250.0
+          "milliseconds_from_start": 7071.4215
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 15500.0
+          "milliseconds_from_start": 7285.707
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 15750.0
+          "milliseconds_from_start": 7499.9925
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 16000.0
+          "milliseconds_from_start": 7714.278
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 16250.0
+          "milliseconds_from_start": 7928.5635
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 16500.0
+          "milliseconds_from_start": 8142.849
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 17500.0
+          "milliseconds_from_start": 8999.991
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 18000.0
+          "milliseconds_from_start": 9428.562
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 19000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 19250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 19500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 19750.0
+          "note": "d5",
+          "milliseconds_from_start": 10285.704
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 20000.0
+          "milliseconds_from_start": 10499.9895
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 20250.0
+          "milliseconds_from_start": 10714.275
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 20500.0
+          "milliseconds_from_start": 10928.5605
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 11142.846000000001
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 11357.131500000001
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 11571.417000000001
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 21500.0
+          "milliseconds_from_start": 12428.559000000001
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 22000.0
+          "milliseconds_from_start": 12857.130000000001
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 22500.0
+          "milliseconds_from_start": 13285.701000000001
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 22750.0
+          "milliseconds_from_start": 13499.9865
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 23000.0
+          "note": "d5",
+          "milliseconds_from_start": 13714.272
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 23250.0
+          "milliseconds_from_start": 13928.5575
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 23500.0
+          "milliseconds_from_start": 14142.843
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 23750.0
+          "milliseconds_from_start": 14357.1285
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 24000.0
+          "milliseconds_from_start": 14571.414
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 26750.0
+          "milliseconds_from_start": 16928.554500000002
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 27000.0
+          "note": "d5",
+          "milliseconds_from_start": 17142.84
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 27250.0
+          "milliseconds_from_start": 17357.125500000002
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 27500.0
+          "milliseconds_from_start": 17571.411
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 27750.0
+          "milliseconds_from_start": 17785.696500000002
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 28000.0
+          "milliseconds_from_start": 17999.982
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 30250.0
+          "milliseconds_from_start": 19928.5515
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 30500.0
+          "milliseconds_from_start": 20142.837
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 31000.0
+          "note": "d5",
+          "milliseconds_from_start": 20571.408
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 31250.0
+          "milliseconds_from_start": 20785.6935
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 31500.0
+          "milliseconds_from_start": 20999.979
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 31750.0
+          "milliseconds_from_start": 21214.2645
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 32000.0
+          "milliseconds_from_start": 21428.55
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 32250.0
+          "milliseconds_from_start": 21642.8355
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 32500.0
+          "milliseconds_from_start": 21857.121
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 33500.0
+          "milliseconds_from_start": 22714.263000000003
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 34000.0
+          "milliseconds_from_start": 23142.834000000003
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 35000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 35250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 35500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 35750.0
+          "note": "d5",
+          "milliseconds_from_start": 23999.976000000002
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 36000.0
+          "milliseconds_from_start": 24214.2615
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 36250.0
+          "milliseconds_from_start": 24428.547000000002
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 36500.0
+          "milliseconds_from_start": 24642.8325
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 24857.118000000002
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 25071.4035
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 25285.689000000002
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 37500.0
+          "milliseconds_from_start": 26142.831000000002
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 38000.0
+          "milliseconds_from_start": 26571.402000000002
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 38500.0
+          "milliseconds_from_start": 26999.973
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 39000.0
+          "milliseconds_from_start": 27428.544
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 39500.0
+          "milliseconds_from_start": 27857.115
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 40000.0
+          "milliseconds_from_start": 28285.686
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 41000.0
+          "milliseconds_from_start": 29142.828
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 42000.0
+          "milliseconds_from_start": 29999.97
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 42500.0
+          "milliseconds_from_start": 30428.541
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 43000.0
+          "milliseconds_from_start": 30857.112
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 43500.0
+          "milliseconds_from_start": 31285.683
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 44000.0
+          "milliseconds_from_start": 31714.254
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 45000.0
+          "milliseconds_from_start": 32571.396
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 45750.0
+          "milliseconds_from_start": 33214.2525
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 46000.0
+          "milliseconds_from_start": 33428.538
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 46500.0
+          "milliseconds_from_start": 33857.109000000004
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 47000.0
+          "milliseconds_from_start": 34285.68
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 47500.0
+          "milliseconds_from_start": 34714.251000000004
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 48000.0
+          "milliseconds_from_start": 35142.822
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 49000.0
+          "milliseconds_from_start": 35999.964
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 50000.0
+          "milliseconds_from_start": 36857.106
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 50500.0
+          "milliseconds_from_start": 37285.677
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 51000.0
+          "milliseconds_from_start": 37714.248
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 51500.0
+          "milliseconds_from_start": 38142.819
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 51750.0
+          "milliseconds_from_start": 38357.1045
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 52000.0
+          "milliseconds_from_start": 38571.39
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 52500.0
+          "milliseconds_from_start": 38999.961
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 52750.0
+          "milliseconds_from_start": 39214.2465
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 53000.0
+          "milliseconds_from_start": 39428.532
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 53250.0
+          "milliseconds_from_start": 39642.817500000005
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 53750.0
+          "milliseconds_from_start": 40071.3885
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 55500.0
+          "milliseconds_from_start": 41571.387
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 55750.0
+          "milliseconds_from_start": 41785.6725
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 56000.0
+          "milliseconds_from_start": 41999.958
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 56250.0
+          "milliseconds_from_start": 42214.243500000004
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 56500.0
+          "milliseconds_from_start": 42428.529
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 56750.0
+          "milliseconds_from_start": 42642.8145
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 57000.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 59500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 59750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 60000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 60250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 60500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 60750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 61000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 64000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 64250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 64500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 64750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 65000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 67750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 68000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 68250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 68500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 69250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 69500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 69750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 70000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 71500.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 72000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 72250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 72500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 72750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 73000.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 75500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 75750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 76000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 76250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 76500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 76750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 77000.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 79500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 79750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 80000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 80250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 80500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 80750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 81000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 83750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 84000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 84250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 84500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 85250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 85500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 85750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 86000.0
+          "milliseconds_from_start": 42857.1
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 86750.0
+          "milliseconds_from_start": 43285.671
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 87000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 87250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 87500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 87750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 88000.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 90750.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 91000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 91250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 91500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 91750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 92000.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 94750.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 95000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 95250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 95500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 95750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 96000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 96250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 96500.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 97500.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 98000.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 99000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 99250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 99500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 99750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 100000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 100250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 100500.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 101500.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 102000.0
+          "milliseconds_from_start": 43714.242
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 102500.0
+          "milliseconds_from_start": 44142.813
         },
         %{
-          "note": "d4",
-          "milliseconds_from_start": 102750.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 103000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 103250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 103500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 103750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 104000.0
-        },
-        %{
-          "note": "d4",
-          "milliseconds_from_start": 106250.0
+          "note": "a3",
+          "milliseconds_from_start": 44571.384000000005
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 106500.0
+          "milliseconds_from_start": 44999.955
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 44999.955
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 45214.2405
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 45428.526000000005
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 45642.8115
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 45857.097
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 46071.3825
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 46285.668000000005
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 106750.0
+          "milliseconds_from_start": 46714.239
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 107000.0
+          "milliseconds_from_start": 47142.810000000005
         },
         %{
-          "note": "b4",
-          "milliseconds_from_start": 107250.0
+          "note": "b3",
+          "milliseconds_from_start": 47571.381
+        },
+        %{
+          "note": "a3",
+          "milliseconds_from_start": 47999.952000000005
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 48428.523
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 107500.0
+          "milliseconds_from_start": 48857.094000000005
         },
         %{
-          "note": "g4",
-          "milliseconds_from_start": 107750.0
+          "note": "a4",
+          "milliseconds_from_start": 49071.3795
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 49285.665
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 108000.0
+          "milliseconds_from_start": 49499.9505
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 49714.236000000004
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 110750.0
+          "milliseconds_from_start": 50142.807
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 111000.0
+          "milliseconds_from_start": 50571.378000000004
         },
         %{
-          "note": "b4",
-          "milliseconds_from_start": 111250.0
+          "note": "b3",
+          "milliseconds_from_start": 50999.949
         },
         %{
-          "note": "a4",
-          "milliseconds_from_start": 111500.0
+          "note": "a3",
+          "milliseconds_from_start": 51428.520000000004
         },
         %{
-          "note": "g4",
-          "milliseconds_from_start": 111750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 112000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 112250.0
+          "note": "g3",
+          "milliseconds_from_start": 51857.091
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 112500.0
+          "milliseconds_from_start": 52071.376500000006
         },
         %{
-          "note": "e4",
-          "milliseconds_from_start": 113500.0
+          "note": "a4",
+          "milliseconds_from_start": 52285.662000000004
+        },
+        %{
+          "note": "a3",
+          "milliseconds_from_start": 52285.662000000004
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 52499.9475
+        },
+        %{
+          "note": "b3",
+          "milliseconds_from_start": 52499.9475
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 52714.233
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 52714.233
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 53357.0895
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 53571.375
+        },
+        %{
+          "note": "a3",
+          "milliseconds_from_start": 53571.375
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 53785.660500000005
+        },
+        %{
+          "note": "b3",
+          "milliseconds_from_start": 53785.660500000005
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 53999.946
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 53999.946
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 55285.659
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 55714.23
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 55928.5155
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 56142.801
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 56357.086500000005
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 56571.372
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 114000.0
+          "milliseconds_from_start": 56999.943
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 115000.0
+          "milliseconds_from_start": 57428.514
         },
         %{
-          "note": "b4",
-          "milliseconds_from_start": 115250.0
+          "note": "b3",
+          "milliseconds_from_start": 57857.085
         },
         %{
-          "note": "a4",
-          "milliseconds_from_start": 115500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 115750.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 116000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 116250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 116500.0
+          "note": "a3",
+          "milliseconds_from_start": 58285.656
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 117500.0
+          "milliseconds_from_start": 58714.227
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 58714.227
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 58928.512500000004
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 59142.798
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 59357.0835
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 59571.369000000006
+        },
+        %{
+          "note": "b4",
+          "milliseconds_from_start": 59785.654500000004
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 59999.94
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 118000.0
+          "milliseconds_from_start": 60428.511000000006
         },
         %{
-          "note": "b4",
-          "milliseconds_from_start": 118500.0
+          "note": "d4",
+          "milliseconds_from_start": 60857.082
         },
         %{
-          "note": "a4",
-          "milliseconds_from_start": 119000.0
+          "note": "b3",
+          "milliseconds_from_start": 61285.653000000006
         },
         %{
-          "note": "g4",
-          "milliseconds_from_start": 119500.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 120000.0
+          "note": "a3",
+          "milliseconds_from_start": 61714.224
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 121000.0
+          "milliseconds_from_start": 62142.795000000006
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 62142.795000000006
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 62357.080500000004
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 122000.0
+          "milliseconds_from_start": 62571.366
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 62785.6515
+        },
+        %{
+          "note": "a4",
+          "milliseconds_from_start": 62999.937000000005
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 122500.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 123000.0
+          "milliseconds_from_start": 63214.2225
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 123500.0
+          "milliseconds_from_start": 63428.508
+        },
+        %{
+          "note": "d4",
+          "milliseconds_from_start": 63857.079000000005
+        },
+        %{
+          "note": "d4",
+          "milliseconds_from_start": 64285.65
+        },
+        %{
+          "note": "b3",
+          "milliseconds_from_start": 64714.221000000005
+        },
+        %{
+          "note": "a3",
+          "milliseconds_from_start": 65142.792
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 65571.363
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 65785.6485
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 124000.0
+          "milliseconds_from_start": 65999.93400000001
         },
         %{
-          "note": "e4",
-          "milliseconds_from_start": 125000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 126000.0
+          "note": "a3",
+          "milliseconds_from_start": 65999.93400000001
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 126500.0
+          "milliseconds_from_start": 66214.2195
         },
         %{
-          "note": "a4",
-          "milliseconds_from_start": 127000.0
+          "note": "b3",
+          "milliseconds_from_start": 66214.2195
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 127500.0
+          "milliseconds_from_start": 66428.505
+        },
+        %{
+          "note": "g3",
+          "milliseconds_from_start": 66428.505
+        },
+        %{
+          "note": "g4",
+          "milliseconds_from_start": 67071.3615
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 128000.0
+          "milliseconds_from_start": 67285.647
+        },
+        %{
+          "note": "a3",
+          "milliseconds_from_start": 67285.647
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 129000.0
+          "milliseconds_from_start": 67499.93250000001
         },
         %{
-          "note": "a4",
-          "milliseconds_from_start": 130000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 130500.0
+          "note": "b3",
+          "milliseconds_from_start": 67499.93250000001
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 131000.0
+          "milliseconds_from_start": 67714.21800000001
         },
         %{
-          "note": "e4",
-          "milliseconds_from_start": 131500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 131750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 132000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 132500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 132750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 133000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 133250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 133750.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 135500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 135750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 136000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 136250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 136500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 136750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 137000.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 139500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 139750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 140000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 140250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 140500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 140750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 141000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 144000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 144250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 144500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 144750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 145000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 147750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 148000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 148250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 148500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 149250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 149500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 149750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 150000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 151500.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 152000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 152250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 152500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 152750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 153000.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 155500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 155750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 156000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 156250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 156500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 156750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 157000.0
-        },
-        %{
-          "note": "e4",
-          "milliseconds_from_start": 159500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 159750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 160000.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 160250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 160500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 160750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 161000.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 163750.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 164000.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 164250.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 164500.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 165250.0
-        },
-        %{
-          "note": "a4",
-          "milliseconds_from_start": 165500.0
-        },
-        %{
-          "note": "b4",
-          "milliseconds_from_start": 165750.0
-        },
-        %{
-          "note": "g4",
-          "milliseconds_from_start": 166000.0
+          "note": "g3",
+          "milliseconds_from_start": 67714.21800000001
         }
       ]
     }

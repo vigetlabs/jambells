@@ -17,6 +17,8 @@ var songSelect = function() {
     var songName = $song.data('select');
     $select.val(songName);
     $form.submit();
+
+    return false;
   }
 
   var addEvents = function() {

@@ -738,7 +738,7 @@ defmodule Song do
       "measure": "4/4",
       # These are the actual legit notes
       # "roles": ["d6", "b5", "a5", "g5", "d5", "e5", "b4", "a4", "g4"],
-      # These are stepped down. Just missing d5 with this version
+      # These are stepped down.
       "roles": ["b4", "a4", "g4", "d4", "e4", "b3", "a3", "g3", "d5"],
       "notes": [
         %{

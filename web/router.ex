@@ -18,6 +18,7 @@ defmodule DingMyBells.Router do
     get "/join",      DingMyBells.RoomController, :join
     get "/new",       DingMyBells.RoomController, :new
     get "/freestyle", DingMyBells.RoomController, :freestyle
+    get "/stats",     DingMyBells.RoomController, :stats
     get "/:slug",     DingMyBells.RoomController, :show
     post "/rooms",    DingMyBells.RoomController, :create
 

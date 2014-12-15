@@ -1,0 +1,3 @@
+<div class="thin-wrap -center">
+  Songs jammed to: <%= @count %>
+</div>

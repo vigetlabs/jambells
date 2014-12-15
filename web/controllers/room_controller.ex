@@ -45,6 +45,10 @@ defmodule DingMyBells.RoomController do
     render conn, "freestyle.html"
   end
 
+  def stats(conn, _params) do
+    render conn, "stats.html", count: Enum.count(Repo.all(Room))
+  end
+
   def not_found(conn, _params) do
     render conn, "not_found.html"
   end

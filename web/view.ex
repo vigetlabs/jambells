@@ -11,6 +11,8 @@ defmodule DingMyBells.View do
         "Jingle Bells"
       "deck_the_halls" ->
         "Deck the Halls"
+      "shake_it_off" ->
+        "Shake it Off"
       "we_wish_you" ->
         "We Wish You a Merry Christmass"
     end

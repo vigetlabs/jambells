@@ -5,6 +5,7 @@
       <select name="room[song]" class="hide-text">
         <option value="jinglebells">Jingle Bells</option>
         <option value="deck_the_halls">Deck The Halls</option>
+        <option value="shake_it_off">Shake It Off</option>
         <option value="we_wish_you">We Wish You a Merry Christmas</option>
       </select>
     </div>
@@ -21,6 +22,10 @@
       <li data-select="deck_the_halls">
         <p class="song-list__title">Deck the Halls</p>
         <p class="song-list__difficulty -hard">Hard</p>
+      </li>
+      <li data-select="shake_it_off">
+        <p class="song-list__title">Shake it Off</p>
+        <p class="song-list__difficulty -hard">SECRET</p>
       </li>
     </ul>
 

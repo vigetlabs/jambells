@@ -763,7 +763,7 @@ defmodule Song do
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 3214.2825000000003
+          "milliseconds_from_start": 3214.2825
         },
         %{
           "note": "d5",
@@ -839,27 +839,27 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 11142.846000000001
+          "milliseconds_from_start": 11142.8460
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 11357.131500000001
+          "milliseconds_from_start": 11357.1315
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 11571.417000000001
+          "milliseconds_from_start": 11571.4170
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 12428.559000000001
+          "milliseconds_from_start": 12428.5590
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 12857.130000000001
+          "milliseconds_from_start": 12857.1300
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 13285.701000000001
+          "milliseconds_from_start": 13285.7010
         },
         %{
           "note": "d4",
@@ -887,7 +887,7 @@ defmodule Song do
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 16928.554500000002
+          "milliseconds_from_start": 16928.5545
         },
         %{
           "note": "d5",
@@ -895,7 +895,7 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 17357.125500000002
+          "milliseconds_from_start": 17357.1255
         },
         %{
           "note": "a4",
@@ -903,7 +903,7 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 17785.696500000002
+          "milliseconds_from_start": 17785.6965
         },
         %{
           "note": "b4",
@@ -947,15 +947,15 @@ defmodule Song do
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 22714.263000000003
+          "milliseconds_from_start": 22714.2630
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 23142.834000000003
+          "milliseconds_from_start": 23142.8340
         },
         %{
           "note": "d5",
-          "milliseconds_from_start": 23999.976000000002
+          "milliseconds_from_start": 23999.9760
         },
         %{
           "note": "b4",
@@ -963,7 +963,7 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 24428.547000000002
+          "milliseconds_from_start": 24428.5470
         },
         %{
           "note": "g4",
@@ -971,7 +971,7 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 24857.118000000002
+          "milliseconds_from_start": 24857.1180
         },
         %{
           "note": "a4",
@@ -979,15 +979,15 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 25285.689000000002
+          "milliseconds_from_start": 25285.6890
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 26142.831000000002
+          "milliseconds_from_start": 26142.8310
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 26571.402000000002
+          "milliseconds_from_start": 26571.4020
         },
         %{
           "note": "b4",
@@ -1043,7 +1043,7 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 33857.109000000004
+          "milliseconds_from_start": 33857.1090
         },
         %{
           "note": "a4",
@@ -1051,7 +1051,7 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 34714.251000000004
+          "milliseconds_from_start": 34714.2510
         },
         %{
           "note": "a4",
@@ -1099,7 +1099,7 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 39642.817500000005
+          "milliseconds_from_start": 39642.8175
         },
         %{
           "note": "g4",
@@ -1119,7 +1119,7 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 42214.243500000004
+          "milliseconds_from_start": 42214.2435
         },
         %{
           "note": "a4",
@@ -1147,7 +1147,7 @@ defmodule Song do
         },
         %{
           "note": "a3",
-          "milliseconds_from_start": 44571.384000000005
+          "milliseconds_from_start": 44571.3840
         },
         %{
           "note": "e4",
@@ -1163,7 +1163,7 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 45428.526000000005
+          "milliseconds_from_start": 45428.5260
         },
         %{
           "note": "a4",
@@ -1179,7 +1179,7 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 46285.668000000005
+          "milliseconds_from_start": 46285.6680
         },
         %{
           "note": "d4",
@@ -1187,7 +1187,7 @@ defmodule Song do
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 47142.810000000005
+          "milliseconds_from_start": 47142.8100
         },
         %{
           "note": "b3",
@@ -1195,7 +1195,7 @@ defmodule Song do
         },
         %{
           "note": "a3",
-          "milliseconds_from_start": 47999.952000000005
+          "milliseconds_from_start": 47999.9520
         },
         %{
           "note": "g3",
@@ -1203,7 +1203,7 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 48857.094000000005
+          "milliseconds_from_start": 48857.0940
         },
         %{
           "note": "a4",
@@ -1219,7 +1219,7 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 49714.236000000004
+          "milliseconds_from_start": 49714.2360
         },
         %{
           "note": "d4",
@@ -1227,7 +1227,7 @@ defmodule Song do
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 50571.378000000004
+          "milliseconds_from_start": 50571.3780
         },
         %{
           "note": "b3",
@@ -1235,7 +1235,7 @@ defmodule Song do
         },
         %{
           "note": "a3",
-          "milliseconds_from_start": 51428.520000000004
+          "milliseconds_from_start": 51428.5200
         },
         %{
           "note": "g3",
@@ -1243,15 +1243,15 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 52071.376500000006
+          "milliseconds_from_start": 52071.3765
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 52285.662000000004
+          "milliseconds_from_start": 52285.6620
         },
         %{
           "note": "a3",
-          "milliseconds_from_start": 52285.662000000004
+          "milliseconds_from_start": 52285.6620
         },
         %{
           "note": "b4",
@@ -1283,11 +1283,11 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 53785.660500000005
+          "milliseconds_from_start": 53785.6605
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 53785.660500000005
+          "milliseconds_from_start": 53785.6605
         },
         %{
           "note": "g4",
@@ -1315,7 +1315,7 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 56357.086500000005
+          "milliseconds_from_start": 56357.0865
         },
         %{
           "note": "g4",
@@ -1347,7 +1347,7 @@ defmodule Song do
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 58928.512500000004
+          "milliseconds_from_start": 58928.5125
         },
         %{
           "note": "a4",
@@ -1359,11 +1359,11 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 59571.369000000006
+          "milliseconds_from_start": 59571.3690
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 59785.654500000004
+          "milliseconds_from_start": 59785.6545
         },
         %{
           "note": "g4",
@@ -1371,7 +1371,7 @@ defmodule Song do
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 60428.511000000006
+          "milliseconds_from_start": 60428.5110
         },
         %{
           "note": "d4",
@@ -1379,7 +1379,7 @@ defmodule Song do
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 61285.653000000006
+          "milliseconds_from_start": 61285.6530
         },
         %{
           "note": "a3",
@@ -1387,15 +1387,15 @@ defmodule Song do
         },
         %{
           "note": "e4",
-          "milliseconds_from_start": 62142.795000000006
+          "milliseconds_from_start": 62142.7950
         },
         %{
           "note": "g3",
-          "milliseconds_from_start": 62142.795000000006
+          "milliseconds_from_start": 62142.7950
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 62357.080500000004
+          "milliseconds_from_start": 62357.0805
         },
         %{
           "note": "a4",
@@ -1407,7 +1407,7 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 62999.937000000005
+          "milliseconds_from_start": 62999.9370
         },
         %{
           "note": "b4",
@@ -1419,7 +1419,7 @@ defmodule Song do
         },
         %{
           "note": "d4",
-          "milliseconds_from_start": 63857.079000000005
+          "milliseconds_from_start": 63857.0790
         },
         %{
           "note": "d4",
@@ -1427,7 +1427,7 @@ defmodule Song do
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 64714.221000000005
+          "milliseconds_from_start": 64714.2210
         },
         %{
           "note": "a3",
@@ -1443,11 +1443,11 @@ defmodule Song do
         },
         %{
           "note": "a4",
-          "milliseconds_from_start": 65999.93400000001
+          "milliseconds_from_start": 65999.9340
         },
         %{
           "note": "a3",
-          "milliseconds_from_start": 65999.93400000001
+          "milliseconds_from_start": 65999.9340
         },
         %{
           "note": "b4",
@@ -1479,19 +1479,19 @@ defmodule Song do
         },
         %{
           "note": "b4",
-          "milliseconds_from_start": 67499.93250000001
+          "milliseconds_from_start": 67499.9325
         },
         %{
           "note": "b3",
-          "milliseconds_from_start": 67499.93250000001
+          "milliseconds_from_start": 67499.9325
         },
         %{
           "note": "g4",
-          "milliseconds_from_start": 67714.21800000001
+          "milliseconds_from_start": 67714.2180
         },
         %{
           "note": "g3",
-          "milliseconds_from_start": 67714.21800000001
+          "milliseconds_from_start": 67714.2180
         }
       ]
     }

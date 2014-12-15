@@ -25,7 +25,7 @@
       </li>
       <li data-select="shake_it_off">
         <p class="song-list__title">Shake it Off</p>
-        <p class="song-list__difficulty -hard">SECRET</p>
+        <p class="song-list__difficulty -crazy">Bonus</p>
       </li>
     </ul>
 

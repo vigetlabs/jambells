@@ -60,6 +60,10 @@ $difficulty-width: 34px;
   }
 
   &.-hard:after {
+    width: $difficulty-width * 5;
+  }
+
+  &.-crazy:after {
     width: $difficulty-width * 6;
   }
 

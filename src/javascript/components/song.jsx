@@ -125,7 +125,7 @@ module.exports = React.createClass({
       note       = note_info.note
       delay      = note_info.milliseconds_from_start
       difference = delay - this.state.milliseconds_elapsed
-      viewable   = difference > -tempo.TIME_WINDOW_IN_MS * 0.8 && difference < tempo.TIME_WINDOW_IN_MS * 0.2
+      viewable   = difference > -tempo.TIME_WINDOW_IN_MS * 0.6 && difference < tempo.TIME_WINDOW_IN_MS * 0.1
 
       if (viewable) {
         return (

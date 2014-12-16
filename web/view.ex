@@ -14,7 +14,7 @@ defmodule DingMyBells.View do
       "shake_it_off" ->
         "Shake it Off"
       "we_wish_you" ->
-        "We Wish You a Merry Christmass"
+        "We Wish You a Merry Christmas"
     end
   end
 end

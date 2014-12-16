@@ -1,2 +1,8 @@
-// Fix this if anyone cares at some point...
-// Could just use the ComputerPlayer and pass in all the notes
+var ComputerPlayer = require('./lib/computer_player')
+var $ = require('jquery')
+
+module.exports = function(el){
+  var song = $(el).data('song')
+
+  ComputerPlayer.play(song.notes, song.roles, 1000)
+}

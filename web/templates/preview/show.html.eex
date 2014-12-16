@@ -1,5 +1,3 @@
 <div>Previewing <%= pretty(@song_name) %></div>
 
-<a id="preview-play" href="#">Play</a>
-
 <div id="preview-room-info" data-song="<%= @song_notes %>"></div>

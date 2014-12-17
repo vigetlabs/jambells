@@ -6,12 +6,20 @@
     "type": "git",
     "url": "git://github.com/vigetlabs/ding_my_bells.git"
   },
-  "browser": {},
+  "browser": {
+    "shake": "./src/javascript/vendor/shake.js"
+  },
   "browserify": {
     "transform": [
+      "browserify-shim",
       "coffeeify",
       "reactify"
     ]
+  },
+  "browserify-shim": {
+    "shake": {
+      "exports": "Shake"
+    }
   },
   "devDependencies": {
     "browser-sync": "^1.5.8",

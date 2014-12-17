@@ -40,7 +40,13 @@ Game.prototype = {
   },
 
   getStartOffset: function() {
-    return this.bpmToMs() * (this.getCountInMeasure() - 1)
+    var beatOffset = 1
+
+    if (this.data.song.name.toLowerCase() == 'shake it off') {
+      beatOffset = 3
+    }
+
+    return this.bpmToMs() * (this.getCountInMeasure() - beatOffset)
   },
 
   listenForReplay: function() {

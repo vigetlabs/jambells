@@ -23,11 +23,12 @@
         <p class="song-list__title">Deck the Halls</p>
         <p class="song-list__difficulty -hard">Hard</p>
       </li>
-      <li data-select="shake_it_off">
-        <p class="song-list__title">Shake it Off</p>
+      <li class="easter-egg -easter-egg-item -hidden" data-select="shake_it_off">
+        <p class="song-list__title">Shake It Off</p>
         <p class="song-list__difficulty -crazy">Crazy Hard</p>
       </li>
     </ul>
+    <p class="easter-egg-text">Want more? Just Shake It Off!</p>
 
     <button type="submit" class="button -gold -block hide-text">Start</button>
     <a href="/" class="button -block -green">Back</a>

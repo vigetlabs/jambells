@@ -734,7 +734,7 @@ defmodule Song do
   defp shake_it_off do
     json_parse%{
       "name": "Shake it off",
-      "bpm": 140,
+      "bpm": 160,
       "measure": "4/4",
       # These are the actual legit notes
       # "roles": ["d6", "b5", "a5", "g5", "d5", "e5", "b4", "a4", "g4"],
@@ -743,7 +743,7 @@ defmodule Song do
       "notes": [
         %{
           "note": "d5",
-          "milliseconds_from_start": 0.0
+          "milliseconds_from_start": 0
         },
         %{
           "note": "b4",

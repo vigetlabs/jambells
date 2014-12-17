@@ -4,12 +4,16 @@ var Preview   = require('./preview')
 var Freestyle = require('./freestyle')
 var HandBell  = require('./lib/Handbell')
 var Cookies   = require('./util/cookies')
+var isTouch   = require('./util/isTouch')
+var Shake     = require('shake');
 
 var songSelect = function() {
   var $container = $('.song-list');
   var $songs     = $container.find('li');
   var $form      = $('form[action="/rooms"]');
   var $select    = $form.find('select[name="room[song]"]');
+  var elItem = document.querySelector('.-easter-egg-item')
+  var elText = document.querySelector('.easter-egg-text')
 
   var pickSong = function() {
     var $song = $(this);
@@ -23,6 +27,23 @@ var songSelect = function() {
 
   var addEvents = function() {
     $songs.on('click', pickSong);
+    detectForEasterEgg();
+  }
+
+  var showEasterEgg = function() {
+    elItem.classList.remove('-hidden')
+    elText.classList.add('-hidden')
+  }
+
+  var detectForEasterEgg = function() {
+    var shaker = new Shake()
+    shaker.start()
+
+    if (isTouch) {
+      window.addEventListener('shake', showEasterEgg, false)
+    } else {
+      elText.addEventListener('click', showEasterEgg, false)
+    }
   }
 
   return {

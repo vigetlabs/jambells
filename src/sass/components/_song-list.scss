@@ -1,7 +1,7 @@
 $difficulty-width: 34px;
 
 .song-list {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-top: -25px;
   text-align: left;
 
@@ -20,6 +20,17 @@ $difficulty-width: 34px;
 
     &.-selected {
       border-color: $color--forest--light;
+    }
+
+    &.-easter-egg-item {
+      display: block;
+      background: none;
+      border-image: url('../images/stitch-border.png') 65 69 65 69 repeat;
+      border-width: 12px;
+    }
+
+    &.-hidden {
+      display: none;
     }
   }
 }
@@ -44,7 +55,7 @@ $difficulty-width: 34px;
     overflow: hidden;
     position: absolute;
     top: 26px;
-    width: $difficulty-width * 8;
+    width: $difficulty-width * 6;
   }
 
   &:after {
@@ -60,11 +71,11 @@ $difficulty-width: 34px;
   }
 
   &.-hard:after {
-    width: $difficulty-width * 6;
+    width: $difficulty-width * 4;
   }
 
   &.-crazy:after {
-    width: $difficulty-width * 8;
+    width: $difficulty-width * 6;
   }
 
   @include bp-retina {
@@ -77,5 +88,16 @@ $difficulty-width: 34px;
       background: url('../images/difficulty-full@2x.png') repeat;
       background-size: 34px 8px;
     }
+  }
+}
+
+.easter-egg-text {
+  color: $color--gold;
+  font-size: 13px;
+  text-align: center;
+  margin: 0 0 24px;
+
+  &.-hidden {
+    display: none;
   }
 }

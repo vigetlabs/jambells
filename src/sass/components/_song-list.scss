@@ -27,6 +27,18 @@ $difficulty-width: 34px;
       background: none;
       border-image: url('../images/stitch-border.png') 65 69 65 69 repeat;
       border-width: 12px;
+      position: relative;
+
+      &:before {
+        border-radius: 3px;
+        display: block;
+        @include fill(2px);
+        z-index: -1;
+      }
+
+      &:hover:before {
+        background-color: $color--forest--dark;
+      }
     }
 
     &.-hidden {

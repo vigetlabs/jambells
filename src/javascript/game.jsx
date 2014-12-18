@@ -32,6 +32,10 @@ Game.prototype = {
     var first         = parseInt(timeSignature[0])
     var second        = parseInt(timeSignature[1])
 
+    if (this.data.song.name.toLowerCase() == 'shake it off') {
+      return 5
+    }
+
     return (second * 2) - 1
   },
 
@@ -41,10 +45,6 @@ Game.prototype = {
 
   getStartOffset: function() {
     var beatOffset = 1
-
-    if (this.data.song.name.toLowerCase() == 'shake it off') {
-      beatOffset = 3
-    }
 
     return this.bpmToMs() * (this.getCountInMeasure() - beatOffset)
   },
@@ -60,6 +60,7 @@ Game.prototype = {
   attachSong: function() {
     React.renderComponent(
       <Song bpm={this.data.song.bpm}
+            name={this.data.song.name}
             notes={this.data.song.notes}
             measure={this.data.song.measure}
             playerNotes={this.data.song.roles}

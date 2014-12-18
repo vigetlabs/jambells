@@ -87,7 +87,7 @@ module.exports = React.createClass({
       this.countInBeats.secondary.play()
     }
 
-    if (this.state.pulse == 5) {
+    if (this.state.pulse == this.props.countIn) {
       clearInterval(this.pulseInterval)
       this.setState({
         pulse : 0
@@ -100,7 +100,6 @@ module.exports = React.createClass({
   },
 
   countInMeasure: function() {
-    console.log('fired');
     this.playCountInBeat()
     this.pulseInterval = setInterval(this.playCountInBeat.bind(this), this.bpmToMs())
   },

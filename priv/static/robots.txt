@@ -1,2 +1,4 @@
 User-agent: *
-Allow: /
+Disallow:
+
+Sitemap: http://jambells.com/sitemap.xml

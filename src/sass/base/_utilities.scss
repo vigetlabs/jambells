@@ -1,4 +1,7 @@
-// Hide text
 .hide-text {
   @include hide-text;
+}
+
+.pad-bottom-100 {
+  padding-bottom: 100px;
 }

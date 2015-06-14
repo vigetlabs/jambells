@@ -21,6 +21,11 @@ Install the project's Elixir dependencies:
 mix deps.get
 ```
 
+If you get an error regarding a cowboy version, try:
+```
+mix local.hex
+```
+
 Setup the local postgres database:
 ```
 cp lib/ding_my_bells/repo.ex.example lib/ding_my_bells/repo.ex

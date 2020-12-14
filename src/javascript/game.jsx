@@ -71,7 +71,7 @@ Game.prototype = {
   },
 
   connect: function() {
-    var socket = new Phoenix.Socket('ws://' + location.host + '/ws')
+    var socket = new Phoenix.Socket('wss://' + location.host + '/ws')
     socket.join('room', this.data.id.toString(), {}, this.setup.bind(this))
   },
 
